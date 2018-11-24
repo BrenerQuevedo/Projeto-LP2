@@ -1,4 +1,4 @@
-package EDOE;
+package edoe;
 
 
 import java.util.ArrayList;

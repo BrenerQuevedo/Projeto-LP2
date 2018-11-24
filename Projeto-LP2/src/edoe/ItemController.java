@@ -1,4 +1,4 @@
-package projeto;
+package edoe;
 
 
 import java.util.ArrayList;
@@ -86,16 +86,6 @@ public class ItemController {
             return idUsuario;
         }
     }
-
-    public String exibeItem(String idUsuario, String idItem) throws IllegalArgumentException, NullPointerException {
-        if (!this.itensDoacao.containsKey(idUsuario)) {
-            throw new IllegalArgumentException("Usuario nao encontrado: " + idUsuario + " .");
-        } else if (!this.descritores) {
-
-        }
-
-    }
-
 }
 
 

@@ -1,4 +1,4 @@
-package EDOE;
+package edoe;
 
 public  class Doador {
 	private String nome;
