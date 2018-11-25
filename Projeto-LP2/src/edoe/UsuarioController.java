@@ -33,7 +33,7 @@ public class UsuarioController {
 					if(idUsuario.length() != 11) {
 						throw new IllegalArgumentException("Entrada invalida: opcao de classe invalida.");
 					}else {
-						Usuario usuario = new Usuario(nome, email, celular, classe, this.formataId(idUsuario), "doador");
+						Usuario usuario = new Usuario(nome, email, celular, classe, idUsuario, "doador");
 						this.Usuarios.put(idUsuario, usuario);
 						return idUsuario;
 					}
@@ -41,7 +41,7 @@ public class UsuarioController {
 					if(idUsuario.length() != 14 ) {
 						throw new IllegalArgumentException("Entrada invalida: opcao de classe invalida.");
 					}else {
-						Usuario usuario = new Usuario(nome, email, celular, classe, this.formataId(idUsuario), "doador");
+						Usuario usuario = new Usuario(nome, email, celular, classe, idUsuario, "doador");
 						this.Usuarios.put(idUsuario, usuario);
 						return idUsuario;
 					}
@@ -65,7 +65,7 @@ public class UsuarioController {
 					if(idUsuario.length() != 11) {
 						throw new IllegalArgumentException("Entrada invalida: opcao de classe invalida.");
 					}else {
-						Usuario usuario = new Usuario(nome, email, celular, classe, this.formataId(idUsuario), "receptor");
+						Usuario usuario = new Usuario(nome, email, celular, classe, idUsuario, "receptor");
 						this.Usuarios.put(idUsuario, usuario);
 						
 					}
@@ -73,7 +73,7 @@ public class UsuarioController {
 					if(idUsuario.length() != 14 ) {
 						throw new IllegalArgumentException("Entrada invalida: opcao de classe invalida.");
 					}else {
-						Usuario usuario = new Usuario(nome, email, celular, classe, this.formataId(idUsuario), "receptor");
+						Usuario usuario = new Usuario(nome, email, celular, classe, idUsuario, "receptor");
 						this.Usuarios.put(idUsuario, usuario);
 						
 					}
@@ -94,25 +94,31 @@ public class UsuarioController {
 		}
 	}
 
-	public String pesquisaUsuarioPorNome(String nome) {
-		ArrayList<String> usuarios = new ArrayList<>();
-		for(Usuario doador : this.Usuarios.values()) {
-			if(doador.getNome().equals(nome.toLowerCase())) {
-				usuarios.add(doador.toString());
-			}
-		}if(usuarios.size() == 0 ) {
-			throw new IllegalArgumentException();
-		}else {
-			String msg = "";
-			for(int i = 0; i < usuarios.size(); i++) {
-				if(i == usuarios.size() - 1) {
-					msg += usuarios.get(i);
-				}else {
-					msg += usuarios.get(i) + " | ";
-				}
-			}return msg;
-		}
-	}
+    public String pesquisaUsuarioPorNome(String nome) {
+        if(nome == null) {
+            throw new NullPointerException();
+        }else if(nome.trim().equals("")) {
+            throw new IllegalArgumentException();
+        }else {
+            ArrayList<String> usuarios = new ArrayList<>();
+            for(Usuario doador : this.Usuarios.values()) {
+                if(doador.getNome().equals(nome.toLowerCase())) {
+                    usuarios.add(doador.toString());
+                }
+            }if(usuarios.size() == 0 ) {
+                throw new IllegalArgumentException();
+            }else {
+                String msg = "";
+                for(int i = 0; i < usuarios.size(); i++) {
+                    if(i == usuarios.size() - 1) {
+                        msg += usuarios.get(i);
+                    }else {
+                        msg += usuarios.get(i) + " | ";
+                    }
+                }return msg;
+            }
+        }
+    }
 
 	public boolean validaReceptor(String idUsuario) {
 		if(this.Usuarios.containsKey(idUsuario)) {
@@ -141,14 +147,6 @@ public class UsuarioController {
 
 	public boolean contemUsuario(String idUsuario) {
 		return this.Usuarios.containsKey(idUsuario);
-	}
-
-	private String formataId(String idUsuario) {
-		if(idUsuario.length() == 11) {
-			return idUsuario.substring(0, 2) + "." + idUsuario.substring(3, 5) + "." + idUsuario.substring(6, 8) + "-" + idUsuario.substring(9, 10);
-		}else {
-			return idUsuario.substring(0, 1) + "." + idUsuario.substring(2,4) + "." + idUsuario.substring(5, 7) + "/" + idUsuario.substring(8, 11) + "-" + idUsuario.substring(12, 13);
-		}
 	}
 
 	private void validaEntrada(String[] entradas,String[][] dados, String mensagemEmComum) {
