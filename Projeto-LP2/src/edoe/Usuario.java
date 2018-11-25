@@ -1,36 +1,52 @@
 package edoe;
 
-public  class Doador {
+public  class Usuario {
 	private String nome;
 	private String email;
 	private String celular;
 	private String classe;
-	private String identificacao;
+	private String idUsuario;
+	private String status;
 	
-	public Doador(String nome, String email, String celular, String classe, String identificacao) {
+	public Usuario(String nome, String email, String celular, String classe, String idUsuario, String status) {
 		this.nome = nome;
 		this.email = email;
 		this.celular = celular;
 		this.classe = classe;
-		this.identificacao = identificacao;
+		this.idUsuario = idUsuario;
+		this.status = status;
 	}
+
 	public void doar() {
-		
 	}
+
 	public void setNome(String novoNome) {
 		this.nome = novoNome;
 	}
+
 	public void setCelular(String novoCelular) {
 		this.celular = novoCelular;
 	}
+
 	public void setEmail(String novoEmail) {
 		this.email = novoEmail;
 	}
+
 	public String getNome() {
 		return this.nome.toLowerCase();
 	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public String getClasse() {
+		return this.classe;
+	}
+
+
 	@Override
 	public String toString() {
-		return this.identificacao + " " + this.nome + "," + this.email + "/" + this.celular + "/" + this.classe + ", Status: doador."; 
+		return this.nome + "/" + this.idUsuario + ", " + this.email + ", " + this.celular + ", status: " + this.status;
 	}
 }
