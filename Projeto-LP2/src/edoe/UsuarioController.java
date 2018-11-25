@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class CRUDusuarios {
+public class UsuarioController {
 	private HashMap<String, Usuario> Usuarios;
 	private ArrayList<String> classes;
 	
-	public CRUDusuarios() {
+	public UsuarioController() {
 		this.Usuarios = new HashMap<>();
 		this.classes.add("PESSOA_FISICA");this.classes.add("IGREJA");this.classes.add("ORGAO_PUBLICO_MUNICIPAL");this.classes.add("ORGAO_PUBLICO_ESTADUAL");this.classes.add("ORGAO_PUBLICO_FEDERAL");
 		this.classes.add("ONG");this.classes.add("ASSOCIACAO");this.classes.add("SOCIEDADE");
