@@ -9,7 +9,7 @@ import java.util.Objects;
 public class Item {
     private String descricaoItem;
     private String idItem;
-    private String[] tags;
+    private String tags;
     private int quantidade;
 
 
@@ -17,7 +17,7 @@ public class Item {
     public Item(String idItem, String descricao, String tags, int quantidade ) {
         this.descricaoItem = descricao;
         this.idItem = idItem;
-        this.tags = tags.split(",");
+        this.tags = tags;
         this.quantidade = quantidade;
     }
 
@@ -35,6 +35,10 @@ public class Item {
 
     public void adicionaQuantidade (int quantidadeAMais) {
         this.quantidade += quantidadeAMais;
+    }
+
+    public void setTags (String novasTags) {
+        this.tags = novasTags;
     }
 
     @Override
