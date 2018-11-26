@@ -41,7 +41,7 @@ public class ItemController {
         }
 
         this.idItem += 1;
-        Item item = new Item(Integer.toString(idItem), descricaoItem, tags, quantidade);
+        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade);
         if (this.itensDoacao.containsKey(idUsuario)) {
             this.itensDoacao.get(idUsuario).put(Integer.toString(idItem), item);
         } else {
@@ -67,12 +67,16 @@ public class ItemController {
         }
 
         this.idItem += 1;
+
+        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade);
         if (this.itensNecessarios.containsKey(idUsuario)) {
-            this.itensNecessarios.get(idUsuario).put(Integer.toString(idItem), new Item(Integer.toString(idItem), descricaoItem, tags, quantidade));
+            this.itensNecessarios.get(idUsuario).put(Integer.toString(idItem), item);
         } else {
             this.itensNecessarios.put(idUsuario, new HashMap<>());
-            this.itensNecessarios.get(idUsuario).put(Integer.toString(idItem), new Item(Integer.toString(idItem), descricaoItem, tags, quantidade));
+            this.itensNecessarios.get(idUsuario).put(Integer.toString(idItem), item);
         }
+
+
         return Integer.toString(this.idItem);
     }
 
@@ -96,5 +100,29 @@ public class ItemController {
         }
 
         return builder.toString();
+    }
+
+    public String atualizaItemParaDoacao (String idItem, String idUsuario, int novaQuantidade, String novasTags) {
+        if (Integer.parseInt(idItem) < 0) {
+            throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
+        }
+        if (idUsuario == null || idUsuario.trim().equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (!this.itensDoacao.containsKey(idUsuario)) {
+            throw new NullPointerException("Usuario nao encontrado: " + idUsuario);
+        }
+        if (!this.itensDoacao.get(idUsuario).containsKey(idItem)) {
+            throw new NullPointerException("Item nao encotnrado: " + idItem);
+        }
+
+        novasTags = formataTags(novasTags);
+        this.itensDoacao.get(idUsuario).get(idItem).setTags(novasTags);
+        this.itensDoacao.get(idUsuario).get(idItem).setQuantidade(novaQuantidade);
+        return this.itensDoacao.get(idUsuario).get(idItem).toString();
+    }
+
+    private String formataTags(String tags) {
+        return "[" + tags.replace(",", ", ") + "]";
     }
 }
