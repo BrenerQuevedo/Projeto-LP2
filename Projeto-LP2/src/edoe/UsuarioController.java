@@ -14,6 +14,7 @@ public class UsuarioController {
 	
 	public UsuarioController() {
 		this.Usuarios = new HashMap<>();
+		this.classes = new ArrayList<>();
 		this.classes.add("PESSOA_FISICA");this.classes.add("IGREJA");this.classes.add("ORGAO_PUBLICO_MUNICIPAL");this.classes.add("ORGAO_PUBLICO_ESTADUAL");this.classes.add("ORGAO_PUBLICO_FEDERAL");
 		this.classes.add("ONG");this.classes.add("ASSOCIACAO");this.classes.add("SOCIEDADE");
 	}
@@ -84,7 +85,7 @@ public class UsuarioController {
 
 	public String pesquisaUsuarioPorId(String idUsuario) {
 		if(idUsuario.trim().equals("")) {
-			throw new IllegalArgumentException("Entrada invalida: nome nao pode ser vazio ou nulo.");
+			throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
 		}else {
 			if(!this.Usuarios.containsKey(idUsuario)) {
 				throw new IllegalArgumentException("Usuario nao encontrado: " + idUsuario + "." );
@@ -96,9 +97,9 @@ public class UsuarioController {
 
     public String pesquisaUsuarioPorNome(String nome) {
         if(nome == null) {
-            throw new NullPointerException();
+            throw new NullPointerException("Entrada invalida: nome nao pode ser vazio ou nulo.");
         }else if(nome.trim().equals("")) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Entrada invalida: nome nao pode ser vazio ou nulo.");
         }else {
             ArrayList<String> usuarios = new ArrayList<>();
             for(Usuario doador : this.Usuarios.values()) {
@@ -106,7 +107,7 @@ public class UsuarioController {
                     usuarios.add(doador.toString());
                 }
             }if(usuarios.size() == 0 ) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Usuario nao encontrado: " + nome + ".");
             }else {
                 String msg = "";
                 for(int i = 0; i < usuarios.size(); i++) {
@@ -166,10 +167,10 @@ public class UsuarioController {
 			throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
 		}else {
 			if(this.Usuarios.containsKey(id)) {
-				if(nome != null || !nome.trim().equals("")) {
+				if(nome != null && !nome.trim().equals("")) {
 					this.Usuarios.get(id).setNome(nome);
 					return this.Usuarios.get(id).toString();
-				}else if(email != null || !email.equals("")) {
+				}else if(email != null && !email.equals("")) {
 					this.Usuarios.get(id).setEmail(email);
 					return this.Usuarios.get(id).toString();
 				}else {
@@ -197,7 +198,8 @@ public class UsuarioController {
 	}
 
 	public void leReceptores(String localDoArquivo) throws IOException {
-		Scanner sc = new Scanner(new File(localDoArquivo));
+		File file = new File(localDoArquivo);
+		Scanner sc = new Scanner(file);
 		String linha = null;
 		while(sc.hasNextLine()) {
 			linha = sc.nextLine();
