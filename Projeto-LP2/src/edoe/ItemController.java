@@ -15,11 +15,16 @@ public class ItemController {
         this.idItem = 0;
     }
 
-    public void adicionaDescritor (String descricao) {
+    public void adicionaDescritor (String descricao) throws IllegalArgumentException, NullPointerException{
         descricao.trim().toLowerCase();
         if (descricao.equals("")) {
             throw new IllegalArgumentException("Entrada invalida: descricao nao pode ser vazia ou nula.");
         }
+
+        if (descricao == null) {
+            throw new NullPointerException("Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
+
         if (this.descritores.containsKey(descricao)) {
             throw new IllegalArgumentException("Descritor de Item ja existente: " + descricao);
 
@@ -33,12 +38,18 @@ public class ItemController {
         if (descricaoItem.equals("")) {
             throw new IllegalArgumentException("Entrada invalida: descricao nao pode ser vazia ou nula.");
         }
+
+        if (descricaoItem == null) {
+            throw new NullPointerException("Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
+
         if (quantidade <= 0) {
             throw new IllegalArgumentException("Entrada invalida: quantidade deve ser maior que zero.");
         }
         if (idUsuario.trim().equals("")) {
             throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
         }
+
 
         this.idItem += 1;
         Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade);
@@ -53,6 +64,15 @@ public class ItemController {
 
         return Integer.toString(this.idItem);
     }
+
+    public String exibeItem(String idUsuario, String idItem) throws IllegalArgumentException, NullPointerException {
+        if (!this.itensDoacao.containsKey(idUsuario)) {
+            throw new IllegalArgumentException("Usuario nao encontrado: " + idUsuario + " .");
+        } else if (!this.itensDoacao.get(idUsuario).containsKey(idItem)) {
+            throw new IllegalArgumentException("Item nao encontrado: " + idItem + ".");
+        } else {
+            return this.itensDoacao.get(idUsuario).get(idItem).toString();
+        }    }
 
     public String adicionaItemNecessario (String idUsuario, String descricaoItem, String tags, int quantidade) {
         descricaoItem.trim().toLowerCase();
@@ -80,6 +100,25 @@ public class ItemController {
         return Integer.toString(this.idItem);
     }
 
+    public void removeItem(String idItem, String idUsuario) throws IllegalArgumentException, NullPointerException {
+        if (!this.itensDoacao.containsKey(idUsuario)) {
+            throw new IllegalArgumentException("Usuario nao encontrado: " + idUsuario + ".");
+        }        if (!this.itensDoacao.get(idUsuario).containsKey(idItem)) {
+            throw new IllegalArgumentException("Item nao encontrado: " + idItem + ".");
+        }        if (Integer.parseInt(idItem) < 0) {
+            throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
+        }        if (idUsuario.trim().equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        } else if (idUsuario == null) {
+            throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }        if (!this.itensDoacao.get(idUsuario).containsKey(idItem)) {
+            throw new NullPointerException("O Usuario nao possui itens cadastrados.");
+        } else {
+            this.itensDoacao.get(idUsuario).remove(idItem);
+        }
+    }
+
+
     public String listaDescritorDeItensParaDoacao () {
         StringBuilder builder = new StringBuilder();
 
@@ -106,9 +145,15 @@ public class ItemController {
         if (Integer.parseInt(idItem) < 0) {
             throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
         }
-        if (idUsuario == null || idUsuario.trim().equals("")) {
+
+        if (idUsuario.trim().equals("")) {
             throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
         }
+
+        if (idUsuario == null) {
+            throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+
         if (!this.itensDoacao.containsKey(idUsuario)) {
             throw new NullPointerException("Usuario nao encontrado: " + idUsuario);
         }

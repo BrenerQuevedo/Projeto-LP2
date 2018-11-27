@@ -43,7 +43,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return this.idItem + " - " + this.descricaoItem + ", " + this.tags.toString() + ", " + this.quantidade;
+        return this.idItem + " - " + this.descricaoItem + ", " + this.tags + ", " + this.quantidade;
     }
 
     @Override
@@ -60,4 +60,3 @@ public class Item {
         return Objects.hash(descricaoItem, tags);
     }
 }
-
