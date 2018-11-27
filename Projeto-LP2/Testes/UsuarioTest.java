@@ -17,29 +17,40 @@ class UsuarioTest {
 	public void inicializaUsers() {
 		this.user1 = new Usuario("paulo", "paulo.com", "40028922", "pedreiro", "88929002", "doador");
 		this.user2 = new Usuario("brener", "brener.com", "88992233", "padeiro", "748347912", "receptor");
-		this.user3 = new Usuario("iago", "iagootit.com" , "0987345", "atleta", "1234356", "doador");
-		this.userIgual1 = new Usuario("joicy", "joicy.com", "434935845", "bailarina", "88929002", "receptor");
+		this.user3 = new Usuario("iago", "iagootito.com" , "0987345", "atleta", "1234356", "doador");
+		this.userIgual1 = new Usuario("paulo", "paulo.com", "40028922", "pedreiro", "88929002", "doador");
 	}
 	@Test
 	void testSetNome() {
-		fail("Not yet implemented");
+		this.user1.setNome("joao");
+		assertEquals(this.user1.getNome(), "joao");
+		this.user3.setNome("bostinha");
+		assertEquals(this.user3.getNome(), "bostinha");
 	}
 
 	@Test
 	void testSetCelular() {
-		fail("Not yet implemented");
+		this.user1.setCelular("000000");;
+		assertEquals(this.user1.toString(),"paulo/88929002, paulo.com, 000000, status: doador");
+		this.user3.setCelular("456789");
+		assertEquals(this.user3.toString(),"iago/1234356, iagootito.com, 456789, status: doador" );
 	}
 
 	@Test
 	void testSetEmail() {
-		fail("Not yet implemented");
+		this.user1.setEmail("xvideos.com");
+		assertEquals(this.user1.toString(), "paulo/88929002, xvideos.com, 40028922, status: doador");
+		this.user3.setEmail("rabanete.com");
+		assertEquals(this.user3.toString(), "iago/1234356, rabanete.com, 0987345, status: doador");
 	}
 
 	@Test
 	void testToString() {
-		assertEquals(this.user1.toString(),"wklfsdjf");
+		assertEquals(this.user1.toString(),"paulo/88929002, paulo.com, 40028922, status: doador");
+		assertEquals(this.user2.toString(), "brener/748347912, brener.com, 88992233, status: receptor");
+		assertEquals(this.user3.toString(), "iago/1234356, iagootito.com, 0987345, status: doador");
 	}
-
+	
 }
 
 
