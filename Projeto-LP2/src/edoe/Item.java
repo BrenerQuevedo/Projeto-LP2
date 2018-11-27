@@ -6,19 +6,21 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class Item {
+public class Item implements Comparable<Item> {
     private String descricaoItem;
     private String idItem;
     private String tags;
     private int quantidade;
+    private String nomeUsuario;
 
 
 
-    public Item(String idItem, String descricao, String tags, int quantidade ) {
+    public Item(String idItem, String descricao, String tags, int quantidade, String nomeUsuario) {
         this.descricaoItem = descricao;
         this.idItem = idItem;
         this.tags = tags;
         this.quantidade = quantidade;
+        this.nomeUsuario = nomeUsuario;
     }
 
     public String getDescricao() {
@@ -41,9 +43,13 @@ public class Item {
         this.tags = novasTags;
     }
 
+    public String getNomeUsuario () {
+        return this.nomeUsuario;
+    }
+
     @Override
     public String toString() {
-        return this.idItem + " - " + this.descricaoItem + ", " + this.tags + ", " + this.quantidade;
+        return this.idItem + " - " + this.descricaoItem + ", tags: " + this.tags + ", quantidade: " + this.quantidade;
     }
 
     @Override
@@ -58,5 +64,10 @@ public class Item {
     @Override
     public int hashCode() {
         return Objects.hash(descricaoItem, tags);
+    }
+
+    @Override
+    public int compareTo(Item i) {
+        return this.descricaoItem.compareTo(i.descricaoItem);
     }
 }
