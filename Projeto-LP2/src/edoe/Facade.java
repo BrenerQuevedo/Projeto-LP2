@@ -75,4 +75,8 @@ public class Facade {
     public String pesquisaItemParaDoacaoPorDescricao (String descricao) {
         return this.controller.pesquisaItemParaDoacaoPorDescricao(descricao);
     }
+
+    public String adicionaItemNecessario (String idReceptor, String descricaoItem, int quantidade, String tags) {
+        return this.controller.adicionaItemNecessario (idReceptor, descricaoItem, quantidade, tags);
+    }
 }

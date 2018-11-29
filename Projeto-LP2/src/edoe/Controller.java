@@ -101,4 +101,9 @@ public class Controller {
     public String pesquisaItemParaDoacaoPorDescricao (String descricao) {
         return itemController.pesquisaItemParaDoacaoPorDescricao(descricao);
     }
+
+    public String adicionaItemNecessario (String idReceptor, String descricaoItem, String quantidade, String tags) {
+        //TODO
+        return "";
+    }
 }
