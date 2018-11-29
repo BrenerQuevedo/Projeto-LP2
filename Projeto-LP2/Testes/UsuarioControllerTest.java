@@ -11,9 +11,10 @@ class UsuarioControllerTest {
 	@BeforeEach
 	public void IniciaController() {
 		controller = new UsuarioController();
-		controller.cadastraDoador("Paulo cesar", "paulo.com", "93521561", "PESSOA_FISICA", "13059752435", "doador");
+		controller.cadastraDoador("Paulo", "paulo.com", "93521561", "PESSOA_FISICA", "13059752435", "doador");
 		controller.cadastraDoador("embratel", "embratel.com","33632412", "ASSOCIACAO", "12345678912345", "doador");
-		controller.cadastraDoador("Paulo henrrique", "henrrique.com", "12345678", "PESSOA_FISICA", "12345678978", "doador");
+		controller.cadastraDoador("Paulo", "henrrique.com", "12345678", "PESSOA_FISICA", "12345678978", "doador");
+		controller.cadastraReceptor("china", "china.com", "00000000", "ONG", "85274196374185", "receptor");
 	}
 	
 	
@@ -149,39 +150,83 @@ class UsuarioControllerTest {
 
 	@Test
 	void testPesquisaUsuarioPorId() {
-		assertEquals(this.controller.pesquisaUsuarioPorId("13059752435"), "Paulo cesar/13059752435, paulo.com, 93521561, status: doador");
+		assertEquals(this.controller.pesquisaUsuarioPorId("13059752435"), "Paulo/13059752435, paulo.com, 93521561, status: doador");
 		assertEquals(this.controller.pesquisaUsuarioPorId("12345678912345"), "embratel/12345678912345, embratel.com, 33632412, status: doador");
-		assertEquals(this.controller.pesquisaUsuarioPorId("12345678978"), "Paulo henrrique/12345678978, henrrique.com, 12345678, status: doador");	
+		assertEquals(this.controller.pesquisaUsuarioPorId("12345678978"), "Paulo/12345678978, henrrique.com, 12345678, status: doador");	
+		
+		assertThrows(IllegalArgumentException.class,		()->{
+			this.controller.pesquisaUsuarioPorId("2983923");
+		});
+		assertThrows(IllegalArgumentException.class,		()->{
+			this.controller.pesquisaUsuarioPorId("");
+		});
+		assertThrows(NullPointerException.class,		()->{
+			this.controller.pesquisaUsuarioPorId(null);
+		});
 	}
 
 	@Test
 	void testPesquisaUsuarioPorNome() {
-		fail("Not yet implemented");
+		assertEquals(this.controller.pesquisaUsuarioPorNome("paulo"), "Paulo/13059752435, paulo.com, 93521561, status: doador | Paulo/12345678978, henrrique.com, 12345678, status: doador");
+		assertEquals(this.controller.pesquisaUsuarioPorNome("embratel"), "embratel/12345678912345, embratel.com, 33632412, status: doador");
+		
+		assertThrows(NullPointerException.class,		()->{
+			this.controller.pesquisaUsuarioPorNome(null);
+		});
+		assertThrows(IllegalArgumentException.class,		()->{
+			this.controller.pesquisaUsuarioPorNome("");
+		});
+		assertThrows(IllegalArgumentException.class,		()->{
+			this.controller.pesquisaUsuarioPorNome("inexistente");
+		});
 	}
 
 	@Test
 	void testValidaReceptor() {
-		fail("Not yet implemented");
+		
+		assertTrue(this.controller.validaReceptor("85274196374185"));
+		
+		assertFalse(this.controller.validaReceptor("12345678912345"));
 	}
 
 	@Test
 	void testValidaDoador() {
-		fail("Not yet implemented");
+		assertTrue(this.controller.validaDoador("13059752435"));
+		assertFalse(this.controller.validaDoador("85274196374185"));
 	}
 
 	@Test
 	void testContemUsuario() {
-		fail("Not yet implemented");
+		assertTrue(this.controller.contemUsuario("13059752435"));
+		assertFalse(this.controller.contemUsuario("01234568790"));
 	}
 
 	@Test
 	void testAtualizaUsuario() {
-		fail("Not yet implemented");
+		assertEquals(this.controller.atualizaUsuario("13059752435", "juininho da dola", "vendedor@gmail", "4239875"), "juininho da dola/13059752435, vendedor@gmail, 4239875, status: doador");
+		assertEquals(this.controller.atualizaUsuario("85274196374185", "transportadores de orgao", "mercado.negro@protegido", "021230"), "transportadores de orgao/85274196374185, mercado.negro@protegido, 021230, status: receptor");
+		
+		assertThrows(NullPointerException.class,		()->{
+			this.controller.atualizaUsuario(null, "jorge", "da dola", "3i947895");
+		});
+		assertThrows(IllegalArgumentException.class,		()->{
+		this.controller.atualizaUsuario("", "jorge", "da dola", "3i947895");
+		});
+
 	}
 
 	@Test
 	void testRemoveUsuario() {
-		fail("Not yet implemented");
+		this.controller.removeUsuario("13059752435");
+		assertFalse(this.controller.contemUsuario("13059752435"));
+		
+		assertThrows(NullPointerException.class,		()->{
+			this.controller.removeUsuario(null);
+		});
+		assertThrows(IllegalArgumentException.class,		()->{
+		this.controller.removeUsuario("");
+		});
+
 	}
 
 }
