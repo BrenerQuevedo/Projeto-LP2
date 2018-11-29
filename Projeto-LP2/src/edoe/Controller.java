@@ -24,8 +24,6 @@ public class Controller {
         
     }
     
-    
-    
     public String pesquisaUsuarioPorId (String idUsuario) {
         return usuarioController.pesquisaUsuarioPorId(idUsuario);
     }
@@ -64,6 +62,9 @@ public class Controller {
         if (idDoador.trim().equals("")) {
             throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
         }
+        if (!this.usuarioController.contemUsuario(idDoador)) {
+            throw new NullPointerException("Usuario nao encontrado: " + idDoador + ".");
+        }
         return itemController.adicionaItemParaDoacao(idDoador, descricaoItem, tags, quantidade, usuarioController.getNomeUsuario(idDoador));
     }
 
@@ -77,6 +78,15 @@ public class Controller {
     }
 
     public void removeItemParaDoacao (String idItem, String idUsuario) {
+        if (idUsuario == null) {
+            throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (idUsuario.trim().equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (!this.usuarioController.contemUsuario(idUsuario)) {
+            throw new IllegalArgumentException("Usuario nao encontrado: " + idUsuario + ".");
+        }
         this.itemController.removeItemParaDoacao(idItem, idUsuario);
     }
 

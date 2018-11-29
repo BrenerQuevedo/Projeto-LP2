@@ -35,12 +35,16 @@ public class Item implements Comparable<Item> {
         this.quantidade = quantidade;
     }
 
-    public void adicionaQuantidade (int quantidadeAMais) {
-        this.quantidade += quantidadeAMais;
-    }
-
     public void setTags (String novasTags) {
         this.tags = novasTags;
+    }
+
+    public String getTags () {
+        return this.tags;
+    }
+
+    public String getIdItem () {
+        return this.idItem;
     }
 
     public String getNomeUsuario () {
@@ -49,7 +53,7 @@ public class Item implements Comparable<Item> {
 
     @Override
     public String toString() {
-        return this.idItem + " - " + this.descricaoItem + ", " + this.tags + ", " + this.quantidade;
+        return this.idItem + " - " + this.descricaoItem + ", tags: " + this.tags + ", quantidade: " + this.quantidade;
 
     }
 
