@@ -149,7 +149,7 @@ public class UsuarioController{
         }else {
             ArrayList<String> usuarios = new ArrayList<>();
             for(Usuario doador : this.Usuarios.values()) {
-                if(doador.getNome().equals(nome.toLowerCase())) {
+                if(doador.getNome().equals(nome)) {
                     usuarios.add(doador.toString());
                 }
             }if(usuarios.size() == 0 ) {

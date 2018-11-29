@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="34c9b40f-1961-4d16-be45-55e2d2769caf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/edoe/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edoe/ItemController.java" afterDir="false" />
-    </list>
+    <list default="true" id="34c9b40f-1961-4d16-be45-55e2d2769caf" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,51 +100,97 @@
     <session id="1411359725">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="java" value="6" />
+          <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="6" />
+          <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="203" />
+          <entry key="java" value="2933" />
+          <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="203" />
+          <entry key="JAVA" value="2933" />
+          <entry key="PLAIN_TEXT" value="5" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/acceptance-tests/use_case_1.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-780" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/acceptance-tests/use_case_2.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="64" column="32" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/acceptance-tests/use_case_3.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="18" column="12" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/edoe/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="50" column="56" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="56" />
+              <folding>
+                <element signature="method#Controller#0;class#Controller#0" />
+                <element signature="method#lerReceptores#0;class#Controller#0" />
+                <element signature="method#atualizaUsuario#0;class#Controller#0" />
+                <element signature="method#atualizaItemParaDoacao#0;class#Controller#0" />
+                <element signature="method#removeItemParaDoacao#0;class#Controller#0" />
+                <element signature="method#pesquisaItemParaDoacaoPorDescricao#0;class#Controller#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edoe/ItemController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="289" column="72" selection-start-line="289" selection-start-column="72" selection-end-line="289" selection-end-column="72" />
+            <state relative-caret-position="234">
+              <caret line="151" column="114" selection-start-line="151" selection-start-column="114" selection-end-line="151" selection-end-column="114" />
               <folding>
                 <element signature="method#ItemController#0;class#ItemController#0" />
                 <element signature="method#adicionaDescritor#0;class#ItemController#0" />
                 <element signature="method#adicionaItemParaDoacao#0;class#ItemController#0" />
-                <element signature="method#removeItem#0;class#ItemController#0" />
-                <element signature="method#exibeItem#1;class#ItemController#0" />
+                <element signature="method#atualizaItemParaDoacao#0;class#ItemController#0" />
+                <element signature="method#exibeItem#0;class#ItemController#0" />
                 <element signature="method#listaDescritorDeItensParaDoacao#0;class#ItemController#0" />
                 <element signature="method#listaItensParaDoacao#0;class#ItemController#0" />
-                <element signature="method#pesquisaItemParaDoacaoPorDescricao#0;class#ItemController#0" />
-                <element signature="method#atualizaItemParaDoacao#0;class#ItemController#0" />
                 <element signature="method#removeItemParaDoacao#0;class#ItemController#0" />
-                <element signature="method#adicionaItemNecessario#1;class#ItemController#0" />
+                <element signature="method#adicionaItemNecessario#0;class#ItemController#0" />
                 <element signature="method#listaItensNecessarios#0;class#ItemController#0" />
                 <element signature="method#atualizaItemNecessario#0;class#ItemController#0" />
                 <element signature="method#removeItemNecessario#0;class#ItemController#0" />
@@ -157,32 +201,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/edoe/Controller.java">
+        <entry file="file://$PROJECT_DIR$/src/edoe/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="70" column="73" selection-start-line="70" selection-start-column="73" selection-end-line="70" selection-end-column="73" />
+            <state relative-caret-position="366">
+              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#906#907#0" expanded="true" />
-                <element signature="e#975#976#0" expanded="true" />
-                <element signature="e#1711#1712#0" expanded="true" />
-                <element signature="e#1776#1777#0" expanded="true" />
-                <element signature="e#2202#2203#0" expanded="true" />
-                <element signature="e#2273#2274#0" expanded="true" />
-                <element signature="e#2318#2319#0" expanded="true" />
-                <element signature="e#2378#2379#0" expanded="true" />
+                <element signature="e#1062#1063#0" expanded="true" />
+                <element signature="e#1093#1094#0" expanded="true" />
+                <element signature="e#1128#1129#0" expanded="true" />
+                <element signature="e#1161#1162#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/edoe/Facade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-377">
-              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+            <state>
+              <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
               <folding>
-                <element signature="method#adicionaDoador#0;class#Facade#0" />
                 <element signature="method#adicionaItemParaDoacao#0;class#Facade#0" />
                 <element signature="method#atualizaItemParaDoacao#0;class#Facade#0" />
                 <element signature="method#pesquisaItemParaDoacaoPorDescricao#0;class#Facade#0" />
@@ -192,21 +230,16 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/edoe/Item.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edoe/UsuarioController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1469">
-              <caret line="200" column="54" selection-start-line="200" selection-start-column="54" selection-end-line="200" selection-end-column="54" />
+            <state relative-caret-position="251">
+              <caret line="152" column="52" lean-forward="true" selection-start-line="152" selection-start-column="52" selection-end-line="152" selection-end-column="52" />
               <folding>
-                <element signature="method#pesquisaUsuarioPorNome#0;class#UsuarioController#0" />
+                <element signature="e#8176#8177#0" expanded="true" />
+                <element signature="e#8226#8227#0" expanded="true" />
+                <element signature="e#10847#10848#0" expanded="true" />
+                <element signature="e#10905#10906#0" expanded="true" />
+                <element signature="method#leReceptores#0;class#UsuarioController#0" />
               </folding>
             </state>
           </provider>
@@ -215,8 +248,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edoe/Usuario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="352">
+              <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+              <folding>
+                <element signature="e#1182#1183#0" expanded="true" />
+                <element signature="e#1209#1210#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -238,6 +275,11 @@
       <find>: String</find>
       <find>removeItemParaDoacao</find>
       <find>exibeItem</find>
+      <find>idItem7</find>
+      <find>cadeira de praia</find>
+      <find>cadeira de ali</find>
+      <find>computador</find>
+      <find>toLowerCase</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -248,13 +290,14 @@
       <list>
         <option value="$PROJECT_DIR$/src/edoe/Doador.java" />
         <option value="$PROJECT_DIR$/src/edoe/Receptor.java" />
-        <option value="$PROJECT_DIR$/src/edoe/Usuario.java" />
         <option value="$PROJECT_DIR$/src/edoe/CRUDusuarios.java" />
-        <option value="$PROJECT_DIR$/src/edoe/Item.java" />
         <option value="$PROJECT_DIR$/src/edoe/Main.java" />
-        <option value="$PROJECT_DIR$/src/edoe/UsuarioController.java" />
-        <option value="$PROJECT_DIR$/src/edoe/Controller.java" />
         <option value="$PROJECT_DIR$/src/edoe/Facade.java" />
+        <option value="$PROJECT_DIR$/acceptance-tests/use_case_2.txt" />
+        <option value="$PROJECT_DIR$/src/edoe/Controller.java" />
+        <option value="$PROJECT_DIR$/src/edoe/Item.java" />
+        <option value="$PROJECT_DIR$/src/edoe/Usuario.java" />
+        <option value="$PROJECT_DIR$/src/edoe/UsuarioController.java" />
         <option value="$PROJECT_DIR$/src/edoe/ItemController.java" />
       </list>
     </option>
@@ -277,13 +320,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Projeto-LP2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-LP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+              <item name="acceptance-tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Projeto-LP2" type="b2602c69:ProjectViewProjectNode" />
@@ -305,12 +352,13 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543490895365" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543531362296" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -381,12 +429,13 @@
       <workItem from="1543095588766" duration="1367000" />
       <workItem from="1543163107611" duration="7924000" />
       <workItem from="1543329967467" duration="9471000" />
-      <workItem from="1543518440390" duration="675000" />
+      <workItem from="1543518440390" duration="1899000" />
+      <workItem from="1543520493825" duration="10676000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18697000" />
+    <option name="totallyTimeSpent" value="30597000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -402,7 +451,7 @@
       <window_info id="simpleUML" order="7" weight="0.32980332" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32864866" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32569557" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -411,7 +460,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -422,6 +471,37 @@
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1633888" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info id="simpleUML" order="7" weight="0.32980332" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32569557" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3289689" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -432,81 +512,108 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../../LAB5_IAGO_TITO/src/lab5/Produto.java" />
     <entry file="file://$PROJECT_DIR$/src/edoe/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/edoe/Controller.java">
+    <entry file="file://$PROJECT_DIR$/acceptance-tests/use_case_2.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="70" column="73" selection-start-line="70" selection-start-column="73" selection-end-line="70" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#906#907#0" expanded="true" />
-            <element signature="e#975#976#0" expanded="true" />
-            <element signature="e#1711#1712#0" expanded="true" />
-            <element signature="e#1776#1777#0" expanded="true" />
-            <element signature="e#2202#2203#0" expanded="true" />
-            <element signature="e#2273#2274#0" expanded="true" />
-            <element signature="e#2318#2319#0" expanded="true" />
-            <element signature="e#2378#2379#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edoe/Facade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-377">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-          <folding>
-            <element signature="method#adicionaDoador#0;class#Facade#0" />
-            <element signature="method#adicionaItemParaDoacao#0;class#Facade#0" />
-            <element signature="method#atualizaItemParaDoacao#0;class#Facade#0" />
-            <element signature="method#pesquisaItemParaDoacaoPorDescricao#0;class#Facade#0" />
-          </folding>
+        <state relative-caret-position="118">
+          <caret line="64" column="32" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edoe/Item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+        <state relative-caret-position="366">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+          <folding>
+            <element signature="e#1062#1063#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1128#1129#0" expanded="true" />
+            <element signature="e#1161#1162#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edoe/Usuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state relative-caret-position="352">
+          <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+          <folding>
+            <element signature="e#1182#1183#0" expanded="true" />
+            <element signature="e#1209#1210#0" expanded="true" />
+          </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acceptance-tests/use_case_1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-780" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edoe/UsuarioController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1469">
-          <caret line="200" column="54" selection-start-line="200" selection-start-column="54" selection-end-line="200" selection-end-column="54" />
+        <state relative-caret-position="251">
+          <caret line="152" column="52" lean-forward="true" selection-start-line="152" selection-start-column="52" selection-end-line="152" selection-end-column="52" />
           <folding>
-            <element signature="method#pesquisaUsuarioPorNome#0;class#UsuarioController#0" />
+            <element signature="e#8176#8177#0" expanded="true" />
+            <element signature="e#8226#8227#0" expanded="true" />
+            <element signature="e#10847#10848#0" expanded="true" />
+            <element signature="e#10905#10906#0" expanded="true" />
+            <element signature="method#leReceptores#0;class#UsuarioController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acceptance-tests/use_case_3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edoe/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="50" column="56" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="56" />
+          <folding>
+            <element signature="method#Controller#0;class#Controller#0" />
+            <element signature="method#lerReceptores#0;class#Controller#0" />
+            <element signature="method#atualizaUsuario#0;class#Controller#0" />
+            <element signature="method#atualizaItemParaDoacao#0;class#Controller#0" />
+            <element signature="method#removeItemParaDoacao#0;class#Controller#0" />
+            <element signature="method#pesquisaItemParaDoacaoPorDescricao#0;class#Controller#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edoe/ItemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="289" column="72" selection-start-line="289" selection-start-column="72" selection-end-line="289" selection-end-column="72" />
+        <state relative-caret-position="234">
+          <caret line="151" column="114" selection-start-line="151" selection-start-column="114" selection-end-line="151" selection-end-column="114" />
           <folding>
             <element signature="method#ItemController#0;class#ItemController#0" />
             <element signature="method#adicionaDescritor#0;class#ItemController#0" />
             <element signature="method#adicionaItemParaDoacao#0;class#ItemController#0" />
-            <element signature="method#removeItem#0;class#ItemController#0" />
-            <element signature="method#exibeItem#1;class#ItemController#0" />
+            <element signature="method#atualizaItemParaDoacao#0;class#ItemController#0" />
+            <element signature="method#exibeItem#0;class#ItemController#0" />
             <element signature="method#listaDescritorDeItensParaDoacao#0;class#ItemController#0" />
             <element signature="method#listaItensParaDoacao#0;class#ItemController#0" />
-            <element signature="method#pesquisaItemParaDoacaoPorDescricao#0;class#ItemController#0" />
-            <element signature="method#atualizaItemParaDoacao#0;class#ItemController#0" />
             <element signature="method#removeItemParaDoacao#0;class#ItemController#0" />
-            <element signature="method#adicionaItemNecessario#1;class#ItemController#0" />
+            <element signature="method#adicionaItemNecessario#0;class#ItemController#0" />
             <element signature="method#listaItensNecessarios#0;class#ItemController#0" />
             <element signature="method#atualizaItemNecessario#0;class#ItemController#0" />
             <element signature="method#removeItemNecessario#0;class#ItemController#0" />
             <element signature="method#itensComDescritor#0;class#ItemController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edoe/Facade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+          <folding>
+            <element signature="method#adicionaItemParaDoacao#0;class#Facade#0" />
+            <element signature="method#atualizaItemParaDoacao#0;class#Facade#0" />
+            <element signature="method#pesquisaItemParaDoacaoPorDescricao#0;class#Facade#0" />
           </folding>
         </state>
       </provider>
