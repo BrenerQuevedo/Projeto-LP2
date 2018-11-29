@@ -24,38 +24,20 @@ public class ItemController {
             throw new IllegalArgumentException("Entrada invalida: descricao nao pode ser vazia ou nula.");
         }
         if (this.descritores.containsKey(descricao)) {
-            throw new IllegalArgumentException("Descritor de Item ja existente: " + descricao);
-        } else {
-            this.descritores.put(descricao, new ArrayList<>());
+            throw new IllegalArgumentException("Descritor de Item ja existente: " + descricao + ".");
         }
+        this.descritores.put(descricao, new ArrayList<>());
     }
 
 
-    public String adicionaItemParaDoacao (String idUsuario, String descricaoItem, String tags, int quantidade, String nomeDoador) {
-        if (descricaoItem == null) {
-            throw new NullPointerException("Entrada invalida: descricao nao pode ser vazia ou nula.");
-        }
-
-        descricaoItem = descricaoItem.trim().toLowerCase();
-
-        if (descricaoItem.equals("")) {
-            throw new IllegalArgumentException("Entrada invalida: descricao nao pode ser vazia ou nula.");
-        }
-        if (quantidade <= 0) {
-            throw new IllegalArgumentException("Entrada invalida: quantidade deve ser maior que zero.");
-        }
-        if (idUsuario.trim().equals("")) {
-            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
-        }
-
-
+    public String adicionaItemParaDoacao (String idDoador, String descricaoItem, String tags, int quantidade, String nomeDoador) {
         this.idItem += 1;
         Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeDoador);
-        if (this.itensDoacao.containsKey(idUsuario)) {
-            this.itensDoacao.get(idUsuario).put(Integer.toString(idItem), item);
+        if (this.itensDoacao.containsKey(idDoador)) {
+            this.itensDoacao.get(idDoador).put(Integer.toString(idItem), item);
         } else {
-            this.itensDoacao.put(idUsuario, new HashMap<>());
-            this.itensDoacao.get(idUsuario).put(Integer.toString(idItem), item);
+            this.itensDoacao.put(idDoador, new HashMap<>());
+            this.itensDoacao.get(idDoador).put(Integer.toString(idItem), item);
         }
         return Integer.toString(this.idItem);
     }

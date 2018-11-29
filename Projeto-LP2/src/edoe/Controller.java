@@ -43,7 +43,24 @@ public class Controller {
         itemController.adicionaDescritor(descritor);
     }
 
-    public String adicionaItemParaDoacao (String idDoador, String descricaoItem, int quantidade, String tags){
+    public String adicionaItemParaDoacao (String idDoador, String descricaoItem, int quantidade, String tags) {
+        if (descricaoItem == null) {
+            throw new NullPointerException("Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
+        descricaoItem = descricaoItem.trim().toLowerCase();
+
+        if (descricaoItem.equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
+        if (quantidade <= 0) {
+            throw new IllegalArgumentException("Entrada invalida: quantidade deve ser maior que zero.");
+        }
+        if (idDoador == null) {
+            throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (idDoador.trim().equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
         return itemController.adicionaItemParaDoacao(idDoador, descricaoItem, tags, quantidade, usuarioController.getNomeUsuario(idDoador));
     }
 
