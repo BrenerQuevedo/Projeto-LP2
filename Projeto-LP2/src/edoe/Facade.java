@@ -1,5 +1,7 @@
 package edoe;
 
+import java.io.IOException;
+
 import easyaccept.EasyAccept;
 
 public class Facade {
@@ -18,7 +20,7 @@ public class Facade {
         this.controller = new Controller();
     }
 
-    public void lerReceptores (String caminho) {
+    public void lerReceptores (String caminho) throws IOException {
         this.controller.lerReceptores(caminho);
     }
 

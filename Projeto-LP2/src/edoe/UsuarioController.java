@@ -5,15 +5,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Scanner;
 
-public class UsuarioController {
-	private HashMap<String, Usuario> Usuarios;
+public class UsuarioController{
+	private Map<String, Usuario> Usuarios;
 	private ArrayList<String> classes;
 	
+	
 	public UsuarioController() {
-		this.Usuarios = new HashMap<>();
+		this.Usuarios = new LinkedHashMap<>();
 		this.classes = new ArrayList<>();
 		this.classes.add("PESSOA_FISICA");this.classes.add("IGREJA");this.classes.add("ORGAO_PUBLICO_MUNICIPAL");this.classes.add("ORGAO_PUBLICO_ESTADUAL");this.classes.add("ORGAO_PUBLICO_FEDERAL");
 		this.classes.add("ONG");this.classes.add("ASSOCIACAO");this.classes.add("SOCIEDADE");
@@ -57,7 +59,7 @@ public class UsuarioController {
 		this.validaEntrada(entradas, dados, "Entrada invalida: ");
 		
 		if(this.Usuarios.containsKey(idUsuario)) {
-			throw new IllegalArgumentException("Usuario ja existente: " + idUsuario + "." );
+			this.Usuarios.get(idUsuario).setCelular(celular);this.Usuarios.get(idUsuario).setEmail(email);this.Usuarios.get(idUsuario).setNome(nome);
 		}else {				
 			if(!this.classes.contains(classe)) {
 				throw new IllegalArgumentException("Entrada invalida: opcao de classe invalida.");
@@ -84,7 +86,10 @@ public class UsuarioController {
 	}
 
 	public String pesquisaUsuarioPorId(String idUsuario) {
-		if(idUsuario.trim().equals("")) {
+		if(idUsuario == null) {
+			throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+		}
+		else if(idUsuario.trim().equals("")) {
 			throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
 		}else {
 			if(!this.Usuarios.containsKey(idUsuario)) {
@@ -110,7 +115,7 @@ public class UsuarioController {
                 throw new IllegalArgumentException("Usuario nao encontrado: " + nome + ".");
             }else {
                 String msg = "";
-                for(int i = 0; i < usuarios.size(); i++) {
+                for(int i = 0; i < usuarios.size() ; i++) {
                     if(i == usuarios.size() - 1) {
                         msg += usuarios.get(i);
                     }else {
@@ -152,10 +157,10 @@ public class UsuarioController {
 
 	private void validaEntrada(String[] entradas,String[][] dados, String mensagemEmComum) {
 		for(int i = 0 ; i < entradas.length; i++ ) {
-			if(entradas[i].trim().equals("")) {
-				throw new IllegalArgumentException(mensagemEmComum + ": " + dados[i][0] + " nao pode ser" + dados[i][1] );
-			}else if(entradas[i] == null){
-				throw new NullPointerException(mensagemEmComum + ": " +  dados[i][0] + " nao pode ser" + dados[i][1]);
+			if(entradas[i] == null){
+				throw new NullPointerException(mensagemEmComum +   dados[i][0] + " nao pode ser " + dados[i][1] + ".");
+			}else if(entradas[i].trim().equals("")) {
+				throw new IllegalArgumentException(mensagemEmComum +  dados[i][0] + " nao pode ser " + dados[i][1] + ".");
 			}
 		}
 	}
@@ -163,20 +168,22 @@ public class UsuarioController {
 	public String atualizaUsuario(String id, String nome, String email, String celular) {
 		if(id == null) {
 			throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
-		}else if (id.trim().equals("")) {
+		}
+		if (id.trim().equals("")) {
 			throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
 		}else {
 			if(this.Usuarios.containsKey(id)) {
 				if(nome != null && !nome.trim().equals("")) {
 					this.Usuarios.get(id).setNome(nome);
-					return this.Usuarios.get(id).toString();
-				}else if(email != null && !email.equals("")) {
+				} 
+				if(email != null && !email.equals("")) {
 					this.Usuarios.get(id).setEmail(email);
-					return this.Usuarios.get(id).toString();
-				}else {
-					this.Usuarios.get(id).setCelular(celular);
-					return this.Usuarios.get(id).toString();
 				}
+				if(celular != null && !celular.equals("")){
+					this.Usuarios.get(id).setCelular(celular);
+				}
+
+				return this.Usuarios.get(id).toString();
 			}else {
 				throw new IllegalArgumentException("Usuario nao encontrado: " + id + ".");
 			}		
@@ -212,8 +219,10 @@ public class UsuarioController {
 			}String[] entradasReceptor = linha.split(",");
 			if(entradasReceptor.length != 5) {
 				throw new IOException();
-			}this.cadastraDoador(entradasReceptor[1], entradasReceptor[2], entradasReceptor[3], entradasReceptor[4], entradasReceptor[0], "receptor");
+			}this.cadastraReceptor(entradasReceptor[1], entradasReceptor[2], entradasReceptor[3], entradasReceptor[4], entradasReceptor[0], "receptor");
 		}	
 		sc.close();
 	}
+
+	
 }
