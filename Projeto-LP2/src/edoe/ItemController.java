@@ -10,7 +10,7 @@ public class ItemController {
 
     public ItemController () {
         this.itensDoacao = new HashMap<>();
-        this.itensNecessarios = new HashMap<>();
+        this.itensNecessarios = new TreeMap<>();
         this.descritores = new HashMap<>();
         this.idItem = 0;
     }
@@ -226,14 +226,76 @@ public class ItemController {
         return Integer.toString(this.idItem);
     }
 
+    public String listaItensNecessarios () {
+        StringBuilder builder = new StringBuilder();
+        boolean v = false;
+        for (String idReceptor : this.itensNecessarios.keySet()) {
+            for (String idItem : this.itensNecessarios.get(idReceptor).keySet()) {
+                if (v) {
+                    builder.append(" - ");
+                }
+                builder.append(this.itensNecessarios.get(idReceptor).get(idItem).toString());
+                v = true;
+            }
+        }
+        return builder.toString();
+    }
+
+    public String atualizaItemNecessario (String idReceptor, String idItem, int novaQuantidade, String novasTags) {
+        if (Integer.parseInt(idItem) < 0) {
+            throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
+        }
+        if (idReceptor == null) {
+            throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (idReceptor.trim().equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+
+        if (!this.itensDoacao.containsKey(idReceptor)) {
+            throw new NullPointerException("Usuario nao encontrado: " + idReceptor);
+        }
+        if (!this.itensDoacao.get(idReceptor).containsKey(idItem)) {
+            throw new NullPointerException("Item nao encotnrado: " + idItem);
+        }
+
+
+        novasTags = formataTags(novasTags);
+        this.itensNecessarios.get(idReceptor).get(idItem).setTags(novasTags);
+        this.itensNecessarios.get(idReceptor).get(idItem).setQuantidade(novaQuantidade);
+        return this.itensNecessarios.get(idReceptor).get(idItem).toString();
+    }
+
+    public void removeItemNecessario (String idReceptor, String idItem) {
+        if (idReceptor == null) {
+            throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (idReceptor.trim().equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (!this.itensNecessarios.get(idReceptor).containsKey(idItem)) {
+            throw new NullPointerException("Item nao encontrado: " + idItem);
+        }
+        if (!this.itensNecessarios.containsKey(idReceptor)) {
+            throw new NullPointerException("Usuario nao encontrado: " + idReceptor);
+        }
+        if (Integer.parseInt(idItem) < 0) {
+            throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
+        }
+        if (this.itensNecessarios.get(idReceptor).size() == 0) {
+            throw new IllegalArgumentException("O Usuario nao possui itens cadastrados.");
+        }
+
+        this.itensNecessarios.get(idReceptor).remove(idItem);
+    }
+
     private String formataTags(String tags) {
         return "[" + tags.replace(",", ", ") + "]";
     }
 
     private String itensComDescritor (String s) {
         StringBuilder builder = new StringBuilder();
-        List<Item> lista = new ArrayList<>();
-        lista.addAll(descritores.get(s));
+        List<Item> lista = new ArrayList<>(descritores.get(s));
         Collections.sort(lista);
 
         boolean v = false;
