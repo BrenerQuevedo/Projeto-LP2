@@ -16,15 +16,11 @@ public  class Usuario {
 		this.idUsuario = idUsuario;
 		this.status = status;
 	}
-
-	public void doar() {
-	}
-
 	public void setNome(String novoNome) {
 		this.nome = novoNome;
 	}
 
-	public void setCelular(String novoCelular) {
+	public void setCelular(String novoCelular) { 
 		this.celular = novoCelular;
 	}
 

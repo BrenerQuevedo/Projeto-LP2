@@ -1,5 +1,6 @@
 package edoe;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,15 +15,17 @@ public class Controller {
         this.usuarios = new ArrayList<>();
     }
 
-    public void lerReceptores (String caminho) {
-        //TODO
+    public void lerReceptores (String caminho) throws IOException {
+    	this.usuarioController.leReceptores(caminho);
     }
 
     public String adicionaDoador (String idUsuario, String nome, String email, String celular, String classe) {
-        usuarioController.cadastraDoador(nome, email, celular, classe, idUsuario, "doador");
-        return idUsuario;
+       return usuarioController.cadastraDoador(nome, email, celular, classe, idUsuario, "doador");
+        
     }
-
+    
+    
+    
     public String pesquisaUsuarioPorId (String idUsuario) {
         return usuarioController.pesquisaUsuarioPorId(idUsuario);
     }

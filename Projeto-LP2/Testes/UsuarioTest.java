@@ -18,7 +18,7 @@ class UsuarioTest {
 		this.user1 = new Usuario("paulo", "paulo.com", "40028922", "pedreiro", "88929002", "doador");
 		this.user2 = new Usuario("brener", "brener.com", "88992233", "padeiro", "748347912", "receptor");
 		this.user3 = new Usuario("iago", "iagootito.com" , "0987345", "atleta", "1234356", "doador");
-		this.userIgual1 = new Usuario("paulo", "paulo.com", "40028922", "pedreiro", "88929002", "doador");
+		
 	}
 	@Test
 	void testSetNome() {
