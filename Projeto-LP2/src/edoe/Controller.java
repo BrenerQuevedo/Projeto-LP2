@@ -1,12 +1,17 @@
 package edoe;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Controller {
     private UsuarioController usuarioController;
     private ItemController itemController;
+    private List<Usuario> usuarios;
 
     public Controller () {
         this.usuarioController = new UsuarioController();
         this.itemController = new ItemController();
+        this.usuarios = new ArrayList<>();
     }
 
     public void lerReceptores (String caminho) {
@@ -14,64 +19,56 @@ public class Controller {
     }
 
     public String adicionaDoador (String idUsuario, String nome, String email, String celular, String classe) {
-        //TODO
-        return "";
+        usuarioController.cadastraDoador(nome, email, celular, classe, idUsuario, "doador");
+        return idUsuario;
     }
 
     public String pesquisaUsuarioPorId (String idUsuario) {
-        //TODO
-        return "";
+        return usuarioController.pesquisaUsuarioPorId(idUsuario);
     }
 
     public String pesquisaUsuarioPorNome (String nome) {
-        //TODO
-        return "";
+        return usuarioController.pesquisaUsuarioPorNome(nome);
     }
 
-    public String atualizaUsuario (String nome, String email, String celular) {
-        //TODO
-        return "";
+    public String atualizaUsuario (String idUsuario, String nome, String email, String celular) {
+        return usuarioController.atualizaUsuario(idUsuario, nome, email, celular);
     }
 
     public void removeUsuario (String idUsuario) {
-        //TODO
+        usuarioController.removeUsuario(idUsuario);
     }
 
     public void adicionaDescritor (String descritor) {
-        //TODO
+        itemController.adicionaDescritor(descritor);
     }
 
     public String adicionaItemParaDoacao (String idDoador, String descricaoItem, int quantidade, String tags){
-        //TODO
-        return "";
+        return itemController.adicionaItemParaDoacao(idDoador, descricaoItem, tags, quantidade, usuarioController.getNomeUsuario(idDoador));
     }
 
     public String exibeItem (String idItem, String idDoador) {
-        //TODO
-        return "";
+        return itemController.exibeItem(idDoador, idItem);
     }
 
-    public String atualizaItemParaDoacao (String idItem, String idDoador, int quantidade, String tags) {
-        //TODO
-        return "";
+    public String atualizaItemParaDoacao (String idItem, String idDoador, int novaQuantidade, String novasTags) {
+
+        return itemController.atualizaItemParaDoacao(idItem, idDoador, novaQuantidade, novasTags);
     }
 
-    public void removeItemParaDoacao (String idItem) {
-        //TODO
+    public void removeItemParaDoacao (String idItem, String idUsuario) {
+        this.itemController.removeItemParaDoacao(idItem, idUsuario);
     }
 
     public String listaDescritorDeItensParaDoacao () {
-        //TODO
-        return "";
+        return itemController.listaDescritorDeItensParaDoacao();
     }
 
     public String listaItensParaDoacao () {
-        //TODO
-        return "";
+        return itemController.listaItensParaDoacao();
     }
 
     public String pesquisaItemParaDoacaoPorDescricao (String descricao) {
-        //TODO
-        return "";
+        return itemController.pesquisaItemParaDoacaoPorDescricao(descricao);
     }
 }

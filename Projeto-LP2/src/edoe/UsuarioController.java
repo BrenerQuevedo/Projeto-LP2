@@ -197,6 +197,10 @@ public class UsuarioController {
 		}
 	}
 
+	public String getNomeUsuario (String idUsuario) {
+	    return this.Usuarios.get(idUsuario).getNome();
+    }
+
 	public void leReceptores(String localDoArquivo) throws IOException {
 		File file = new File(localDoArquivo);
 		Scanner sc = new Scanner(file);
