@@ -4,13 +4,14 @@ import easyaccept.EasyAccept;
 
 public class Facade {
     public static void main(String[] args) {
-        args = new String[]{"edoe.Facade", "/home/iagoto/IdeaProjects/projeto/Projeto-LP2/Projeto-LP2/acceptance-tests/use_case_1.txt",
-        "/home/iagoto/IdeaProjects/projeto/Projeto-LP2/Projeto-LP2/acceptance-tests/use_case_2.txt",
-        "/home/iagoto/IdeaProjects/projeto/Projeto-LP2/Projeto-LP2/acceptance-tests/use_case_3.txt",
-        "/home/iagoto/IdeaProjects/projeto/Projeto-LP2/Projeto-LP2/acceptance-tests/use_case_4.txt"};
+        args = new String[]{"edoe.Facade", "acceptance-tests/use_case_1.txt",
+        "acceptance-tests/use_case_2.txt",
+        "acceptance-tests/use_case_3.txt",
+        "acceptance-tests/use_case_4.txt"};
         EasyAccept.main(args);
     }
 
+    
     private Controller controller;
 
     public  Facade () {

@@ -33,7 +33,7 @@ public class ItemController {
         }
     }
 
-<<<<<<< HEAD
+
     public String adicionaItemParaDoacao (String idUsuario, String descricaoItem, String tags, int quantidade) {
         descricaoItem.trim().toLowerCase();
         if (descricaoItem.equals("")) {

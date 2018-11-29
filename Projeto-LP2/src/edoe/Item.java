@@ -49,11 +49,8 @@ public class Item implements Comparable<Item> {
 
     @Override
     public String toString() {
-<<<<<<< HEAD
         return this.idItem + " - " + this.descricaoItem + ", " + this.tags + ", " + this.quantidade;
-=======
-        return this.idItem + " - " + this.descricaoItem + ", tags: " + this.tags + ", quantidade: " + this.quantidade;
->>>>>>> 0aa26bcd8b740420506bf4d8fbe4679f0fbacbab
+
     }
 
     @Override
@@ -69,12 +66,10 @@ public class Item implements Comparable<Item> {
     public int hashCode() {
         return Objects.hash(descricaoItem, tags);
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public int compareTo(Item i) {
         return this.descricaoItem.compareTo(i.descricaoItem);
     }
->>>>>>> 0aa26bcd8b740420506bf4d8fbe4679f0fbacbab
+
 }
