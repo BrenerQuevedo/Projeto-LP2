@@ -175,7 +175,7 @@ public class ItemController {
         return this.itensDoacao.get(idUsuario).get(idItem).toString();
     }
 
-    public void removeItem(String idItem, String idUsuario) throws IllegalArgumentException, NullPointerException {
+    public void removeItemParaDoacao(String idItem, String idUsuario) throws IllegalArgumentException, NullPointerException {
         if (!this.itensDoacao.containsKey(idUsuario)) {
             throw new IllegalArgumentException("Usuario nao encontrado: " + idUsuario + ".");
         }        if (!this.itensDoacao.get(idUsuario).containsKey(idItem)) {

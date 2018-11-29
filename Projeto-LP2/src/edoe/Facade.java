@@ -1,6 +1,16 @@
 package edoe;
 
+import easyaccept.EasyAccept;
+
 public class Facade {
+    public static void main(String[] args) {
+        args = new String[]{"edoe.Facade", "/home/iagoto/IdeaProjects/projeto/Projeto-LP2/Projeto-LP2/acceptance-tests/use_case_1.txt",
+        "/home/iagoto/IdeaProjects/projeto/Projeto-LP2/Projeto-LP2/acceptance-tests/use_case_2.txt",
+        "/home/iagoto/IdeaProjects/projeto/Projeto-LP2/Projeto-LP2/acceptance-tests/use_case_3.txt",
+        "/home/iagoto/IdeaProjects/projeto/Projeto-LP2/Projeto-LP2/acceptance-tests/use_case_4.txt"};
+        EasyAccept.main(args);
+    }
+
     private Controller controller;
 
     public  Facade () {
@@ -23,8 +33,8 @@ public class Facade {
         return this.controller.pesquisaUsuarioPorNome(nome);
     }
 
-    public String atualizaUsuario (String nome, String email, String celular) {
-        return this.controller.atualizaUsuario(nome, email, celular);
+    public String atualizaUsuario (String idUsuario, String nome, String email, String celular) {
+        return this.controller.atualizaUsuario(idUsuario, nome, email, celular);
     }
 
     public void removeUsuario (String idUsuario) {
@@ -47,8 +57,8 @@ public class Facade {
         return this.controller.atualizaItemParaDoacao(idItem, idDoador, quantidade, tags);
     }
 
-    public void removeItemParaDoacao (String idItem) {
-        this.controller.removeItemParaDoacao(idItem);
+    public void removeItemParaDoacao (String idItem, String idUsuario) {
+        this.controller.removeItemParaDoacao(idItem, idUsuario);
     }
 
     public String listaDescritorDeItensParaDoacao () {
