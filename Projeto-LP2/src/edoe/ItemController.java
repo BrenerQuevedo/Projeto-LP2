@@ -193,7 +193,7 @@ public class ItemController {
         }
     }
 
-    public String adicionaItemNecessario (String idUsuario, String descricaoItem, String tags, int quantidade, String nomeDoador) {
+    public String adicionaItemNecessario (String idUsuario, String descricaoItem, String tags, int quantidade, String nomeReceptor) {
         if (descricaoItem == null) {
             throw new NullPointerException("Entrada invalida: descricao nao pode ser vazia ou nula.");
         }
@@ -212,7 +212,7 @@ public class ItemController {
 
         this.idItem += 1;
 
-        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeDoador);
+        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeReceptor);
         if (!this.itensNecessarios.containsKey(idUsuario)) {
             this.itensNecessarios.put(idUsuario, new HashMap<>());
         }
@@ -234,7 +234,7 @@ public class ItemController {
                 if (v) {
                     builder.append(" - ");
                 }
-                builder.append(this.itensNecessarios.get(idReceptor).get(idItem).toString());
+                builder.append(this.itensNecessarios.get(idReceptor).get(idItem).toString() + ", Receptor: " + this.itensNecessarios.get(idReceptor).get(idItem).getNomeUsuario() + "/" + idReceptor);
                 v = true;
             }
         }
