@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a730121f-cb51-49eb-a31e-0f2f5d2a10f9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Projeto-LP2/Testes/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto-LP2/Testes/ItemControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto-LP2/src/edoe/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto-LP2/src/edoe/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto-LP2/src/edoe/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto-LP2/src/edoe/Facade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto-LP2/src/edoe/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto-LP2/src/edoe/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto-LP2/src/edoe/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto-LP2/src/edoe/ItemController.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1662694228">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="4456" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="4456" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Projeto-LP2/src/edoe/ItemController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4597">
+              <caret line="318" column="7" lean-forward="true" selection-start-line="315" selection-start-column="3" selection-end-line="318" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#atualizaItemNecessario#0;class#ItemController#0" />
+                <element signature="docComment;method#removeItemNecessario#0;class#ItemController#0" />
+                <element signature="e#16472#16473#0" expanded="true" />
+                <element signature="e#16530#16531#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Projeto-LP2/Testes/ItemControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="37" column="6" lean-forward="true" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Projeto-LP2/src/edoe/Item.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="75" column="79" lean-forward="true" selection-start-line="75" selection-start-column="79" selection-end-line="75" selection-end-column="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Projeto-LP2/src/edoe/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+              <folding>
+                <element signature="docComment;method#lerReceptores#0;class#Controller#0" />
+                <element signature="docComment;method#adicionaDoador#0;class#Controller#0" />
+                <element signature="docComment;method#pesquisaUsuarioPorId#0;class#Controller#0" />
+                <element signature="e#1298#1299#0" expanded="true" />
+                <element signature="e#1370#1371#0" expanded="true" />
+                <element signature="docComment;method#pesquisaUsuarioPorNome#0;class#Controller#0" />
+                <element signature="e#1428#1429#0" expanded="true" />
+                <element signature="e#1497#1498#0" expanded="true" />
+                <element signature="docComment;method#atualizaUsuario#0;class#Controller#0" />
+                <element signature="docComment;method#removeUsuario#0;class#Controller#0" />
+                <element signature="e#1737#1738#0" expanded="true" />
+                <element signature="e#1795#1796#0" expanded="true" />
+                <element signature="docComment;method#adicionaDescritor#0;class#Controller#0" />
+                <element signature="e#1405#1406#0" expanded="true" />
+                <element signature="e#1464#1465#0" expanded="true" />
+                <element signature="docComment;method#adicionaItemParaDoacao#0;class#Controller#0" />
+                <element signature="method#adicionaItemParaDoacao#0;class#Controller#0" />
+                <element signature="docComment;method#exibeItem#0;class#Controller#0" />
+                <element signature="e#2776#2777#0" expanded="true" />
+                <element signature="e#2841#2842#0" expanded="true" />
+                <element signature="docComment;method#atualizaItemParaDoacao#0;class#Controller#0" />
+                <element signature="docComment;method#removeItemParaDoacao#0;class#Controller#0" />
+                <element signature="method#removeItemParaDoacao#0;class#Controller#0" />
+                <element signature="docComment;method#listaDescritorDeItensParaDoacao#0;class#Controller#0" />
+                <element signature="docComment;method#listaItensParaDoacao#0;class#Controller#0" />
+                <element signature="docComment;method#pesquisaItemParaDoacaoPorDescricao#0;class#Controller#0" />
+                <element signature="docComment;method#adicionaItemNecessario#0;class#Controller#0" />
+                <element signature="docComment;method#listaItensNecessarios#0;class#Controller#0" />
+                <element signature="e#8562#8563#0" expanded="true" />
+                <element signature="e#8588#8589#0" expanded="true" />
+                <element signature="docComment;method#atualizaItemNecessario#0;class#Controller#0" />
+                <element signature="docComment;method#removeItemNecessario#0;class#Controller#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>itenscomdescritor</find>
+      <find>remove</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Projeto-LP2/src/edoe/UsuarioController.java" />
+        <option value="$PROJECT_DIR$/Projeto-LP2/src/edoe/ItemController.java" />
+        <option value="$PROJECT_DIR$/Projeto-LP2/src/edoe/Controller.java" />
+        <option value="$PROJECT_DIR$/Projeto-LP2/src/edoe/Facade.java" />
+        <option value="$PROJECT_DIR$/Projeto-LP2/src/edoe/Item.java" />
+        <option value="$PROJECT_DIR$/Projeto-LP2/Testes/ItemControllerTest.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="65" />
+    <option name="y" value="59" />
+    <option name="width" value="1261" />
+    <option name="height" value="568" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Projeto-LP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-LP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-LP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+              <item name="acceptance-tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-LP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-LP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="edoe" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projeto-LP2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+              <item name="Projeto-LP2" type="462c0819:PsiDirectoryNode" />
+              <item name="Testes" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543542741308" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/drive-download-20181129T214029Z-001.zip!/" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="ItemControllerTest.removeItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projeto-LP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edoe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="edoe.ItemControllerTest" />
+      <option name="METHOD_NAME" value="removeItem" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ItemControllerTest.removeItem" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a730121f-cb51-49eb-a31e-0f2f5d2a10f9" name="Default Changelist" comment="" />
+      <created>1543527401488</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1543527401488</updated>
+      <workItem from="1543527403698" duration="13703000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="13703000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24940239" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.24940239" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Run" order="6" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Projeto-LP2/Testes/UsuarioTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projeto-LP2/Testes/UsuarioControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2392">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projeto-LP2/src/edoe/Usuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projeto-LP2/src/edoe/UsuarioController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2528">
+          <caret line="257" column="24" selection-start-line="257" selection-start-column="18" selection-end-line="257" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projeto-LP2/src/edoe/Facade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="87" column="88" lean-forward="true" selection-start-line="87" selection-start-column="88" selection-end-line="87" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#1777#1778#0" expanded="true" />
+            <element signature="e#1843#1844#0" expanded="true" />
+            <element signature="e#2888#2889#0" expanded="true" />
+            <element signature="e#2954#2955#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projeto-LP2/src/edoe/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+          <folding>
+            <element signature="docComment;method#lerReceptores#0;class#Controller#0" />
+            <element signature="docComment;method#adicionaDoador#0;class#Controller#0" />
+            <element signature="docComment;method#pesquisaUsuarioPorId#0;class#Controller#0" />
+            <element signature="e#1298#1299#0" expanded="true" />
+            <element signature="e#1370#1371#0" expanded="true" />
+            <element signature="docComment;method#pesquisaUsuarioPorNome#0;class#Controller#0" />
+            <element signature="e#1428#1429#0" expanded="true" />
+            <element signature="e#1497#1498#0" expanded="true" />
+            <element signature="docComment;method#atualizaUsuario#0;class#Controller#0" />
+            <element signature="docComment;method#removeUsuario#0;class#Controller#0" />
+            <element signature="e#1737#1738#0" expanded="true" />
+            <element signature="e#1795#1796#0" expanded="true" />
+            <element signature="docComment;method#adicionaDescritor#0;class#Controller#0" />
+            <element signature="e#1405#1406#0" expanded="true" />
+            <element signature="e#1464#1465#0" expanded="true" />
+            <element signature="docComment;method#adicionaItemParaDoacao#0;class#Controller#0" />
+            <element signature="method#adicionaItemParaDoacao#0;class#Controller#0" />
+            <element signature="docComment;method#exibeItem#0;class#Controller#0" />
+            <element signature="e#2776#2777#0" expanded="true" />
+            <element signature="e#2841#2842#0" expanded="true" />
+            <element signature="docComment;method#atualizaItemParaDoacao#0;class#Controller#0" />
+            <element signature="docComment;method#removeItemParaDoacao#0;class#Controller#0" />
+            <element signature="method#removeItemParaDoacao#0;class#Controller#0" />
+            <element signature="docComment;method#listaDescritorDeItensParaDoacao#0;class#Controller#0" />
+            <element signature="docComment;method#listaItensParaDoacao#0;class#Controller#0" />
+            <element signature="docComment;method#pesquisaItemParaDoacaoPorDescricao#0;class#Controller#0" />
+            <element signature="docComment;method#adicionaItemNecessario#0;class#Controller#0" />
+            <element signature="docComment;method#listaItensNecessarios#0;class#Controller#0" />
+            <element signature="e#8562#8563#0" expanded="true" />
+            <element signature="e#8588#8589#0" expanded="true" />
+            <element signature="docComment;method#atualizaItemNecessario#0;class#Controller#0" />
+            <element signature="docComment;method#removeItemNecessario#0;class#Controller#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projeto-LP2/src/edoe/ItemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4597">
+          <caret line="318" column="7" lean-forward="true" selection-start-line="315" selection-start-column="3" selection-end-line="318" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#atualizaItemNecessario#0;class#ItemController#0" />
+            <element signature="docComment;method#removeItemNecessario#0;class#ItemController#0" />
+            <element signature="e#16472#16473#0" expanded="true" />
+            <element signature="e#16530#16531#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projeto-LP2/src/edoe/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="75" column="79" lean-forward="true" selection-start-line="75" selection-start-column="79" selection-end-line="75" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Projeto-LP2/Testes/ItemControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="37" column="6" lean-forward="true" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Projeto-LP2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>drive-download-20181129T214029Z-001</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -102,12 +102,12 @@ public class ItemController {
 
 
     /**
-     *
+     * Método responsável por atualizar a quantidade de itens a serem doados OU suas tags
      * @param idItem
      * @param idUsuario
      * @param novaQuantidade
      * @param novasTags
-     * @return
+     * @return idItem + " - " + descricaoItem + ", " + tags + ", " + quantidade
      */
     public String atualizaItemParaDoacao (String idItem, String idUsuario, int novaQuantidade, String novasTags) {
         if (Integer.parseInt(idItem) < 0) {
@@ -248,7 +248,13 @@ public class ItemController {
     }
 
 
-
+    /**
+     * permite remover um item do mapa de itensDoacao (um item adicionado para doacao)
+     * @param idItem
+     * @param idUsuario
+     * @throws IllegalArgumentException
+     * @throws NullPointerException
+     */
     public void removeItemParaDoacao(String idItem, String idUsuario) throws IllegalArgumentException, NullPointerException {
         if (!this.itensDoacao.containsKey(idUsuario)) {
             throw new NullPointerException("O Usuario nao possui itens cadastrados.");
@@ -264,6 +270,16 @@ public class ItemController {
 
     }
 
+
+    /**
+     * Método responsável por permitir adicionar um item que é necessário que seja doado.
+     * @param idUsuario
+     * @param descricaoItem
+     * @param tags
+     * @param quantidade
+     * @param nomeReceptor
+     * @return
+     */
     public String adicionaItemNecessario (String idUsuario, String descricaoItem, String tags, int quantidade, String nomeReceptor) {
         if (descricaoItem == null) {
             throw new NullPointerException("Entrada invalida: descricao nao pode ser vazia ou nula.");
@@ -297,6 +313,10 @@ public class ItemController {
         return Integer.toString(this.idItem);
     }
 
+    /**
+     * Método que retorna todos os itens necessarios cadastrados
+     * @return string de todos os itens adicionados
+     */
     public String listaItensNecessarios () {
         StringBuilder builder = new StringBuilder();
         boolean v = false;
@@ -311,6 +331,15 @@ public class ItemController {
         }
         return builder.toString();
     }
+
+    /**
+     * Permite atualizar os atributos de quantidade e tags de um item necessario.
+     * @param idReceptor
+     * @param idItem
+     * @param novaQuantidade
+     * @param novasTags
+     * @return toString do item modificado
+     */
 
     public String atualizaItemNecessario (String idReceptor, String idItem, int novaQuantidade, String novasTags) {
         if (Integer.parseInt(idItem) < 0) {
@@ -337,6 +366,11 @@ public class ItemController {
         return this.itensNecessarios.get(idReceptor).get(idItem).toString();
     }
 
+    /**
+     * permite remover um item do mapa de itensNecessarios (um item adicionado para ser recebido)
+     * @param idReceptor
+     * @param idItem
+     */
     public void removeItemNecessario (String idReceptor, String idItem) {
         if (idReceptor == null) {
             throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
@@ -360,10 +394,20 @@ public class ItemController {
         this.itensNecessarios.get(idReceptor).remove(idItem);
     }
 
+    /**
+     * método auxiliar que permite formatar a saida das tags.
+     * @param tags
+     * @return ["tag", "tag"]
+     */
     private String formataTags(String tags) {
         return "[" + tags.replace(",", ", ") + "]";
     }
 
+    /**
+     * metodo auxilar que permite verificar a validade de um item.
+     * @param s
+     * @return
+     */
     private String itensComDescritor (String s) {
         StringBuilder builder = new StringBuilder();
         List<Item> lista = new ArrayList<>(descritores.get(s));
