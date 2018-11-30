@@ -13,7 +13,7 @@ public class Facade {
         EasyAccept.main(args);
     }
 
-    
+
     private Controller controller;
 
     public  Facade () {
@@ -56,8 +56,8 @@ public class Facade {
         return this.controller.exibeItem(idItem, idDoador);
     }
 
-    public String atualizaItemParaDoacao (String idItem, String idDoador, int quantidade, String tags) {
-        return this.controller.atualizaItemParaDoacao(idItem, idDoador, quantidade, tags);
+    public String atualizaItemParaDoacao (String idItem, String idDoador, int novaQuantidade, String novasTags) {
+        return this.controller.atualizaItemParaDoacao(idItem, idDoador, novaQuantidade, novasTags);
     }
 
     public void removeItemParaDoacao (String idItem, String idUsuario) {
@@ -76,15 +76,15 @@ public class Facade {
         return this.controller.pesquisaItemParaDoacaoPorDescricao(descricao);
     }
 
-    public String adicionaItemNecessario (String idReceptor, String descricaoItem, int quantidade, String tags, String nomeReceptor) {
-        return this.controller.adicionaItemNecessario (idReceptor, descricaoItem, quantidade, tags, nomeReceptor);
+    public String adicionaItemNecessario (String idReceptor, String descricaoItem, int quantidade, String tags) {
+        return this.controller.adicionaItemNecessario (idReceptor, descricaoItem, quantidade, tags);
     }
 
     public String listaItensNecessarios () {
         return this.controller.listaItensNecessarios();
     }
 
-    public String atualizaItemNecessario (String idReceptor, String idItem, int novaQuantidade, String novasTags) {
+    public String atualizaItemNecessario (String idItem, String idReceptor, int novaQuantidade, String novasTags) {
         return this.controller.atualizaItemNecessario(idReceptor, idItem, novaQuantidade, novasTags);
     }
 
