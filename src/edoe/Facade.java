@@ -76,7 +76,21 @@ public class Facade {
         return this.controller.pesquisaItemParaDoacaoPorDescricao(descricao);
     }
 
-    public String adicionaItemNecessario (String idReceptor, String descricaoItem, int quantidade, String tags) {
-        return this.controller.adicionaItemNecessario (idReceptor, descricaoItem, quantidade, tags);
+    public String adicionaItemNecessario (String idReceptor, String descricaoItem, int quantidade, String tags, String nomeReceptor) {
+        return this.controller.adicionaItemNecessario (idReceptor, descricaoItem, quantidade, tags, nomeReceptor);
     }
+
+    public String listaItensNecessarios () {
+        return this.controller.listaItensNecessarios();
+    }
+
+    public String atualizaItemNecessario (String idReceptor, String idItem, int novaQuantidade, String novasTags) {
+        return this.controller.atualizaItemNecessario(idReceptor, idItem, novaQuantidade, novasTags);
+    }
+
+    public void removeItemNecessario (String idReceptor, String idItem) {
+        this.controller.removeItemNecessario(idReceptor,idItem);
+    }
+
+
 }

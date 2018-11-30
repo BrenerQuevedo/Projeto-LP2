@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  * Classe responsavel por todo gerenciamento de um usuario, pelo padrao CRUD
- * @author paulomam
+ * @author Paulo Mateus
  *
  */
 public class UsuarioController{

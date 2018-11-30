@@ -3,12 +3,39 @@ package edoe;
 import javax.swing.tree.TreeCellRenderer;
 import java.util.*;
 
+/**
+ * Classe responsavel pelo gerenciamento de itens, pelo padrao CRUD
+ *
+ * @author Brener Quevedo, Iago Oliveira
+ *
+ */
+
 public class ItemController {
+
+    /**
+     * Mapa de itens doados, em que a key é o identificador do usuário, e o valor é outro mapa, sendo este de itens, no qual a key é o identificador do item e o value
+     * é um objeto do tipo Item.
+     */
     private Map<String, Map<String, Item>> itensDoacao;
+
+    /**
+     * Mapa de itens necessários, em que a key é o identificador do usuário, e o valor é outro mapa, sendo este de itens, no qual a key é o identificador do item e o value
+     * é um objeto do tipo Item.
+     */
     private Map<String, Map<String, Item>> itensNecessarios;
+    /**
+     * Mapa de descritores, responsável por salvar as descrições dos itens, sendo a key uma string que representa a descrição e o value uma List de itens.
+     */
     private Map<String, List<Item>> descritores;
+    /**
+     * atributo que representa o identificador do item, do tipo inteiro.
+     */
     private int idItem;
 
+    /**
+     * Construtor do controller e instanciação dos atributos
+     * obs: o map de itens necessários será um TreeMap pois os itens terão de ser listados de forma ordenada.
+     */
     public ItemController () {
         this.itensDoacao = new HashMap<>();
         this.itensNecessarios = new TreeMap<>();
@@ -16,6 +43,12 @@ public class ItemController {
         this.idItem = 0;
     }
 
+    /**
+     * Método responsável por adicionar um novo descritor de um item.
+     * @param descricao
+     * @throws IllegalArgumentException
+     * @throws NullPointerException
+     */
     public void adicionaDescritor (String descricao) throws IllegalArgumentException, NullPointerException{
         if (descricao == null) {
             throw new NullPointerException("Entrada invalida: descricao nao pode ser vazia ou nula.");
@@ -30,6 +63,15 @@ public class ItemController {
         this.descritores.put(descricao, new ArrayList<>());
     }
 
+    /**
+     * Método que adiciona um item para a doação no hashmap de item dentro do hashmap de itensDoacao
+     * @param idDoador
+     * @param descricaoItem
+     * @param tags
+     * @param quantidade
+     * @param nomeDoador
+     * @return identificador do item
+     */
     public String adicionaItemParaDoacao (String idDoador, String descricaoItem, String tags, int quantidade, String nomeDoador) {
         if (this.itensDoacao.containsKey(idDoador)) {
             for (String id : this.itensDoacao.get(idDoador).keySet()) {
@@ -58,6 +100,15 @@ public class ItemController {
         return Integer.toString(this.idItem);
     }
 
+
+    /**
+     * Método responsável por atualizar a quantidade de itens a serem doados OU suas tags
+     * @param idItem
+     * @param idUsuario
+     * @param novaQuantidade
+     * @param novasTags
+     * @return idItem + " - " + descricaoItem + ", " + tags + ", " + quantidade
+     */
     public String atualizaItemParaDoacao (String idItem, String idUsuario, int novaQuantidade, String novasTags) {
         if (Integer.parseInt(idItem) < 0) {
             throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
@@ -84,6 +135,14 @@ public class ItemController {
         return this.itensDoacao.get(idUsuario).get(idItem).toString();
     }
 
+    /**
+     * Metodo que exibe as caracteristicas gerais de um item
+     * @param idUsuario
+     * @param idItem
+     * @return idItem + " - " + descricaoItem + ", " + tags + ", " + quantidade
+     * @throws IllegalArgumentException
+     * @throws NullPointerException
+     */
     public String exibeItem(String idUsuario, String idItem) throws IllegalArgumentException, NullPointerException {
         if (!this.itensDoacao.containsKey(idUsuario)) {
             throw new IllegalArgumentException("Usuario nao encontrado: " + idUsuario + ".");
@@ -93,6 +152,11 @@ public class ItemController {
         }
         return this.itensDoacao.get(idUsuario).get(idItem).toString();
     }
+
+    /**
+     * Método que permite a listagem de todos os descritores que antes foram adicionados pelo metodo adicionaDescritor.
+     * @return todos os descritores ordenados por ordem alfabetica.
+     */
 
     public String listaDescritorDeItensParaDoacao () {
         StringBuilder builder = new StringBuilder();
@@ -114,6 +178,10 @@ public class ItemController {
         return builder.toString();
     }
 
+    /**
+     * Método responsável por listar todos os itens doados, ordenados por ordem alfabética
+     * @return String com as caracteristicas gerais de todos os itens
+     */
     public String listaItensParaDoacao () {
         Map<Integer, Map<String, String>> tree = new TreeMap<>(Collections.reverseOrder());
 
@@ -144,6 +212,12 @@ public class ItemController {
         return builder.toString();
     }
 
+    /**
+     *  Método que permite retornar uma analise geral dos itens cadastrados,
+     *  este método pesquisa em especifico os itens que contenham a descricao semelhante ao do parametro que foi passado.
+     * @param descricao
+     * @return (idItem + " - " + descricaoItem + ", " + tags + ", " + quantidade) de todos os itens cadastrados que tenham a descricao semelhante , sendo ordenados em ordem alfabética
+     */
     public String pesquisaItemParaDoacaoPorDescricao (String descricao) {
         if (descricao == null) {
             throw new NullPointerException("Entrada invalida: texto da pesquisa nao pode ser vazio ou nulo.");
@@ -173,6 +247,14 @@ public class ItemController {
         return builder.toString();
     }
 
+
+    /**
+     * permite remover um item do mapa de itensDoacao (um item adicionado para doacao)
+     * @param idItem
+     * @param idUsuario
+     * @throws IllegalArgumentException
+     * @throws NullPointerException
+     */
     public void removeItemParaDoacao(String idItem, String idUsuario) throws IllegalArgumentException, NullPointerException {
         if (!this.itensDoacao.containsKey(idUsuario)) {
             throw new NullPointerException("O Usuario nao possui itens cadastrados.");
@@ -188,6 +270,16 @@ public class ItemController {
 
     }
 
+
+    /**
+     * Método responsável por permitir adicionar um item que é necessário que seja doado.
+     * @param idUsuario
+     * @param descricaoItem
+     * @param tags
+     * @param quantidade
+     * @param nomeReceptor
+     * @return
+     */
     public String adicionaItemNecessario (String idUsuario, String descricaoItem, String tags, int quantidade, String nomeReceptor) {
         if (descricaoItem == null) {
             throw new NullPointerException("Entrada invalida: descricao nao pode ser vazia ou nula.");
@@ -221,6 +313,10 @@ public class ItemController {
         return Integer.toString(this.idItem);
     }
 
+    /**
+     * Método que retorna todos os itens necessarios cadastrados
+     * @return string de todos os itens adicionados
+     */
     public String listaItensNecessarios () {
         StringBuilder builder = new StringBuilder();
         boolean v = false;
@@ -235,6 +331,15 @@ public class ItemController {
         }
         return builder.toString();
     }
+
+    /**
+     * Permite atualizar os atributos de quantidade e tags de um item necessario.
+     * @param idReceptor
+     * @param idItem
+     * @param novaQuantidade
+     * @param novasTags
+     * @return toString do item modificado
+     */
 
     public String atualizaItemNecessario (String idReceptor, String idItem, int novaQuantidade, String novasTags) {
         if (Integer.parseInt(idItem) < 0) {
@@ -261,6 +366,11 @@ public class ItemController {
         return this.itensNecessarios.get(idReceptor).get(idItem).toString();
     }
 
+    /**
+     * permite remover um item do mapa de itensNecessarios (um item adicionado para ser recebido)
+     * @param idReceptor
+     * @param idItem
+     */
     public void removeItemNecessario (String idReceptor, String idItem) {
         if (idReceptor == null) {
             throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
@@ -284,10 +394,20 @@ public class ItemController {
         this.itensNecessarios.get(idReceptor).remove(idItem);
     }
 
+    /**
+     * método auxiliar que permite formatar a saida das tags.
+     * @param tags
+     * @return ["tag", "tag"]
+     */
     private String formataTags(String tags) {
         return "[" + tags.replace(",", ", ") + "]";
     }
 
+    /**
+     * metodo auxilar que permite verificar a validade de um item.
+     * @param s
+     * @return
+     */
     private String itensComDescritor (String s) {
         StringBuilder builder = new StringBuilder();
         List<Item> lista = new ArrayList<>(descritores.get(s));

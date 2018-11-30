@@ -7,13 +7,35 @@ import java.util.List;
 import java.util.Objects;
 
 public class Item implements Comparable<Item> {
+    /**
+     * Descricao do item a ser adicionado
+     */
     private String descricaoItem;
+    /**
+     * identificador de item usado como key no map de itens
+     */
     private String idItem;
+    /**
+     * tags dos itens, mostram uma série de caracteristicas específicas de um item
+     */
     private String tags;
+    /**
+     * quantidade de itens a serem doados
+     */
     private int quantidade;
+    /**
+     * nome do usuario que ira doar ou receber os itens
+     */
     private String nomeUsuario;
 
-
+    /**
+     * construtor de item
+     * @param idItem
+     * @param descricao
+     * @param tags
+     * @param quantidade
+     * @param nomeUsuario
+     */
 
     public Item(String idItem, String descricao, String tags, int quantidade, String nomeUsuario) {
         this.descricaoItem = descricao;
@@ -43,14 +65,16 @@ public class Item implements Comparable<Item> {
         return this.tags;
     }
 
-    public String getIdItem () {
-        return this.idItem;
-    }
 
     public String getNomeUsuario () {
         return this.nomeUsuario;
     }
 
+
+    /**
+     * toString que retorna analise geral
+     * @return "identificador do item" - "descricao do item", tags: "tag, tag", quantidade: "quantidade de itens"
+     */
     @Override
     public String toString() {
         return this.idItem + " - " + this.descricaoItem + ", tags: " + this.tags + ", quantidade: " + this.quantidade;
