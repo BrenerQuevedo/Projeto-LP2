@@ -4,22 +4,19 @@ import javax.swing.tree.TreeCellRenderer;
 import java.util.*;
 
 /**
- * Classe responsavel pelo gerenciamento de itens, pelo padrao CRUD
+ * Classe responsavel pelo gerenciamento de itens, pelo padrao CRUD.
  *
  * @author Brener Quevedo, Iago Oliveira
- *
  */
 
 public class ItemController {
 
     /**
-     * Mapa de itens doados, em que a key é o identificador do usuário, e o valor é outro mapa, sendo este de itens, no qual a key é o identificador do item e o value
-     * é um objeto do tipo Item.
+     * Mapa de itens doados, em que a key é o identificador do usuário, e o valor é outro mapa, sendo este de itens, no qual a key é o identificador do item e o value é um objeto do tipo Item.
      */
     private Map<String, Map<String, Item>> itensDoacao;
     /**
-     * Mapa de itens necessários, em que a key é o identificador do usuário, e o valor é outro mapa, sendo este de itens, no qual a key é o identificador do item e o value
-     * é um objeto do tipo Item.
+     * Mapa de itens necessários, em que a key é o identificador do usuário, e o valor é outro mapa, sendo este de itens, no qual a key é o identificador do item e o value é um objeto do tipo Item.
      */
     private Map<String, Map<String, Item>> itensNecessarios;
     /**
@@ -43,8 +40,8 @@ public class ItemController {
     }
 
     /**
-     * Método responsável por adicionar um novo descritor de um item.
-     * @param descricao
+     * Adiciona um novo descritor de item ao mapa de descritores.
+     * @param descricao Descritor de item a ser adicionado.
      * @throws IllegalArgumentException
      * @throws NullPointerException
      */
@@ -63,14 +60,70 @@ public class ItemController {
     }
 
     /**
-     * Método responsável por atualizar a quantidade de itens a serem doados OU suas tags
-     * @param idItem
-     * @param idDoador
-     * @param novaQuantidade
-     * @param novasTags
-     * @return idItem + " - " + descricaoItem + ", " + tags + ", " + quantidade
+     * Adiciona um item para doacao no mapa de Doadores -> itens para doacao.
+     * @param idDoador Id do doador a ter um item adicionado.
+     * @param descricaoItem Descricao do item a ser adicionado.
+     * @param tags Tags do item a ser adicionado.
+     * @param quantidade Quantidade do item a ser adicionado.
+     * @param nomeDoador Nome do doador que tera um item adicionado.
+     * @return Retorna o identificador do item.
      */
-    public String atualizaItemParaDoacao (String idItem, String idDoador, int novaQuantidade, String novasTags) {
+    public String adicionaItemParaDoacao (String idDoador, String descricaoItem, String tags, int quantidade, String nomeDoador) {
+        if (this.itensDoacao.containsKey(idDoador)) {
+            for (String id : this.itensDoacao.get(idDoador).keySet()) {
+                if (this.itensDoacao.get(idDoador).get(id).getDescricao().equals(descricaoItem) && this.itensDoacao.get(idDoador).get(id).getTags().equals(formataTags(tags))) {
+                    this.atualizaItemParaDoacao(id, idDoador, quantidade, tags);
+                    return id;
+                }
+            }
+        }
+
+        this.idItem += 1;
+        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeDoador);
+
+        if (!this.itensDoacao.containsKey(idDoador)) {
+            this.itensDoacao.put(idDoador, new HashMap<>());
+        }
+        this.itensDoacao.get(idDoador).put(Integer.toString(idItem), item);
+
+        if (!this.descritores.containsKey(descricaoItem)) {
+            this.descritores.put(descricaoItem, new ArrayList<>());
+        }
+
+        this.descritores.get(descricaoItem).add(item);
+
+        return Integer.toString(this.idItem);
+    }
+
+    /**
+     * Exibe as caracteristicas gerais de um item.
+     * @param idUsuario Id do usuario a ter um item retornado.
+     * @param idItem Id do item a ser retornador.
+     * @return Retorna o toString() do item.
+     * @throws IllegalArgumentException
+     * @throws NullPointerException
+     */
+    public String exibeItem(String idUsuario, String idItem) throws IllegalArgumentException, NullPointerException {
+        if (!this.itensDoacao.containsKey(idUsuario)) {
+            throw new IllegalArgumentException("Usuario nao encontrado: " + idUsuario + ".");
+        }
+        if (!this.itensDoacao.get(idUsuario).containsKey(idItem)) {
+            throw new IllegalArgumentException("Item nao encontrado: " + idItem + ".");
+        }
+        return this.itensDoacao.get(idUsuario).get(idItem).toString();
+    }
+
+    /**
+     * Atualiza a quantidade de itens a serem doados OU suas tags.
+     * @param idItem Id do item a ser atualziado.
+     * @param idDoador Id do doador a ter o item atualizado.
+     * @param novaQuantidade Nova quantidade do item. Caso a quantidade seja 0, ela nao sera editada.
+     * @param novasTags Novas tags do item. Caso as tags sejam vazias, elas nao seram alteradas.
+     * @return Retorna o toString() do item ja editado.
+     * @throws IllegalArgumentException
+     * @throws NullPointerException
+     */
+    public String atualizaItemParaDoacao (String idItem, String idDoador, int novaQuantidade, String novasTags) throws IllegalArgumentException, NullPointerException {
         if (Integer.parseInt(idItem) < 0) {
             throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
         }
@@ -97,26 +150,8 @@ public class ItemController {
     }
 
     /**
-     * Metodo que exibe as caracteristicas gerais de um item
-     * @param idUsuario
-     * @param idItem
-     * @return idItem + " - " + descricaoItem + ", " + tags + ", " + quantidade
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
-     */
-    public String exibeItem(String idUsuario, String idItem) throws IllegalArgumentException, NullPointerException {
-        if (!this.itensDoacao.containsKey(idUsuario)) {
-            throw new IllegalArgumentException("Usuario nao encontrado: " + idUsuario + ".");
-        }
-        if (!this.itensDoacao.get(idUsuario).containsKey(idItem)) {
-            throw new IllegalArgumentException("Item nao encontrado: " + idItem + ".");
-        }
-        return this.itensDoacao.get(idUsuario).get(idItem).toString();
-    }
-
-    /**
-     * Método que permite a listagem de todos os descritores que antes foram adicionados pelo metodo adicionaDescritor.
-     * @return todos os descritores ordenados por ordem alfabetica.
+     * Lista todos os descritores que antes foram adicionados pelo metodo adicionaDescritor ou pelo cadastro de um item cujo descricao nao existia..
+     * @return Retorna todos os descritores ordenados por ordem alfabetica.
      */
     public String listaDescritorDeItensParaDoacao () {
         StringBuilder builder = new StringBuilder();
@@ -139,8 +174,8 @@ public class ItemController {
     }
 
     /**
-     * Método responsável por listar todos os itens doados, ordenados por ordem alfabética
-     * @return String com as caracteristicas gerais de todos os itens
+     * Lista todos os itens para doacao, ordenados por quantidade e por ordem alfabética.
+     * @return String com as caracteristicas gerais de todos os itens e com os seus respectivos doadores.
      */
     public String listaItensParaDoacao () {
         Map<Integer, Map<String, String>> tree = new TreeMap<>(Collections.reverseOrder());
@@ -172,12 +207,13 @@ public class ItemController {
     }
 
     /**
-     *  Método que permite retornar uma analise geral dos itens cadastrados,
-     *  este método pesquisa em especifico os itens que contenham a descricao semelhante ao do parametro que foi passado.
-     * @param descricao
-     * @return (idItem + " - " + descricaoItem + ", " + tags + ", " + quantidade) de todos os itens cadastrados que tenham a descricao semelhante , sendo ordenados em ordem alfabética
+     * Retorna todos os itens com uma certa descricao.
+     * @param descricao Descricao a ser buscada nos itens.
+     * @return Retorna o toString() de todos os itens cadastrados que tenham a descricao semelhante , sendo ordenados em ordem alfabética.
+     * @throws IllegalArgumentException
+     * @throws NullPointerException
      */
-    public String pesquisaItemParaDoacaoPorDescricao (String descricao) {
+    public String pesquisaItemParaDoacaoPorDescricao (String descricao) throws IllegalArgumentException, NullPointerException {
         if (descricao == null) {
             throw new NullPointerException("Entrada invalida: texto da pesquisa nao pode ser vazio ou nulo.");
         }
@@ -207,9 +243,9 @@ public class ItemController {
     }
 
     /**
-     * permite remover um item do mapa de itensDoacao (um item adicionado para doacao)
-     * @param idItem
-     * @param idUsuario
+     * Remove um item do mapa de itensDoacao (um item adicionado para doacao).
+     * @param idItem Id do item a ser removido.
+     * @param idUsuario Id do usuario a ter um item removido.
      * @throws IllegalArgumentException
      * @throws NullPointerException
      */
@@ -229,8 +265,43 @@ public class ItemController {
     }
 
     /**
-     * Método que retorna todos os itens necessarios cadastrados
-     * @return string de todos os itens adicionados
+     * Adiciona um item necessário no mapa de Receptores -> itens necessarios..
+     * @param idReceptor Id do receptor a ter um item adicionado.
+     * @param descricaoItem Descricao do item a ser adicionado.
+     * @param tags Tags do item a ser adicionado.
+     * @param quantidade Quantidade necessaria do item a ser adicionado.
+     * @param nomeReceptor Nome do receptor que tera um item adicionado.
+     * @return Retorna o itentificador do item.
+     */
+    public String adicionaItemNecessario (String idReceptor, String descricaoItem, String tags, int quantidade, String nomeReceptor) {
+        if (this.itensNecessarios.containsKey(idReceptor)) {
+            for (String id : this.itensNecessarios.get(idReceptor).keySet()) {
+                if (this.itensNecessarios.get(idReceptor).get(id).getDescricao().equals(descricaoItem) && this.itensNecessarios.get(idReceptor).get(id).getTags().equals(formataTags(tags))) {
+                    this.atualizaItemNecessario(id, idReceptor, quantidade, tags);
+                    return id;
+                }
+            }
+        }
+
+        this.idItem += 1;
+        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeReceptor);
+
+        if (!this.itensNecessarios.containsKey(idReceptor)) {
+            this.itensNecessarios.put(idReceptor, new HashMap<>());
+        }
+        this.itensNecessarios.get(idReceptor).put(Integer.toString(idItem), item);
+
+        if (!this.descritores.containsKey(descricaoItem)) {
+            this.descritores.put(descricaoItem, new ArrayList<>());
+        }
+        this.descritores.get(descricaoItem).add(item);
+
+        return Integer.toString(this.idItem);
+    }
+
+    /**
+     * Retorna todos os itens necessarios cadastrados, ordenados por id.
+     * @return Retorna o toString de todos os itens adicionados.
      */
     public String listaItensNecessarios () {
         StringBuilder builder = new StringBuilder();
@@ -257,14 +328,15 @@ public class ItemController {
     }
 
     /**
-     * Permite atualizar os atributos de quantidade e tags de um item necessario.
-     * @param idReceptor
-     * @param idItem
-     * @param novaQuantidade
-     * @param novasTags
+     * Atualiza a quantidade de itens a serem doados OU suas tags.
+     * @param idReceptor Id do receptor a ter um item necessario alterado.
+     * @param idItem Id do item necessario a ser alterado.
+     * @param novaQuantidade Nova quantidade necessaria do item. Caso a nova quantidade seja 0, ela nao sera alterada.
+     * @param novasTags Novas tags do item necessario. Caso as tags sejam uma String vazia, elas nao seram alteradas.
      * @return toString do item modificado
+     * @throws NullPointerException
      */
-    public String atualizaItemNecessario (String idItem, String idReceptor, int novaQuantidade, String novasTags) {
+    public String atualizaItemNecessario (String idItem, String idReceptor, int novaQuantidade, String novasTags) throws NullPointerException {
         if (!this.itensNecessarios.containsKey(idReceptor)) {
             throw new NullPointerException("O Usuario nao possui itens cadastrados.");
         }
@@ -283,11 +355,12 @@ public class ItemController {
     }
 
     /**
-     * permite remover um item do mapa de itensNecessarios (um item adicionado para ser recebido)
-     * @param idReceptor
-     * @param idItem
+     * Remove um item do mapa de itensNecessarios (um item adicionado para ser recebido)
+     * @param idReceptor Id do receptor a ter um item necessario removido.
+     * @param idItem Id no item necessario a ser removido.
+     * @throws NullPointerException
      */
-    public void removeItemNecessario (String idReceptor, String idItem) {
+    public void removeItemNecessario (String idReceptor, String idItem) throws NullPointerException {
         if (!this.itensNecessarios.containsKey(idReceptor)) {
             throw new NullPointerException("O Usuario nao possui itens cadastrados.");
         }
@@ -298,20 +371,10 @@ public class ItemController {
         this.itensNecessarios.get(idReceptor).remove(idItem);
     }
 
-    /**
-     * método auxiliar que permite formatar a saida das tags.
-     * @param tags
-     * @return ["tag", "tag"]
-     */
     private String formataTags(String tags) {
         return "[" + tags.replace(",", ", ") + "]";
     }
 
-    /**
-     * metodo auxilar que permite verificar a validade de um item.
-     * @param s
-     * @return
-     */
     private String itensComDescritor (String s) {
         StringBuilder builder = new StringBuilder();
         List<Item> lista = new ArrayList<>(descritores.get(s));
@@ -326,76 +389,5 @@ public class ItemController {
             v = true;
         }
         return builder.toString();
-    }
-
-    /**
-     * Método que adiciona um item para a doação no hashmap de item dentro do hashmap de itensDoacao
-     * @param idDoador
-     * @param descricaoItem
-     * @param tags
-     * @param quantidade
-     * @param nomeDoador
-     * @return identificador do item
-     */
-    public String adicionaItemParaDoacao (String idDoador, String descricaoItem, String tags, int quantidade, String nomeDoador) {
-        if (this.itensDoacao.containsKey(idDoador)) {
-            for (String id : this.itensDoacao.get(idDoador).keySet()) {
-                if (this.itensDoacao.get(idDoador).get(id).getDescricao().equals(descricaoItem) && this.itensDoacao.get(idDoador).get(id).getTags().equals(formataTags(tags))) {
-                    this.atualizaItemParaDoacao(id, idDoador, quantidade, tags);
-                    return id;
-                }
-            }
-        }
-
-        this.idItem += 1;
-        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeDoador);
-
-        if (!this.itensDoacao.containsKey(idDoador)) {
-            this.itensDoacao.put(idDoador, new HashMap<>());
-        }
-        this.itensDoacao.get(idDoador).put(Integer.toString(idItem), item);
-
-        if (!this.descritores.containsKey(descricaoItem)) {
-            this.descritores.put(descricaoItem, new ArrayList<>());
-        }
-
-        this.descritores.get(descricaoItem).add(item);
-
-        return Integer.toString(this.idItem);
-    }
-
-    /**
-     * Método responsável por permitir adicionar um item que é necessário que seja doado.
-     * @param idReceptor
-     * @param descricaoItem
-     * @param tags
-     * @param quantidade
-     * @param nomeReceptor
-     * @return
-     */
-    public String adicionaItemNecessario (String idReceptor, String descricaoItem, String tags, int quantidade, String nomeReceptor) {
-        if (this.itensNecessarios.containsKey(idReceptor)) {
-            for (String id : this.itensNecessarios.get(idReceptor).keySet()) {
-                if (this.itensNecessarios.get(idReceptor).get(id).getDescricao().equals(descricaoItem) && this.itensNecessarios.get(idReceptor).get(id).getTags().equals(formataTags(tags))) {
-                    this.atualizaItemNecessario(id, idReceptor, quantidade, tags);
-                    return id;
-                }
-            }
-        }
-
-        this.idItem += 1;
-        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeReceptor);
-
-        if (!this.itensNecessarios.containsKey(idReceptor)) {
-            this.itensNecessarios.put(idReceptor, new HashMap<>());
-        }
-        this.itensNecessarios.get(idReceptor).put(Integer.toString(idItem), item);
-
-        if (!this.descritores.containsKey(descricaoItem)) {
-            this.descritores.put(descricaoItem, new ArrayList<>());
-        }
-        this.descritores.get(descricaoItem).add(item);
-
-        return Integer.toString(this.idItem);
     }
 }

@@ -1,42 +1,42 @@
 package edoe;
 
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 
+/**
+ * Representação de um Item. Todo item e identificado pelo seu id e possui informacoes como: id do item, descricao, tags, quantidade e o nome do usuario que o possui.
+ *
+ * @author Brener Quevedo, Iago Tito.
+ */
 public class Item implements Comparable<Item> {
     /**
-     * Descricao do item a ser adicionado
+     * Descricao do item.
      */
     private String descricaoItem;
     /**
-     * identificador de item usado como key no map de itens
+     * Identificador do item.
      */
     private String idItem;
     /**
-     * tags dos itens, mostram uma série de caracteristicas específicas de um item
+     * Tags do item, guardando suas caracteristicas.
      */
     private String tags;
     /**
-     * quantidade de itens a serem doados
+     * Quantidade a ser doada ou recebida dos itens.
      */
     private int quantidade;
     /**
-     * nome do usuario que ira doar ou receber os itens
+     * Nome do usuario que possui ou precisa dos itens.
      */
     private String nomeUsuario;
 
     /**
-     * construtor de item
-     * @param idItem
-     * @param descricao
-     * @param tags
-     * @param quantidade
-     * @param nomeUsuario
+     * Cosntrutor do objeto Item.
+     * @param idItem Id do item.
+     * @param descricao Descricao do item.
+     * @param tags Tags do item.
+     * @param quantidade Quantidade a ser doada ou recebida do item.
+     * @param nomeUsuario Nome do usuario que possui ou precsia do item.
      */
-
     public Item(String idItem, String descricao, String tags, int quantidade, String nomeUsuario) {
         this.descricaoItem = descricao;
         this.idItem = idItem;
@@ -44,6 +44,7 @@ public class Item implements Comparable<Item> {
         this.quantidade = quantidade;
         this.nomeUsuario = nomeUsuario;
     }
+
 
     public String getDescricao() {
         return this.descricaoItem;
@@ -72,8 +73,8 @@ public class Item implements Comparable<Item> {
 
 
     /**
-     * toString que retorna analise geral
-     * @return "identificador do item" - "descricao do item", tags: "tag, tag", quantidade: "quantidade de itens"
+     * Retorna uma String com informacoes do item.
+     * @return Retorna uma String com o formato "IDITEM - DESCRICAOITEM, tags: TAGS, quantidade: QUANTIDADE".
      */
     @Override
     public String toString() {
