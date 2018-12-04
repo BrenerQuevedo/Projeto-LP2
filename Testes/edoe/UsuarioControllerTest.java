@@ -1,3 +1,5 @@
+package edoe;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -181,19 +183,6 @@ class UsuarioControllerTest {
 		});
 	}
 
-	@Test
-	void testValidaReceptor() {
-		
-		assertTrue(this.controller.validaReceptor("85274196374185"));
-		
-		assertFalse(this.controller.validaReceptor("12345678912345"));
-	}
-
-	@Test
-	void testValidaDoador() {
-		assertTrue(this.controller.validaDoador("13059752435"));
-		assertFalse(this.controller.validaDoador("85274196374185"));
-	}
 
 	@Test
 	void testContemUsuario() {

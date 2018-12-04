@@ -85,14 +85,24 @@ public class ItemControllerTest {
     public void exibeItem() {
         this.controle.adicionaDescritor("brinquedo");
 
-        this.controle.adicionaItemNecessario("id1", "brinquedos", "bola,crianca", 3, "george");
 
-        assertEquals("1 - brinquedos, [bola, crianca], quantidade: 3", this.controle.exibeItem("id1", "1") );
+        this.controle.adicionaItemParaDoacao("id1", "brinquedos", "bola,crianca", 3, "george");
 
+        assertEquals("1 - brinquedos, tags: [bola, crianca], quantidade: 3", this.controle.exibeItem("id1", "1") );
+
+
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                   this.controle.exibeItem("doador nao existe", "1");
+                });
+
+        assertThrows(IllegalArgumentException.class,
+                () -> {
+                    this.controle.exibeItem("id1", "item nao existe");
+                });
 
 
     }
-
 
 
     @Test
@@ -104,13 +114,14 @@ public class ItemControllerTest {
 
         this.controle.removeItemParaDoacao("1", "doador");
 
-        assertThrows(NullPointerException.class,
+        assertThrows(IllegalArgumentException.class,
                 () -> {
                     this.controle.exibeItem("doador", "1");
                 });
 
         this.controle.adicionaDescritor("computador");
         this.controle.adicionaItemNecessario("receptor", "computador", "tech,atual", 3, "kovalenko");
+        this.controle.exibeItem("receptor", "2");
         this.controle.removeItemNecessario("receptor", "1");
 
         assertThrows(NullPointerException.class,
@@ -120,5 +131,6 @@ public class ItemControllerTest {
 
 
     }
+
 
 }

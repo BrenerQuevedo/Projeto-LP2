@@ -68,7 +68,8 @@ public class ItemController {
      * @param nomeDoador Nome do doador que tera um item adicionado.
      * @return Retorna o identificador do item.
      */
-    public String adicionaItemParaDoacao (String idDoador, String descricaoItem, String tags, int quantidade, String nomeDoador) {
+    public String adicionaItemParaDoacao (String idDoador, String descricaoItem, String tags, int quantidade, String nomeDoador) throws IllegalArgumentException, NullPointerException{
+
         if (this.itensDoacao.containsKey(idDoador)) {
             for (String id : this.itensDoacao.get(idDoador).keySet()) {
                 if (this.itensDoacao.get(idDoador).get(id).getDescricao().equals(descricaoItem) && this.itensDoacao.get(idDoador).get(id).getTags().equals(formataTags(tags))) {
