@@ -10,17 +10,17 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * Classe responsavel por todo gerenciamento de um usuario, pelo padrao CRUD
+ * Classe responsavel por todo gerenciamento de um usuario, pelo padrao CRUD.
  * @author Paulo Mateus
  *
  */
 public class UsuarioController{
 	/**
-	 * mapa de usuarios onde a key sera a identificacao do usuario o valor sera um usuario 
+	 * Mapa de usuarios onde a key sera a identificacao do usuario o valor sera um usuario.
 	 */
 	private Map<String, Usuario> Usuarios;
 	/**
-	 * lista de Strings com as classes disponiveis de usuario para se fazer um cadastro
+	 * Lista de Strings com as classes disponiveis de usuario para se fazer um cadastro.
 	 */
 	private ArrayList<String> classes;
 	
@@ -35,13 +35,13 @@ public class UsuarioController{
 		this.classes.add("ONG");this.classes.add("ASSOCIACAO");this.classes.add("SOCIEDADE");
 	}
 	/**
-	 * metodo para cadastrar um doador e adicionalo ao map de usuarios
-	 * @param nome nome do doador
+	 * Metodo para cadastrar um doador e adicionalo ao map de usuarios
+	 * @param nome Nome do doador
 	 * @param email email do doador
-	 * @param celular telefone celular do doador
-	 * @param classe classe do usuario doador
-	 * @param idUsuario documento de identificacao do doador
-	 * @param status status do usuario que deve ser doador
+	 * @param celular Telefone celular do doador
+	 * @param classe Classe do usuario doador
+	 * @param idUsuario Documento de identificacao do doador
+	 * @param status Status do usuario que deve ser doador
 	 * @return retorna o id do usuario caso ele seja cadastrado
 	 */
 	public String cadastraDoador(String nome, String email, String celular, String classe, String idUsuario, String status) {
@@ -77,13 +77,13 @@ public class UsuarioController{
 	}
 	
 	/**
-	 * metodo para cadastrar um usuario receptor no map de usuarios
-	 * @param nome nome do receptor
-	 * @param email email do receptor
-	 * @param celular telefone celular do receptor
-	 * @param classe classe do usuario receptor
-	 * @param idUsuario documento de identificao do usuario
-	 * @param status status do usuario que deve ser receptor
+	 * Cadastra um usuario receptor no map de usuarios.
+	 * @param nome Nome do receptor.
+	 * @param email Email do receptor.
+	 * @param celular Telefone celular do receptor.
+	 * @param classe Classe do usuario receptor.
+	 * @param idUsuario Documento de identificao do usuario.
+	 * @param status Status do usuario que deve ser receptor.
 	 */
 	public void cadastraReceptor(String nome, String email, String celular, String classe, String idUsuario, String status) {
 		String[] entradas = {nome, email, celular,  classe, idUsuario, status};
@@ -116,10 +116,11 @@ public class UsuarioController{
 			}
 		}
 	}
+
 	/**
-	 * Metodo que retorna a representacao de um usuario de acordo com seu id
-	 * @param idUsuario identificacao do usuario que se quer 
-	 * @return retorna o toString de um usuario
+	 * Retorna a representacao de um usuario de acordo com seu id.
+	 * @param idUsuario Identificacao do usuario que se quer.
+	 * @return Retorna o toString de um usuario.
 	 */
 	public String pesquisaUsuarioPorId(String idUsuario) {
 		if(idUsuario == null) {
@@ -135,11 +136,11 @@ public class UsuarioController{
 			}
 		}
 	}
+
 	/**
-	 * metodo que retorna a representacao de um usuario pelo seu nome. Se houver mais de um usuario com o mesmo nome, se retorna
-	 * todos com o mesmo nome de acordo com a ordem de insercao do mais antigo para o mais novo
-	 * @param nome nome do usuario que se quer
-	 * @return retorna o toString do usuario, ou dos usuarios separados por "|"
+	 * Retorna a representacao de um usuario pelo seu nome. Se houver mais de um usuario com o mesmo nome, retorna-se todos com o mesmo nome de acordo com a ordem de insercao do mais antigo para o mais novo.
+	 * @param nome nome do usuario que se quer.
+	 * @return retorna o toString do usuario, ou dos usuarios separados por "|".
 	 */
     public String pesquisaUsuarioPorNome(String nome) {
         if(nome == null) {
@@ -166,43 +167,11 @@ public class UsuarioController{
             }
         }
     }
-    /**
-     * metodo que diz se um usuario e ou nao um receptor
-     * @param idUsuario id do usuario
-     * @return retorna um valo booleano. true para "e um receptor", false para "nao e um receptor"
-     */
-	public boolean validaReceptor(String idUsuario) {
-		if(this.Usuarios.containsKey(idUsuario)) {
-			if(this.Usuarios.get(idUsuario).getStatus().equals("receptor")) {
-				return true;
-			}else {
-				return false;
-			}
-		}else {
-			throw new IllegalArgumentException();
-		}
-		
-	}
+
 	/**
-	 * metod que diz se um usuario e ou nao um doador
-	 * @param idUsuario id do usuario
-	 * @return retorna um booleano. true para "e um doador", false para "nao e uma doador"
-	 */
-	public boolean validaDoador(String idUsuario) {
-		if(this.Usuarios.containsKey(idUsuario)) {
-			if(this.Usuarios.get(idUsuario).getStatus().equals("doador")) {
-				return true;
-			}else {
-				return false;
-			}
-		}else {
-			throw new IllegalArgumentException();
-		}	
-	}
-	/**
-	 * metodo booleano que diz se contem um usuario no hashmap de usuarios
-	 * @param idUsuario id do usuario
-	 * @return retorna um booleano. true para "contem usuario", false para "nao contem usuario"
+	 * Diz se contem um usuario no hashmap de usuarios.
+	 * @param idUsuario Id do usuario
+	 * @return Retorna um booleano. true para "contem usuario", false para "nao contem usuario".
 	 */
 	public boolean contemUsuario(String idUsuario) {
 		return this.Usuarios.containsKey(idUsuario);
@@ -222,13 +191,14 @@ public class UsuarioController{
 			}
 		}
 	}
+
 	/**
-	 * metodo que atualiza os atributos de um usuario
-	 * @param id id do usuario que se quer atualizar
-	 * @param nome nnovo nome para o usuario
-	 * @param email novo email para o usuario
-	 * @param celular novo celular para o usuario
-	 * @return retorna o toString do usuario quando ele e editado
+	 * Atualiza os atributos de um usuario.
+	 * @param id Id do usuario que se quer atualizar.
+	 * @param nome Novo nome para o usuario.
+	 * @param email Novo email para o usuario.
+	 * @param celular Novo celular para o usuario.
+	 * @return Retorna o toString do usuario quando ele e editado.
 	 */
 	public String atualizaUsuario(String id, String nome, String email, String celular) {
 		if(id == null) {
@@ -254,9 +224,10 @@ public class UsuarioController{
 			}		
 		}
 	}
+
 	/**
-	 * metodo que remove um usuario do map de usuarios de acordo com seu id
-	 * @param id id do usuario
+	 * Remove um usuario do map de usuarios de acordo com seu id.
+	 * @param id Id do usuario.
 	 */
 	public void removeUsuario(String id ) {
 		if(id == null) {
@@ -271,19 +242,20 @@ public class UsuarioController{
 			}
 		}
 	}
+
 	/**
-	 * metodo que pega o nome do usuario de acordo com sua id
-	 * @param idUsuario id do usuario 
-	 * @return
+	 * Pega o nome do usuario de acordo com sua id.
+	 * @param idUsuario Id do usuario.
+	 * @return Retorna o nome do usuario.
 	 */
 	public String getNomeUsuario (String idUsuario) {
 	    return this.Usuarios.get(idUsuario).getNome();
     }
 	
 	/**
-	 * metodo que ira ler um arquivo csv para cadastrar usuarios receptores no sistema
-	 * @param localDoArquivo local onde esta salvo o arquivo csv
-	 * @throws IOException excessao caso ocorra alguma falha na leitura dos arquivos
+	 * Le um arquivo csv para cadastrar usuarios receptores no sistema.
+	 * @param localDoArquivo Local onde esta salvo o arquivo csv.
+	 * @throws IOException excessao caso ocorra alguma falha na leitura dos arquivos.
 	 */
 	public void leReceptores(String localDoArquivo) throws IOException {
 		File file = new File(localDoArquivo);

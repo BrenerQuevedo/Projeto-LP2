@@ -2,37 +2,37 @@ package edoe;
 
 /**
  * Representacao de um usuario no sistema. Usuario pode ser doador ou receptor.
- * @author paulomam
+ * @author Paulo Mateus
  *
  */
 public  class Usuario {
 	/**
-	 * nome do usuario
+	 * Nome do usuario.
 	 */
 	private String nome;
 	/**
-	 * email do usuario
+	 * Email do usuario.
 	 */
 	private String email;
 	/**
-	 * telefone celular do usuario
+	 * Telefone celular do usuario.
 	 */
 	private String celular;
 	/**
-	 * classe do usuario que esta sendo cadastrado
+	 * Classe do usuario que esta sendo cadastrado.
 	 */
 	private String classe;
 	/**
-	 * documento de identificacao do usuario que pode ser um cpf ou cnpj
+	 * Documento de identificacao do usuario que pode ser um CPF ou CNPJ.
 	 */
 	private String idUsuario;
 	/**
-	 * status do usuario que diz se ele é um doador ou um receptor
+	 * Status do usuario que diz se ele é um doador ou um receptor.
 	 */
 	private String status;
 	
 	/**
-	 * construtor de um usuario
+	 * Construtor de um usuario.
 	 * @param nome nome do usuario
 	 * @param email email do usuario
 	 * @param celular celular do usuario
@@ -48,6 +48,7 @@ public  class Usuario {
 		this.idUsuario = idUsuario;
 		this.status = status;
 	}
+
 	public void setNome(String novoNome) {
 		this.nome = novoNome;
 	}
@@ -74,8 +75,8 @@ public  class Usuario {
 
 
 	/**
-	 * toString de um usuario que retorna a representaçao do usuario no sistema
-	 * @return retorna uma String no seguinte formato NomeDoUsuario/IdDoUsuario, EmailDoUsuario, CelularDoUsuario, status: StatusDoUsuario
+	 * Retorna a representaçao do usuario no sistema.
+	 * @return String no seguinte formato: "NomeDoUsuario/IdDoUsuario, EmailDoUsuario, CelularDoUsuario, status: StatusDoUsuario"
 	 */
 	@Override
 	public String toString() {
