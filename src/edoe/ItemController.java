@@ -1,6 +1,5 @@
 package edoe;
 
-import javax.swing.tree.TreeCellRenderer;
 import java.util.*;
 
 /**
@@ -8,7 +7,6 @@ import java.util.*;
  *
  * @author Brener Quevedo, Iago Oliveira
  */
-
 public class ItemController {
 
     /**
@@ -80,7 +78,7 @@ public class ItemController {
         }
 
         this.idItem += 1;
-        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeDoador);
+        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeDoador, idDoador);
 
         if (!this.itensDoacao.containsKey(idDoador)) {
             this.itensDoacao.put(idDoador, new HashMap<>());
@@ -150,28 +148,37 @@ public class ItemController {
         return this.itensDoacao.get(idDoador).get(idItem).toString();
     }
 
+    private String constroiListagem (List<String> lista) {
+        StringBuilder builder = new StringBuilder();
+        boolean adicionaSeparador = false;
+        for (String s : lista) {
+            if (adicionaSeparador) {
+                builder.append(" | ");
+            }
+            builder.append(s);
+            adicionaSeparador = true;
+        }
+        return builder.toString();
+    }
+
+    private int getQuantidadeDeItensComDescritor (String descritor) {
+        int quantidade = 0;
+        for (Item i : this.descritores.get(descritor)) {
+            quantidade += i.getQuantidade();
+        }
+        return quantidade;
+    }
+
     /**
      * Lista todos os descritores que antes foram adicionados pelo metodo adicionaDescritor ou pelo cadastro de um item cujo descricao nao existia..
      * @return Retorna todos os descritores ordenados por ordem alfabetica.
      */
     public String listaDescritorDeItensParaDoacao () {
-        StringBuilder builder = new StringBuilder();
-        Map<String, Integer> tree = new TreeMap<>();
-        int quantidade;
-        boolean v = false;
-        for (String s : this.descritores.keySet()) {
-            if (v) {
-                builder.append(" | ");
-            }
-            quantidade = 0;
-            for (Item i : this.descritores.get(s)) {
-                quantidade += i.getQuantidade();
-            }
-            builder.append(quantidade).append(" - ").append(s);
-            v = true;
+        List<String> decritores = new ArrayList<>();
+        for (String descritor : this.descritores.keySet()) {
+            decritores.add(getQuantidadeDeItensComDescritor(descritor) + " - " + descritor);
         }
-
-        return builder.toString();
+        return constroiListagem(decritores);
     }
 
     /**
@@ -179,32 +186,19 @@ public class ItemController {
      * @return String com as caracteristicas gerais de todos os itens e com os seus respectivos doadores.
      */
     public String listaItensParaDoacao () {
-        Map<Integer, Map<String, String>> tree = new TreeMap<>(Collections.reverseOrder());
-
-        for (String idUsuario : itensDoacao.keySet()) {
-            for (String idItem : itensDoacao.get(idUsuario).keySet()) {
-                if (!tree.containsKey(this.itensDoacao.get(idUsuario).get(idItem).getQuantidade())) {
-                    tree.put(this.itensDoacao.get(idUsuario).get(idItem).getQuantidade(), new TreeMap<>());
-                }
-                tree.get(this.itensDoacao.get(idUsuario).get(idItem).getQuantidade()).put(this.itensDoacao.get(idUsuario).get(idItem).getDescricao(),
-                        itensDoacao.get(idUsuario).get(idItem).toString() + ", doador: " + itensDoacao.get(idUsuario).get(idItem).getNomeUsuario()
-                        + "/" + idUsuario);
-            }
+        List<Item> arrayDeItens = new ArrayList<>();
+        for (String idDoador : this.itensDoacao.keySet()) {
+            arrayDeItens.addAll(this.itensDoacao.get(idDoador).values());
         }
 
-        StringBuilder builder = new StringBuilder();
-        boolean v = false;
-        for (Integer i : tree.keySet()) {
-            for (String s : tree.get(i).keySet()) {
-                if (v) {
-                    builder.append(" | ");
-                }
-                builder.append(tree.get(i).get(s));
-                v = true;
-            }
+        arrayDeItens.sort(new ComparaItemPorQuantidade());
+
+        List<String> arrayDeListagem = new ArrayList<>();
+        for (Item item : arrayDeItens) {
+            arrayDeListagem.add(item.toString() + ", doador: " + item.getNomeUsuario() + "/" + item.getIdUsuario());
         }
 
-        return builder.toString();
+        return constroiListagem(arrayDeListagem);
     }
 
     /**
@@ -221,26 +215,23 @@ public class ItemController {
         if (descricao.trim().equals("")) {
             throw new IllegalArgumentException("Entrada invalida: texto da pesquisa nao pode ser vazio ou nulo.");
         }
-        StringBuilder builder = new StringBuilder();
-        List<String> lista = new ArrayList<>();
 
-        for (String s : this.descritores.keySet()) {
-            if (s.toLowerCase().contains(descricao.toLowerCase())) {
-                lista.add(s);
+        List<Item> listaDeItensComDescricao = new ArrayList<>();
+
+        for (String desc : this.descritores.keySet()) {
+            if (desc.contains(descricao)) {
+                listaDeItensComDescricao.addAll(this.descritores.get(desc));
             }
         }
 
-        Collections.sort(lista);
+        Collections.sort(listaDeItensComDescricao);
 
-        boolean v = false;
-        for (String s : lista) {
-            if (v) {
-                builder.append(" | ");
-            }
-            builder.append(itensComDescritor(s));
-            v = true;
+        List<String> listaDeStringsDosItensComDescricao = new ArrayList<>();
+        for (Item item : listaDeItensComDescricao) {
+            listaDeStringsDosItensComDescricao.add(item.toString());
         }
-        return builder.toString();
+
+        return constroiListagem(listaDeStringsDosItensComDescricao);
     }
 
     /**
@@ -285,7 +276,7 @@ public class ItemController {
         }
 
         this.idItem += 1;
-        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeReceptor);
+        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeReceptor, idReceptor);
 
         if (!this.itensNecessarios.containsKey(idReceptor)) {
             this.itensNecessarios.put(idReceptor, new HashMap<>());

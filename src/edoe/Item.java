@@ -30,19 +30,26 @@ public class Item implements Comparable<Item> {
     private String nomeUsuario;
 
     /**
+     * Id do usuario que possui ou precisa dos itens.
+     */
+    private String idUsuario;
+
+    /**
      * Cosntrutor do objeto Item.
      * @param idItem Id do item.
      * @param descricao Descricao do item.
      * @param tags Tags do item.
      * @param quantidade Quantidade a ser doada ou recebida do item.
      * @param nomeUsuario Nome do usuario que possui ou precsia do item.
+     * @param idUsuario Id do usuario que possui ou precisa do item.
      */
-    public Item(String idItem, String descricao, String tags, int quantidade, String nomeUsuario) {
+    public Item(String idItem, String descricao, String tags, int quantidade, String nomeUsuario, String idUsuario) {
         this.descricaoItem = descricao;
         this.idItem = idItem;
         this.tags = tags;
         this.quantidade = quantidade;
         this.nomeUsuario = nomeUsuario;
+        this.idUsuario = idUsuario;
     }
 
 
@@ -64,6 +71,14 @@ public class Item implements Comparable<Item> {
 
     public String getTags () {
         return this.tags;
+    }
+
+    public String getIdItem () {
+        return this.idItem;
+    }
+
+    public String getIdUsuario () {
+        return this.idUsuario;
     }
 
 
