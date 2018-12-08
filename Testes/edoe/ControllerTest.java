@@ -1,48 +1,46 @@
 package edoe;
 
+import easyaccept.script.EchoProcessor;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ControllerTest {
 
-    private ItemController controleItem;
-    private UsuarioController controleUsuario;
     private Controller controleGeral;
 
 
     @BeforeEach
     public void criaController() {
-        this.controleUsuario = new UsuarioController();
-        this.controleItem = new ItemController();
         this.controleGeral = new Controller();
-        this.controleItem.adicionaItemParaDoacao("doador", "roupas", "la, algodao", 3, "paulo");
+
     }
 
     @Test
     @DisplayName("teste de adição de descritores")
     public void adicionaDescritorTest() {
-        this.controleItem.adicionaDescritor("carrinho");
+        this.controleGeral.adicionaDescritor("carrinho");
 
-        assertEquals("0 - carrinho | 3 - roupas", this.controleItem.listaDescritorDeItensParaDoacao());
+        assertEquals("0 - carrinho", this.controleGeral.listaDescritorDeItensParaDoacao());
 
 
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    this.controleItem.adicionaDescritor("carrinho");
+                    this.controleGeral.adicionaDescritor("carrinho");
                 });
 
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    this.controleItem.adicionaDescritor("");
+                    this.controleGeral.adicionaDescritor("");
                 });
 
         assertThrows(NullPointerException.class,
                 () -> {
-                    this.controleItem.adicionaDescritor(null);
+                    this.controleGeral.adicionaDescritor(null);
                 });
 
     }
@@ -50,63 +48,85 @@ public class ControllerTest {
     @Test
     @DisplayName("teste de adição de adição de novas doações")
     public void adicionaItemParaDoacaoTest() {
-        this.controleItem.adicionaDescritor("sal");
+        this.controleGeral.adicionaDescritor("sal");
 
-        this.controleItem.adicionaItemParaDoacao("id1", "sal", "comida,conservante", 4, "fulano");
+        this.controleGeral.adicionaDoador("11111111111111", "VATICANO", "PAPA@", "URBANO0", "IGREJA" );
 
-        assertEquals("2", this.controleItem.adicionaItemParaDoacao("id1", "sal", "comida,conservante", 4, "fulano"));
+        this.controleGeral.adicionaItemParaDoacao("11111111111111", "sal", 4, "comida,conservante");
 
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    this.controleGeral.adicionaItemParaDoacao("", "sal", 4, "comida,conservante");
+        assertEquals("1", this.controleGeral.adicionaItemParaDoacao("11111111111111", "sal", 4, "comida,conservante"));
 
-                });
 
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    this.controleGeral.adicionaItemParaDoacao("id1", "", 4, "comida,conservante");
+            try {
+                this.controleGeral.adicionaItemParaDoacao("", "sal", 4, "comida,conservante");
+            } catch(Exception e) {
+                e.getMessage().equals("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+            }
 
-                });
 
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    this.controleGeral.adicionaItemParaDoacao("id1", "sal", -1, "comida,conservante");
+            try {
+                this.controleGeral.adicionaItemParaDoacao("11111111111111", "", 4, "comida,conservante");
+            } catch(Exception e) {
+                e.getMessage().equals("Entrada invalida: descricao nao pode ser vazia ou nula.");
+            }
 
-                });
 
-        assertThrows(NullPointerException.class,
-                () -> {
+            try {
+                this.controleGeral.adicionaItemParaDoacao("11111111111111", "sal", -1, "comida,conservante");
+            } catch(Exception e) {
+                e.getMessage().equals("Entrada invalida: quantidade deve ser maior que zero.");
+            }
+
+
+            try {
                     this.controleGeral.adicionaItemParaDoacao(null, "sal", 4, "comida,conservante");
+                } catch(Exception e) {
+                    e.getMessage().equals("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+                }
 
-                });
 
-        assertThrows(NullPointerException.class,
-                () -> {
-                    this.controleGeral.adicionaItemParaDoacao("id1", null, 4, "comida,conservante");
+            try {
+                this.controleGeral.adicionaItemParaDoacao("11111111111111", null, 4, "comida,conservante");
+            } catch(Exception e) {
+                e.getMessage().equals("Entrada invalida: descricao nao pode ser vazia ou nula.");
+            }
 
-                });
+
+            try {
+                this.controleGeral.adicionaItemParaDoacao("123", "sal", 4, "comida,conservante");
+            } catch(Exception e) {
+                e.getMessage().equals("Usuario nao encontrado: 123.");
+            }
 
     }
 
     @Test
-    public void exibeItem() {
-        this.controleItem.adicionaDescritor("brinquedo");
+    @DisplayName("teste de exibicao de item")
+    public void exibeItemTest() {
+        this.controleGeral.adicionaDescritor("brinquedo");
 
+        this.controleGeral.adicionaDoador("12345678912", "bruno", "bruno@", "90897898", "PESSOA_FISICA");
+        this.controleGeral.adicionaItemParaDoacao("12345678912", "brinquedos", 3, "bola,crianca");
 
-        this.controleItem.adicionaItemParaDoacao("id1", "brinquedos", "bola,crianca", 3, "george");
-
-        assertEquals("2 - brinquedos, tags: [bola, crianca], quantidade: 3", this.controleItem.exibeItem("id1", "2") );
+        assertEquals("1 - brinquedos, tags: [bola, crianca], quantidade: 3", this.controleGeral.exibeItem("1", "12345678912") );
 
 
         assertThrows(IllegalArgumentException.class,
                 () -> {
-                    this.controleItem.exibeItem("doador nao existe", "1");
+                    this.controleGeral.exibeItem("1", "doador nao existe");
                 });
 
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    this.controleItem.exibeItem("id1", "item nao existe");
-                });
+            try {
+                this.controleGeral.exibeItem("1", "000000000");
+            } catch(Exception e) {
+                e.getMessage().equals("Usuario nao encontrado: 000000000.");
+            }
+
+            try {
+                this.controleGeral.exibeItem("23", "12345678912");
+            } catch(Exception e) {
+                e.getMessage().equals("Item nao encontrado: 23.");
+            }
 
 
     }
@@ -114,36 +134,209 @@ public class ControllerTest {
 
     @Test
     @DisplayName("teste de remoção de itens")
-    public void removeItem() {
-        this.controleItem.adicionaDescritor("travesseiro");
+    public void removeItemParaDoacaoTest() {
+        this.controleGeral.adicionaDescritor("travesseiro");
 
-        this.controleItem.adicionaItemParaDoacao("doador", "travesseiro", "la, fofo, tecido", 4, "brener");
+        this.controleGeral.adicionaDoador("13059752435", "nDoador", "doador@", "doador0", "PESSOA_FISICA");
 
-        this.controleItem.removeItemParaDoacao("1", "doador");
 
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    this.controleItem.exibeItem("doador", "1");
-                });
+        this.controleGeral.adicionaItemParaDoacao("13059752435", "travesseiro", 4, "la, fofo, tecido");
 
-//
-//        this.controleItem.adicionaDescritor("computador");
-//        this.controleItem.adicionaItemNecessario("receptor", "computador", "tech,atual", 3, "kovalenko");
-//        this.controleUsuario.cadastraReceptor("higor", "higor@", "88099473", "PESSOA_FISICA", "12312312312", "receptor");
-//
-//        this.controleItem.exibeItem("higor", "2");
-//
-//        this.controleItem.removeItemNecessario("receptor", "1");
-//
-//        assertThrows(NullPointerException.class,
-//                () -> {
-//                    this.controleItem.exibeItem("12312312312", "2");
-//                });
+        this.controleGeral.removeItemParaDoacao("1", "13059752435");
+
+        // Teste de excecao
+
+        try {
+            this.controleGeral.exibeItem("1", "13059752435");
+        } catch(Exception e) {
+            e.getMessage().equals("Item nao encontrado: 1.");
+        }
+
+        try {
+            this.controleGeral.removeItemParaDoacao("-1", "13059752435");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: id do item nao pode ser negativo.");
+        }
+
+        try {
+            this.controleGeral.removeItemParaDoacao("1", null);
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+
+        try {
+            this.controleGeral.removeItemParaDoacao("1", "");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+
+        try {
+            this.controleGeral.removeItemParaDoacao("", "13059752435");
+        } catch(Exception e) {
+            e.getMessage().equals("O Usuario nao possui itens cadastrados.");
+        }
 
 
     }
 
+    @Test
+    @DisplayName("teste de atualizar atributos de itens")
+    public void atualizaItemParaDoacaoTest() {
+
+        this.controleGeral.adicionaDescritor("pinturas");
+
+        this.controleGeral.adicionaDoador("11122233344", "diego", "diego@", "9089876532", "PESSOA_FISICA");
+
+        // antes
+        this.controleGeral.adicionaItemParaDoacao("11122233344", "pinturas", 12, "tinta, decoracao, monalisa");
+
+        assertEquals("1 - pinturas, tags: [tinta,  decoracao,  monalisa], quantidade: 12", this.controleGeral.exibeItem("1", "11122233344"));
+
+        // depois
+        this.controleGeral.atualizaItemParaDoacao("1", "11122233344", 15, "tinta, decoracao, monalisa, perfeicao");
+
+        assertEquals("1 - pinturas, tags: [tinta,  decoracao,  monalisa,  perfeicao], quantidade: 15", this.controleGeral.exibeItem("1", "11122233344"));
+
+
+        // excecoes
+
+        try {
+            this.controleGeral.atualizaItemParaDoacao("-1", "11122233344", 15, "tinta, decoracao, monalisa, perfeicao");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: id do item nao pode ser negativo.");
+        }
+
+        try {
+            this.controleGeral.atualizaItemParaDoacao("1", "", 15, "tinta, decoracao, monalisa, perfeicao");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+
+        try {
+            this.controleGeral.atualizaItemParaDoacao("1", null, 15, "tinta, decoracao, monalisa, perfeicao");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+
+        try {
+            this.controleGeral.atualizaItemParaDoacao("1", "00000000000", 15, "tinta, decoracao, monalisa, perfeicao");
+        } catch(Exception e) {
+            e.getMessage().equals("Usuario nao encontrado: 00000000000.");
+        }
+
+        try {
+            this.controleGeral.atualizaItemParaDoacao("2", "11122233344", 15, "tinta, decoracao, monalisa, perfeicao");
+        } catch(Exception e) {
+            e.getMessage().equals("Item nao encontrado: 2.");
+        }
+
+    }
+
+    @Test
+    @DisplayName("Teste de listagem de descritores")
+    public void listaDescritorDeItensParaDoacaoTest() {
+        this.controleGeral.adicionaDescritor("jogos");
+        this.controleGeral.adicionaDescritor("livros");
+        this.controleGeral.adicionaDescritor("chapeu");
+        this.controleGeral.adicionaDescritor("pinturas");
+
+        this.controleGeral.adicionaDoador("11122233344", "diego", "diego@", "9089876532", "PESSOA_FISICA");
+
+        this.controleGeral.adicionaItemParaDoacao("11122233344", "pinturas", 1, "tinta, decoracao, monalisa");
+        this.controleGeral.adicionaItemParaDoacao("11122233344", "pinturas", 4, "infantil, guache");
+
+        this.controleGeral.adicionaItemParaDoacao("11122233344", "chapeu", 2, "trabalho, protecao");
+        this.controleGeral.adicionaItemParaDoacao("11122233344", "chapeu", 3, "estilo, gangster, fedora");
+
+        this.controleGeral.adicionaItemParaDoacao("11122233344", "jogos", 100, "diversao, infantil, ps4");
+
+
+        assertEquals("5 - chapeu | 100 - jogos | 0 - livros | 5 - pinturas", this.controleGeral.listaDescritorDeItensParaDoacao());
+
+        //excecao
+
+        try {
+            this.controleGeral.adicionaDescritor("");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
+
+        try {
+            this.controleGeral.adicionaDescritor(null);
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
+
+        try {
+            this.controleGeral.adicionaDescritor("livros");
+        } catch(Exception e) {
+            e.getMessage().equals("Descritor de Item ja existente: livros.");
+        }
+
+    }
+
+
+    @Test
+    @DisplayName("teste de listagem de itens para doacao")
+    public void listaItensParaDoacaoTest() {
+        this.controleGeral.adicionaDescritor("jogos");
+
+        this.controleGeral.adicionaDoador("11122233344", "brener", "brener@", "9089876532", "PESSOA_FISICA");
+
+        this.controleGeral.adicionaItemParaDoacao("11122233344", "jogos", 1, "doom, violento, +18");
+        this.controleGeral.adicionaItemParaDoacao("11122233344", "jogos", 2, "god of war, goty");
+        this.controleGeral.adicionaItemParaDoacao("11122233344", "jogos", 3, "RDR2, rockstar, real goty");
+        this.controleGeral.adicionaItemParaDoacao("11122233344", "jogos", 2, "LoL, terrible game");
+
+        assertEquals("3 - jogos, tags: [RDR2,  rockstar,  real goty], quantidade: 3, doador: brener/11122233344 " +
+                "| 2 - jogos, tags: [god of war,  goty], quantidade: 2, doador: brener/11122233344 " +
+                "| 4 - jogos, tags: [LoL,  terrible game], quantidade: 2, doador: brener/11122233344 " +
+                "| 1 - jogos, tags: [doom,  violento,  +18], quantidade: 1, doador: brener/11122233344", this.controleGeral.listaItensParaDoacao());
+    }
+
+    @Test
+    @DisplayName("teste de pesquisa de itens atraves de descritores")
+    public void pesquisaItemParaDoacaoPorDescricaoTest() {
+        this.controleGeral.adicionaDescritor("jogos adultos");
+        this.controleGeral.adicionaDescritor("jogos infantis");
+
+        this.controleGeral.adicionaDoador("12312312323123", "softGames", "softgames@", "3213211232", "SOCIEDADE");
+
+
+        this.controleGeral.adicionaItemParaDoacao("12312312323123", "jogos adultos", 1, "doom, violento, +18");
+        this.controleGeral.adicionaItemParaDoacao("12312312323123", "jogos adultos", 1, "mario, plataforma, +4");
 
 
 
+        assertEquals("1 - jogos adultos, tags: [doom,  violento,  +18], quantidade: 1 " +
+                "| 2 - jogos adultos, tags: [mario,  plataforma,  +4], quantidade: 1", this.controleGeral.pesquisaItemParaDoacaoPorDescricao("jogos adultos"));
+
+
+
+        try {
+            this.controleGeral.pesquisaItemParaDoacaoPorDescricao("");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: texto da pesquisa nao pode ser vazio ou nulo.");
+        }
+
+
+
+        try {
+            this.controleGeral.pesquisaItemParaDoacaoPorDescricao(null);
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: texto da pesquisa nao pode ser vazio ou nulo.");
+        }
+
+    }
+
+//
+//    @Test
+//    @DisplayName("teste de cadastro de item demandado")
+//    public void adicionaItemNecessarioTest() {
+//        this.controleGeral.adicionaDescritor("remedio");
+//
+//
+//        this.controleGeral.adicionaItemNecessario("12312312312", "remedio", 3, "painkiller, cura");
+//
+//    }
 }

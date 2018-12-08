@@ -49,6 +49,7 @@ public class Controller {
         
     }
 
+
     /**
      * Retorna a representacao de um usuario de acordo com seu id.
      * @param idUsuario Identificacao do usuario que se quer.
