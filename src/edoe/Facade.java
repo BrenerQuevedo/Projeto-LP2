@@ -14,7 +14,8 @@ public class Facade {
         args = new String[]{"edoe.Facade", "acceptance-tests/use_case_1.txt",
         "acceptance-tests/use_case_2.txt",
         "acceptance-tests/use_case_3.txt",
-        "acceptance-tests/use_case_4.txt"};
+        "acceptance-tests/use_case_4.txt",
+        "acceptance-tests/use_case_5.txt"};
         EasyAccept.main(args);
     }
 
@@ -211,5 +212,9 @@ public class Facade {
      */
     public void removeItemNecessario (String idReceptor, String idItem) {
         this.controller.removeItemNecessario(idReceptor,idItem);
+    }
+
+    public String match (String idReceptor, String idItemNecessario) {
+        return this.controller.match(idReceptor, idItemNecessario);
     }
 }

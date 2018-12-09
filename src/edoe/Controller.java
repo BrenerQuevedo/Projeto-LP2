@@ -283,4 +283,8 @@ public class Controller {
         }
         this.itemController.removeItemNecessario(idReceptor,idItem);
     }
+
+    public String match (String idReceptor, String idItemNecessario) {
+        return this.itemController.match(idReceptor, idItemNecessario);
+    }
 }

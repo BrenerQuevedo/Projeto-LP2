@@ -148,19 +148,6 @@ public class ItemController {
         return this.itensDoacao.get(idDoador).get(idItem).toString();
     }
 
-    private String constroiListagem (List<String> lista) {
-        StringBuilder builder = new StringBuilder();
-        boolean adicionaSeparador = false;
-        for (String s : lista) {
-            if (adicionaSeparador) {
-                builder.append(" | ");
-            }
-            builder.append(s);
-            adicionaSeparador = true;
-        }
-        return builder.toString();
-    }
-
     private int getQuantidadeDeItensComDescritor (String descritor) {
         int quantidade = 0;
         for (Item i : this.descritores.get(descritor)) {
@@ -367,19 +354,49 @@ public class ItemController {
         return "[" + tags.replace(",", ", ") + "]";
     }
 
-    private String itensComDescritor (String s) {
+    private String constroiListagem (List<String> lista) {
         StringBuilder builder = new StringBuilder();
-        List<Item> lista = new ArrayList<>(descritores.get(s));
-        Collections.sort(lista);
-
-        boolean v = false;
-        for (Item i : lista) {
-            if (v) {
+        boolean adicionaSeparador = false;
+        for (String s : lista) {
+            if (adicionaSeparador) {
                 builder.append(" | ");
             }
-            builder.append(i.toString());
-            v = true;
+            builder.append(s);
+            adicionaSeparador = true;
         }
         return builder.toString();
+    }
+
+    public String match (String idReceptor, String idItemNecessario) {
+        Item itemNecessario = this.itensNecessarios.get(idReceptor).get(idItemNecessario);
+        Map<Integer, String> tree = new TreeMap<>();
+
+        for (String idDoador : this.itensDoacao.keySet()) {
+            for (Item itemParaDoacao : this.descritores.get(itemNecessario.getDescricao().toLowerCase())) {
+                //TODO
+                tree.put(calculaPontos(itemNecessario, itemParaDoacao), itemParaDoacao.toStringComDoador());
+            }
+        }
+
+        List<String> matches = new ArrayList<>(tree.values());
+
+        return constroiListagem(matches);
+    }
+
+    private int calculaPontos (Item itemNecessario, Item itemParaDoacao) {
+        int pontos = 0;
+
+        List<String> tagsDoItemNecessario = Arrays.asList(itemNecessario.getTags().replace("[", "").split(", "));
+        List<String> tagsDoItemParaDoacao = Arrays.asList(itemParaDoacao.getTags().replace("[", "").split(", "));
+        for (String tag : tagsDoItemNecessario) {
+            if (tagsDoItemParaDoacao.contains(tag)) {
+                if (tagsDoItemParaDoacao.indexOf(tag) == tagsDoItemNecessario.indexOf(tag)) {
+                    pontos += 10;
+                } else {
+                    pontos += 5;
+                }
+            }
+        }
+        return pontos;
     }
 }

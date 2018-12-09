@@ -28,7 +28,6 @@ public class Item implements Comparable<Item> {
      * Nome do usuario que possui ou precisa dos itens.
      */
     private String nomeUsuario;
-
     /**
      * Id do usuario que possui ou precisa dos itens.
      */
@@ -73,10 +72,6 @@ public class Item implements Comparable<Item> {
         return this.tags;
     }
 
-    public String getIdItem () {
-        return this.idItem;
-    }
-
     public String getIdUsuario () {
         return this.idUsuario;
     }
@@ -94,7 +89,10 @@ public class Item implements Comparable<Item> {
     @Override
     public String toString() {
         return this.idItem + " - " + this.descricaoItem + ", tags: " + this.tags + ", quantidade: " + this.quantidade;
+    }
 
+    public String toStringComDoador () {
+        return this.toString() + ", doador: " + this.nomeUsuario + "/" + this.idUsuario + ".";
     }
 
     @Override
