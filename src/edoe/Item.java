@@ -82,6 +82,9 @@ public class Item implements Comparable<Item> {
     }
 
 
+    public String getIdItem() {
+    	return this.idItem;
+    }
     /**
      * Retorna uma String com informacoes do item.
      * @return Retorna uma String com o formato "IDITEM - DESCRICAOITEM, tags: TAGS, quantidade: QUANTIDADE".

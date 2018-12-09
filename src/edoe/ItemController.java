@@ -9,6 +9,8 @@ import java.util.*;
  */
 public class ItemController {
 
+	
+	private List<String> doacoes;
     /**
      * Mapa de itens doados, em que a key é o identificador do usuário, e o valor é outro mapa, sendo este de itens, no qual a key é o identificador do item e o value é um objeto do tipo Item.
      */
@@ -31,7 +33,8 @@ public class ItemController {
      * obs: o map de itens necessários será um TreeMap pois os itens terão de ser listados de forma ordenada.
      */
     public ItemController () {
-        this.itensDoacao = new HashMap<>();
+        this.doacoes = new ArrayList<>();
+    	this.itensDoacao = new HashMap<>();
         this.itensNecessarios = new HashMap<>();
         this.descritores = new TreeMap<>();
         this.idItem = 0;
@@ -399,4 +402,82 @@ public class ItemController {
         }
         return pontos;
     }
+    
+    public String realizaDoacao(String idItemNecessario, String idItemParaDoacao, String data) throws ItemParaDoacaoInexistenteException {
+    	if(data == null) {
+    		throw new NullPointerException("Entrada invalida: data nao pode ser vazia ou nula.");
+    	}
+    	if(idItemNecessario == null) {
+    		throw new NullPointerException("id item necessario nao pode ser nulo");
+    	}
+    	if(idItemParaDoacao == null) {
+    		throw new NullPointerException("id item para doaocao nao pode ser nulo;");
+    	}
+    	if(Integer.parseInt(idItemParaDoacao) < 0 || Integer.parseInt(idItemNecessario) < 0) {
+    		throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
+    	}
+    	if(data.trim().equals("")) {
+    		throw new IllegalArgumentException("Entrada invalida: data nao pode ser vazia ou nula.");
+    	}
+    	
+    	Item itemNecessario = null;
+    	Item itemDoacao = null;
+    	for(String idReceptor : this.itensNecessarios.keySet()) {
+    		if(this.itensNecessarios.get(idReceptor).containsKey(idItemNecessario)) {
+    			itemNecessario = this.itensNecessarios.get(idReceptor).get(idItemNecessario);
+    		}
+    	}
+    	for(String idReceptor : this.itensDoacao.keySet()) {
+    		if(this.itensDoacao.get(idReceptor).containsKey(idItemParaDoacao)) {
+    			itemDoacao = this.itensDoacao.get(idReceptor).get(idItemParaDoacao);
+    		}
+    	}
+    	if(itemDoacao == null) {
+    		throw new NullPointerException("Item nao encontrado: " + idItemParaDoacao + ".");
+    	}
+    	if(itemNecessario == null) {
+    		throw new NullPointerException("Item nao encontrado: " + idItemNecessario + ".");
+    	}
+    	if(itemNecessario.getDescricao().toLowerCase().equals(itemDoacao.getDescricao().toLowerCase())) {
+    		int itensDoados =  this.doacao(itemNecessario, itemDoacao);
+    		String doacao = String.format("%s - doador: %s/%s, item: %s, quantidade: %d, receptor: %s/%s", data, itemDoacao.getNomeUsuario(), itemDoacao.getIdUsuario(), itemDoacao.getDescricao(),itensDoados, itemNecessario.getDescricao(), itemNecessario.getIdUsuario());
+    		this.doacoes.add(doacao);
+    		return doacao;
+    	}else {
+    		throw new ItemParaDoacaoInexistenteException("Os itens nao tem descricoes iguais.");
+    	}
+    }
+
+	private int doacao(Item itemNecessario, Item itemDoacao) {
+		if(itemNecessario.getQuantidade() > itemDoacao.getQuantidade()) {
+			itemNecessario.setQuantidade(itemNecessario.getQuantidade() - itemDoacao.getQuantidade());
+			this.removeItemParaDoacao(itemDoacao.getIdItem(), itemDoacao.getIdUsuario());
+			return itemDoacao.getQuantidade();
+		}
+		else if( itemDoacao.getQuantidade() > itemNecessario.getQuantidade() ) {
+			itemDoacao.setQuantidade(itemDoacao.getQuantidade() - itemNecessario.getQuantidade() );
+			this.removeItemNecessario(itemNecessario.getIdItem(), itemNecessario.getIdUsuario());
+			return itemNecessario.getQuantidade();
+		}
+		else {
+			this.removeItemParaDoacao(itemDoacao.getIdItem(), itemDoacao.getIdUsuario());
+			this.removeItemNecessario(itemNecessario.getIdItem(), itemNecessario.getIdUsuario());
+			return itemNecessario.getQuantidade();
+		}
+	}
+
+	public String listaDoacoes() {
+		this.doacoes.sort(new comparaData());
+		StringBuilder builder = new StringBuilder();
+		boolean adicionaSeparador = false;
+		for(String doacao : this.doacoes) {
+			if(adicionaSeparador) {
+				builder.append(" | ");
+			}
+			builder.append(doacao);
+			adicionaSeparador = true;
+		}
+		return builder.toString();
+	}
 }
+
