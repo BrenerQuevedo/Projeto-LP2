@@ -176,6 +176,7 @@ public class UsuarioController{
 	public boolean contemUsuario(String idUsuario) {
 		return this.Usuarios.containsKey(idUsuario);
 	}
+
 	/**
 	 * metodo para validar as entradas de metodos que tenham muitas entradas
 	 * @param entradas Array de string com as entradas
@@ -273,5 +274,7 @@ public class UsuarioController{
 		sc.close();
 	}
 
-	
+	public boolean validaReceptor (String idUsuario) {
+	    return this.Usuarios.get(idUsuario).getStatus().equals("receptor");
+    }
 }

@@ -81,7 +81,7 @@ public class ItemController {
         }
 
         this.idItem += 1;
-        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeDoador, idDoador);
+        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeDoador, idDoador, "doacao");
 
         if (!this.itensDoacao.containsKey(idDoador)) {
             this.itensDoacao.put(idDoador, new HashMap<>());
@@ -266,7 +266,7 @@ public class ItemController {
         }
 
         this.idItem += 1;
-        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeReceptor, idReceptor);
+        Item item = new Item(Integer.toString(idItem), descricaoItem, formataTags(tags), quantidade, nomeReceptor, idReceptor, "necessario");
 
         if (!this.itensNecessarios.containsKey(idReceptor)) {
             this.itensNecessarios.put(idReceptor, new HashMap<>());
@@ -371,26 +371,45 @@ public class ItemController {
     }
 
     public String match (String idReceptor, String idItemNecessario) {
-        Item itemNecessario = this.itensNecessarios.get(idReceptor).get(idItemNecessario);
-        Map<Integer, String> tree = new TreeMap<>();
+        
+        if (!this.itensNecessarios.get(idReceptor).containsKey(idItemNecessario)) {
+            throw new NullPointerException("Item nao encontrado: " + idItemNecessario + ".");
+        }
 
-        for (String idDoador : this.itensDoacao.keySet()) {
-            for (Item itemParaDoacao : this.descritores.get(itemNecessario.getDescricao().toLowerCase())) {
-                //TODO
-                tree.put(calculaPontos(itemNecessario, itemParaDoacao), itemParaDoacao.toStringComDoador());
+
+        Item itemNecessario = this.itensNecessarios.get(idReceptor).get(idItemNecessario);
+        Map<Integer, List<String>> tree = new TreeMap<>(Collections.reverseOrder());
+
+        for (Item item : this.descritores.get(itemNecessario.getDescricao().toLowerCase())) {
+            if (item.getCategoria().equals("doacao")) {
+                int pontos = calculaPontos(itemNecessario, item);
+
+                if (!tree.containsKey(pontos)) {
+                    tree.put(pontos, new ArrayList<>());
+                }
+
+                tree.get(pontos).add(item.toStringComDoador());
             }
         }
 
-        List<String> matches = new ArrayList<>(tree.values());
+        if (tree.size() == 0) {
+            throw new IllegalArgumentException("Item nao tem nenhum match.");
+        }
 
+        List<String> matches = new ArrayList<>();
+
+        for (int pontos : tree.keySet()) {
+            Collections.sort(tree.get(pontos));
+            matches.addAll(tree.get(pontos));
+        }
         return constroiListagem(matches);
     }
 
     private int calculaPontos (Item itemNecessario, Item itemParaDoacao) {
         int pontos = 0;
 
-        List<String> tagsDoItemNecessario = Arrays.asList(itemNecessario.getTags().replace("[", "").split(", "));
-        List<String> tagsDoItemParaDoacao = Arrays.asList(itemParaDoacao.getTags().replace("[", "").split(", "));
+        List<String> tagsDoItemNecessario = Arrays.asList(itemNecessario.getTags().replace("[", "").replace("]", "").split(", "));
+        List<String> tagsDoItemParaDoacao = Arrays.asList(itemParaDoacao.getTags().replace("[", "").replace("]", "").split(", "));
         for (String tag : tagsDoItemNecessario) {
             if (tagsDoItemParaDoacao.contains(tag)) {
                 if (tagsDoItemParaDoacao.indexOf(tag) == tagsDoItemNecessario.indexOf(tag)) {

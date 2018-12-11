@@ -285,6 +285,23 @@ public class Controller {
     }
 
     public String match (String idReceptor, String idItemNecessario) {
+        if (idReceptor == null) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (idReceptor.equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (!this.usuarioController.contemUsuario(idReceptor)) {
+            throw new NullPointerException("Usuario nao encontrado: " + idReceptor + ".");
+        }
+        if (!this.usuarioController.validaReceptor(idReceptor)) {
+            throw new IllegalArgumentException("O Usuario deve ser um receptor: " + idReceptor + ".");
+        }
+        if (Integer.parseInt(idItemNecessario) < 0) {
+            throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
+        }
+
+
         return this.itemController.match(idReceptor, idItemNecessario);
     }
 

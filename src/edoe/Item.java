@@ -34,6 +34,12 @@ public class Item implements Comparable<Item> {
     private String idUsuario;
 
     /**
+     * Categoria do item.
+     */
+    private String categoria;
+
+
+    /**
      * Cosntrutor do objeto Item.
      * @param idItem Id do item.
      * @param descricao Descricao do item.
@@ -42,13 +48,14 @@ public class Item implements Comparable<Item> {
      * @param nomeUsuario Nome do usuario que possui ou precsia do item.
      * @param idUsuario Id do usuario que possui ou precisa do item.
      */
-    public Item(String idItem, String descricao, String tags, int quantidade, String nomeUsuario, String idUsuario) {
+    public Item(String idItem, String descricao, String tags, int quantidade, String nomeUsuario, String idUsuario, String categoria) {
         this.descricaoItem = descricao;
         this.idItem = idItem;
         this.tags = tags;
         this.quantidade = quantidade;
         this.nomeUsuario = nomeUsuario;
         this.idUsuario = idUsuario;
+        this.categoria = categoria;
     }
 
 
@@ -76,15 +83,18 @@ public class Item implements Comparable<Item> {
         return this.idUsuario;
     }
 
-
     public String getNomeUsuario () {
         return this.nomeUsuario;
     }
 
-
     public String getIdItem() {
     	return this.idItem;
     }
+
+    public String getCategoria () {
+        return this.categoria;
+    }
+
     /**
      * Retorna uma String com informacoes do item.
      * @return Retorna uma String com o formato "IDITEM - DESCRICAOITEM, tags: TAGS, quantidade: QUANTIDADE".
@@ -95,7 +105,7 @@ public class Item implements Comparable<Item> {
     }
 
     public String toStringComDoador () {
-        return this.toString() + ", doador: " + this.nomeUsuario + "/" + this.idUsuario + ".";
+        return this.toString() + ", doador: " + this.nomeUsuario + "/" + this.idUsuario;
     }
 
     @Override
