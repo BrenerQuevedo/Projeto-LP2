@@ -15,7 +15,9 @@ public class Facade {
         "acceptance-tests/use_case_2.txt",
         "acceptance-tests/use_case_3.txt",
         "acceptance-tests/use_case_4.txt",
-        "acceptance-tests/use_case_5.txt"};
+        "acceptance-tests/use_case_5.txt",
+        "acceptance-tests/use_case_6.txt"
+        									};
         EasyAccept.main(args);
     }
 
@@ -216,5 +218,11 @@ public class Facade {
 
     public String match (String idReceptor, String idItemNecessario) {
         return this.controller.match(idReceptor, idItemNecessario);
+    }
+    public String realizaDoacao(String idItemNecessario, String idItemParaDoacao, String data) throws NullPointerException, IllegalArgumentException, ItemInexistenteException {
+    	return this.controller.realizaDoacao(idItemNecessario, idItemParaDoacao, data);
+    }
+    public String listaDoacoes() throws Exception {
+    	return this.controller.listaDoacoes();
     }
 }

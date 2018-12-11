@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Classe responsavel pelo gerenciamento de itens, pelo padrao CRUD.
  *
- * @author Brener Quevedo, Iago Oliveira
+ * @author Brener Quevedo, Iago Oliveira, Paulo Moreira
  */
 public class ItemController {
 
@@ -402,8 +402,18 @@ public class ItemController {
         }
         return pontos;
     }
-    
-    public String realizaDoacao(String idItemNecessario, String idItemParaDoacao, String data) throws ItemParaDoacaoInexistenteException {
+   
+    /**
+     * Realiza a doacao de um itemParaDoacao para um receptor que tem um itemNecessario com mesma descricao.
+     * @param idItemNecessario id do item necessario.
+     * @param idItemParaDoacao id do item para doacao.
+     * @param data data em que esta sendo realizada a doacao.
+     * @return retorna uma representacao da doacao com data, dados do doador e receptor, descricao do produto doado e quantidade doada do produto.
+     * @throws ItemInexistenteException excecao lancada quando o item nao existe ou quando as descricoes dos itens nao sao iguais.
+     * @throws NullPointerException quando alguma entrada do metodo for nula.
+     * @throws IllegalArgumentException quando alguma entrada for vazia ou menor que 0.
+     */
+    public String realizaDoacao(String idItemNecessario, String idItemParaDoacao, String data) throws ItemInexistenteException, NullPointerException, IllegalArgumentException   {
     	if(data == null) {
     		throw new NullPointerException("Entrada invalida: data nao pode ser vazia ou nula.");
     	}
@@ -427,24 +437,24 @@ public class ItemController {
     			itemNecessario = this.itensNecessarios.get(idReceptor).get(idItemNecessario);
     		}
     	}
-    	for(String idReceptor : this.itensDoacao.keySet()) {
-    		if(this.itensDoacao.get(idReceptor).containsKey(idItemParaDoacao)) {
-    			itemDoacao = this.itensDoacao.get(idReceptor).get(idItemParaDoacao);
+    	for(String idDoador : this.itensDoacao.keySet()) {
+    		if(this.itensDoacao.get(idDoador).containsKey(idItemParaDoacao)) {
+    			itemDoacao = this.itensDoacao.get(idDoador).get(idItemParaDoacao);
     		}
     	}
     	if(itemDoacao == null) {
-    		throw new NullPointerException("Item nao encontrado: " + idItemParaDoacao + ".");
+    		throw new ItemInexistenteException("Item nao encontrado: " + idItemParaDoacao + ".");
     	}
     	if(itemNecessario == null) {
-    		throw new NullPointerException("Item nao encontrado: " + idItemNecessario + ".");
+    		throw new ItemInexistenteException("Item nao encontrado: " + idItemNecessario + ".");
     	}
-    	if(itemNecessario.getDescricao().toLowerCase().equals(itemDoacao.getDescricao().toLowerCase())) {
+    	if(itemNecessario.getDescricao().toLowerCase().contains(itemDoacao.getDescricao().toLowerCase())) {
     		int itensDoados =  this.doacao(itemNecessario, itemDoacao);
-    		String doacao = String.format("%s - doador: %s/%s, item: %s, quantidade: %d, receptor: %s/%s", data, itemDoacao.getNomeUsuario(), itemDoacao.getIdUsuario(), itemDoacao.getDescricao(),itensDoados, itemNecessario.getDescricao(), itemNecessario.getIdUsuario());
+    		String doacao = String.format("%s - doador: %s/%s, item: %s, quantidade: %d, receptor: %s/%s", data, itemDoacao.getNomeUsuario(), itemDoacao.getIdUsuario(), itemDoacao.getDescricao(),itensDoados, itemNecessario.getNomeUsuario(), itemNecessario.getIdUsuario());
     		this.doacoes.add(doacao);
     		return doacao;
     	}else {
-    		throw new ItemParaDoacaoInexistenteException("Os itens nao tem descricoes iguais.");
+    		throw new ItemInexistenteException("Os itens nao tem descricoes iguais.");
     	}
     }
 
@@ -456,18 +466,23 @@ public class ItemController {
 		}
 		else if( itemDoacao.getQuantidade() > itemNecessario.getQuantidade() ) {
 			itemDoacao.setQuantidade(itemDoacao.getQuantidade() - itemNecessario.getQuantidade() );
-			this.removeItemNecessario(itemNecessario.getIdItem(), itemNecessario.getIdUsuario());
+			this.removeItemNecessario(itemNecessario.getIdUsuario(), itemNecessario.getIdItem());
 			return itemNecessario.getQuantidade();
 		}
 		else {
 			this.removeItemParaDoacao(itemDoacao.getIdItem(), itemDoacao.getIdUsuario());
-			this.removeItemNecessario(itemNecessario.getIdItem(), itemNecessario.getIdUsuario());
+			this.removeItemNecessario(itemNecessario.getIdUsuario(), itemNecessario.getIdItem());
 			return itemNecessario.getQuantidade();
 		}
 	}
 
-	public String listaDoacoes() {
-		this.doacoes.sort(new comparaData());
+	/**
+	 * Metodo que lista todas as doacoes ordenadas por sua data. Caso a data seja igual, ela se ordena pelo descritor do item.
+	 * @return retorna a representacao de cada doacao separado por " | " .
+	 * @throws Exception lanca uma excecao checada no cast da data. Uma ParseException.
+	 */
+	public String listaDoacoes() throws Exception {
+		this.doacoes.sort(new comparaItemPorData());
 		StringBuilder builder = new StringBuilder();
 		boolean adicionaSeparador = false;
 		for(String doacao : this.doacoes) {

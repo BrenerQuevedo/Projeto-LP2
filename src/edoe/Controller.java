@@ -287,4 +287,12 @@ public class Controller {
     public String match (String idReceptor, String idItemNecessario) {
         return this.itemController.match(idReceptor, idItemNecessario);
     }
+
+	public String realizaDoacao(String idItemNecessario, String idItemParaDoacao, String data) throws NullPointerException, IllegalArgumentException, ItemInexistenteException {
+		return this.itemController.realizaDoacao(idItemNecessario, idItemParaDoacao, data);
+	}
+
+	public String listaDoacoes() throws Exception {
+		return this.itemController.listaDoacoes();
+	}
 }
