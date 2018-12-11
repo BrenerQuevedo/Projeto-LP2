@@ -232,6 +232,13 @@ public class ItemController {
      * @throws NullPointerException
      */
     public void removeItemParaDoacao(String idItem, String idUsuario) throws IllegalArgumentException, NullPointerException {
+        if (idUsuario == null) {
+            throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (idUsuario.trim().equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+
         if (!this.itensDoacao.containsKey(idUsuario)) {
             throw new NullPointerException("O Usuario nao possui itens cadastrados.");
         }
@@ -256,6 +263,24 @@ public class ItemController {
      * @return Retorna o itentificador do item.
      */
     public String adicionaItemNecessario (String idReceptor, String descricaoItem, String tags, int quantidade, String nomeReceptor) {
+        if (descricaoItem == null) {
+            throw new NullPointerException("Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
+        descricaoItem = descricaoItem.trim().toLowerCase();
+
+        if (descricaoItem.equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
+        if (quantidade <= 0) {
+            throw new IllegalArgumentException("Entrada invalida: quantidade deve ser maior que zero.");
+        }
+        if (idReceptor == null) {
+            throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (idReceptor.trim().equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+
         if (this.itensNecessarios.containsKey(idReceptor)) {
             for (String id : this.itensNecessarios.get(idReceptor).keySet()) {
                 if (this.itensNecessarios.get(idReceptor).get(id).getDescricao().equals(descricaoItem) && this.itensNecessarios.get(idReceptor).get(id).getTags().equals(formataTags(tags))) {
@@ -319,6 +344,16 @@ public class ItemController {
      * @throws NullPointerException
      */
     public String atualizaItemNecessario (String idItem, String idReceptor, int novaQuantidade, String novasTags) throws NullPointerException {
+        if (Integer.parseInt(idItem) < 0) {
+            throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
+        }
+        if (idReceptor == null) {
+            throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (idReceptor.trim().equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+
         if (!this.itensNecessarios.containsKey(idReceptor)) {
             throw new NullPointerException("O Usuario nao possui itens cadastrados.");
         }
@@ -343,6 +378,16 @@ public class ItemController {
      * @throws NullPointerException
      */
     public void removeItemNecessario (String idReceptor, String idItem) throws NullPointerException {
+        if (Integer.parseInt(idItem) < 0) {
+            throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
+        }
+        if (idReceptor == null) {
+            throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (idReceptor.trim().equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+
         if (!this.itensNecessarios.containsKey(idReceptor)) {
             throw new NullPointerException("O Usuario nao possui itens cadastrados.");
         }
@@ -371,7 +416,17 @@ public class ItemController {
     }
 
     public String match (String idReceptor, String idItemNecessario) {
-        
+        if (idReceptor == null) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (idReceptor.equals("")) {
+            throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
+        if (Integer.parseInt(idItemNecessario) < 0) {
+            throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
+        }
+
+
         if (!this.itensNecessarios.get(idReceptor).containsKey(idItemNecessario)) {
             throw new NullPointerException("Item nao encontrado: " + idItemNecessario + ".");
         }

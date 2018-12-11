@@ -91,7 +91,9 @@ public class UsuarioController{
 		this.validaEntrada(entradas, dados, "Entrada invalida: ");
 		
 		if(this.Usuarios.containsKey(idUsuario)) {
-			this.Usuarios.get(idUsuario).setCelular(celular);this.Usuarios.get(idUsuario).setEmail(email);this.Usuarios.get(idUsuario).setNome(nome);
+			this.Usuarios.get(idUsuario).setCelular(celular);
+			this.Usuarios.get(idUsuario).setEmail(email);
+			this.Usuarios.get(idUsuario).setNome(nome);
 		}else {				
 			if(!this.classes.contains(classe)) {
 				throw new IllegalArgumentException("Entrada invalida: opcao de classe invalida.");

@@ -59,46 +59,46 @@ public class ControllerTest {
         assertEquals("1", this.controleGeral.adicionaItemParaDoacao("11111111111111", "sal", 4, "comida,conservante"));
 
 
-            try {
-                this.controleGeral.adicionaItemParaDoacao("", "sal", 4, "comida,conservante");
-            } catch(Exception e) {
-                e.getMessage().equals("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
-            }
+        try {
+            this.controleGeral.adicionaItemParaDoacao("", "sal", 4, "comida,conservante");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
 
 
-            try {
-                this.controleGeral.adicionaItemParaDoacao("11111111111111", "", 4, "comida,conservante");
-            } catch(Exception e) {
-                e.getMessage().equals("Entrada invalida: descricao nao pode ser vazia ou nula.");
-            }
+        try {
+            this.controleGeral.adicionaItemParaDoacao("11111111111111", "", 4, "comida,conservante");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
 
 
-            try {
-                this.controleGeral.adicionaItemParaDoacao("11111111111111", "sal", -1, "comida,conservante");
-            } catch(Exception e) {
-                e.getMessage().equals("Entrada invalida: quantidade deve ser maior que zero.");
-            }
+        try {
+            this.controleGeral.adicionaItemParaDoacao("11111111111111", "sal", -1, "comida,conservante");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: quantidade deve ser maior que zero.");
+        }
 
 
-            try {
-                    this.controleGeral.adicionaItemParaDoacao(null, "sal", 4, "comida,conservante");
-                } catch(Exception e) {
-                    e.getMessage().equals("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
-                }
+        try {
+            this.controleGeral.adicionaItemParaDoacao(null, "sal", 4, "comida,conservante");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
+        }
 
 
-            try {
-                this.controleGeral.adicionaItemParaDoacao("11111111111111", null, 4, "comida,conservante");
-            } catch(Exception e) {
-                e.getMessage().equals("Entrada invalida: descricao nao pode ser vazia ou nula.");
-            }
+        try {
+            this.controleGeral.adicionaItemParaDoacao("11111111111111", null, 4, "comida,conservante");
+        } catch(Exception e) {
+            e.getMessage().equals("Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
 
 
-            try {
-                this.controleGeral.adicionaItemParaDoacao("123", "sal", 4, "comida,conservante");
-            } catch(Exception e) {
-                e.getMessage().equals("Usuario nao encontrado: 123.");
-            }
+        try {
+            this.controleGeral.adicionaItemParaDoacao("123", "sal", 4, "comida,conservante");
+        } catch(Exception e) {
+            e.getMessage().equals("Usuario nao encontrado: 123.");
+        }
 
     }
 
@@ -118,21 +118,20 @@ public class ControllerTest {
                     this.controleGeral.exibeItem("1", "doador nao existe");
                 });
 
-            try {
-                this.controleGeral.exibeItem("1", "000000000");
-            } catch(Exception e) {
-                e.getMessage().equals("Usuario nao encontrado: 000000000.");
-            }
+        try {
+            this.controleGeral.exibeItem("1", "000000000");
+        } catch(Exception e) {
+            e.getMessage().equals("Usuario nao encontrado: 000000000.");
+        }
 
-            try {
-                this.controleGeral.exibeItem("23", "12345678912");
-            } catch(Exception e) {
-                e.getMessage().equals("Item nao encontrado: 23.");
-            }
+        try {
+            this.controleGeral.exibeItem("23", "12345678912");
+        } catch(Exception e) {
+            e.getMessage().equals("Item nao encontrado: 23.");
+        }
 
 
     }
-
 
     @Test
     @DisplayName("teste de remoção de itens")
@@ -331,14 +330,6 @@ public class ControllerTest {
 
     }
 
-//
-//    @Test
-//    @DisplayName("teste de cadastro de item demandado")
-//    public void adicionaItemNecessarioTest() {
-//        this.controleGeral.adicionaDescritor("remedio");
-//
-//
-//        this.controleGeral.adicionaItemNecessario("12312312312", "remedio", 3, "painkiller, cura");
-//
-//    }
+
+
 }
