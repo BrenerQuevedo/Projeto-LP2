@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import edoe.UsuarioController;
 
-class UsuarioControllerTest {
+public class UsuarioControllerTest {
 	UsuarioController controller;
 	
 	@BeforeEach

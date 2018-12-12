@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34c9b40f-1961-4d16-be45-55e2d2769caf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Testes/edoeTestes/ItemTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testes/edoeTestes/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testes/edoeTestes/ControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testes/edoeTestes/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testes/edoeTestes/ItemControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/ItemControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/ItemControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testes/edoeTestes/UsuarioControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testes/edoeTestes/UsuarioControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Testes/edoeTestes/UsuarioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testes/edoeTestes/UsuarioTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ComparaItemPorQuantidade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Facade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ItemController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ItemInexistenteException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/UsuarioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/comparaItemPorData.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edoe/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edoe/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edoe/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edoe/UsuarioController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,9 +26,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Projeto_LP2$ItemControllerTest.ic" NAME="ItemControllerTest Coverage Results" MODIFIED="1544557886464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Projeto_LP2$ItemControllerTest.ic" NAME="ItemControllerTest Coverage Results" MODIFIED="1544581087078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edoeTestes.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Projeto_LP2$ControllerTest.ic" NAME="ControllerTest Coverage Results" MODIFIED="1544580939524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edoeTestes.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Projeto_LP2$UsuarioTest.ic" NAME="UsuarioTest Coverage Results" MODIFIED="1544580644990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edoeTestes.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="158" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1762209068">
@@ -182,104 +199,52 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="7" />
+          <entry key="java" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="7" />
+          <entry key="JAVA" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1469" />
+          <entry key="java" value="2171" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1469" />
+          <entry key="JAVA" value="2171" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/edoe/ItemController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/UsuarioTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3267">
-              <caret line="239" column="9" selection-start-line="239" selection-start-column="9" selection-end-line="239" selection-end-column="9" />
-              <folding>
-                <element signature="docComment;class#ItemController#0" />
-                <element signature="docComment;field#itensDoacao#0;class#ItemController#0" />
-                <element signature="docComment;field#itensNecessarios#0;class#ItemController#0" />
-                <element signature="docComment;field#descritores#0;class#ItemController#0" />
-                <element signature="docComment;field#idItem#0;class#ItemController#0" />
-                <element signature="docComment;method#ItemController#0;class#ItemController#0" />
-                <element signature="method#ItemController#0;class#ItemController#0" />
-                <element signature="docComment;method#adicionaDescritor#0;class#ItemController#0" />
-                <element signature="method#adicionaDescritor#0;class#ItemController#0" />
-                <element signature="docComment;method#adicionaItemParaDoacao#0;class#ItemController#0" />
-                <element signature="docComment;method#exibeItem#0;class#ItemController#0" />
-                <element signature="method#exibeItem#0;class#ItemController#0" />
-                <element signature="docComment;method#atualizaItemParaDoacao#0;class#ItemController#0" />
-                <element signature="method#atualizaItemParaDoacao#0;class#ItemController#0" />
-                <element signature="method#getQuantidadeDeItensComDescritor#0;class#ItemController#0" />
-                <element signature="docComment;method#listaDescritorDeItensParaDoacao#0;class#ItemController#0" />
-                <element signature="method#listaDescritorDeItensParaDoacao#0;class#ItemController#0" />
-                <element signature="docComment;method#listaItensParaDoacao#0;class#ItemController#0" />
-                <element signature="method#listaItensParaDoacao#0;class#ItemController#0" />
-                <element signature="docComment;method#pesquisaItemParaDoacaoPorDescricao#0;class#ItemController#0" />
-                <element signature="method#pesquisaItemParaDoacaoPorDescricao#0;class#ItemController#0" />
-                <element signature="docComment;method#removeItemParaDoacao#0;class#ItemController#0" />
-                <element signature="docComment;method#atualizaItemNecessario#0;class#ItemController#0" />
-                <element signature="docComment;method#removeItemNecessario#0;class#ItemController#0" />
-                <element signature="docComment;method#realizaDoacao#0;class#ItemController#0" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/edoe/Controller.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/ItemControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1138">
-              <caret line="169" column="9" lean-forward="true" selection-start-line="164" selection-start-column="7" selection-end-line="169" selection-end-column="9" />
+            <state relative-caret-position="7935">
+              <caret line="529" selection-start-line="529" selection-end-line="529" />
               <folding>
-                <element signature="docComment;class#Controller#0" />
-                <element signature="docComment;field#usuarioController#0;class#Controller#0" />
-                <element signature="docComment;field#itemController#0;class#Controller#0" />
-                <element signature="docComment;method#Controller#0;class#Controller#0" />
-                <element signature="method#Controller#0;class#Controller#0" />
-                <element signature="docComment;method#lerReceptores#0;class#Controller#0" />
-                <element signature="method#lerReceptores#0;class#Controller#0" />
-                <element signature="docComment;method#adicionaDoador#0;class#Controller#0" />
-                <element signature="method#adicionaDoador#0;class#Controller#0" />
-                <element signature="docComment;method#pesquisaUsuarioPorId#0;class#Controller#0" />
-                <element signature="docComment;method#pesquisaUsuarioPorNome#0;class#Controller#0" />
-                <element signature="docComment;method#atualizaUsuario#0;class#Controller#0" />
-                <element signature="docComment;method#removeUsuario#0;class#Controller#0" />
-                <element signature="docComment;method#adicionaDescritor#0;class#Controller#0" />
-                <element signature="docComment;method#adicionaItemParaDoacao#0;class#Controller#0" />
-                <element signature="method#adicionaItemParaDoacao#0;class#Controller#0" />
-                <element signature="docComment;method#exibeItem#0;class#Controller#0" />
-                <element signature="docComment;method#atualizaItemParaDoacao#0;class#Controller#0" />
-                <element signature="docComment;method#removeItemParaDoacao#0;class#Controller#0" />
-                <element signature="docComment;method#listaDescritorDeItensParaDoacao#0;class#Controller#0" />
-                <element signature="docComment;method#listaItensParaDoacao#0;class#Controller#0" />
-                <element signature="docComment;method#pesquisaItemParaDoacaoPorDescricao#0;class#Controller#0" />
-                <element signature="method#pesquisaItemParaDoacaoPorDescricao#0;class#Controller#0" />
-                <element signature="docComment;method#adicionaItemNecessario#0;class#Controller#0" />
-                <element signature="docComment;method#listaItensNecessarios#0;class#Controller#0" />
-                <element signature="e#10025#10026#0" expanded="true" />
-                <element signature="e#10091#10092#0" expanded="true" />
-                <element signature="docComment;method#atualizaItemNecessario#0;class#Controller#0" />
-                <element signature="docComment;method#removeItemNecessario#0;class#Controller#0" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#381#382#0" expanded="true" />
+                <element signature="e#433#434#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -288,21 +253,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/ControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1875">
-              <caret line="134" selection-start-line="134" selection-end-line="134" />
+            <state relative-caret-position="1830">
+              <caret line="131" selection-start-line="131" selection-end-line="131" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/ItemControllerTest.java">
+        <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/UsuarioControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="459" column="47" selection-start-line="459" selection-start-column="47" selection-end-line="459" selection-end-column="47" />
+            <state relative-caret-position="30">
+              <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/ItemTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="111" selection-start-line="17" selection-start-column="111" selection-end-line="17" selection-end-column="111" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#343#344#0" expanded="true" />
-                <element signature="e#395#396#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -351,9 +323,11 @@
         <option value="$PROJECT_DIR$/src/edoe/Controller.java" />
         <option value="$PROJECT_DIR$/Testes/edoeTestes/ItemTest.java" />
         <option value="$PROJECT_DIR$/src/edoe/UsuarioController.java" />
-        <option value="$PROJECT_DIR$/Testes/edoeTestes/ControllerTest.java" />
         <option value="$PROJECT_DIR$/src/edoe/ItemController.java" />
         <option value="$PROJECT_DIR$/Testes/edoeTestes/ItemControllerTest.java" />
+        <option value="$PROJECT_DIR$/Testes/edoeTestes/ControllerTest.java" />
+        <option value="$PROJECT_DIR$/Testes/edoeTestes/UsuarioControllerTest.java" />
+        <option value="$PROJECT_DIR$/Testes/edoeTestes/UsuarioTest.java" />
       </list>
     </option>
   </component>
@@ -375,9 +349,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -419,7 +392,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544561231362" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544581099439" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/easyaccept.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -440,7 +413,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ItemControllerTest.realizaDoacaoTest">
+  <component name="RunManager" selected="JUnit.ItemControllerTest">
     <configuration name="ItemControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projeto-LP2" />
       <extension name="coverage">
@@ -451,11 +424,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="edoeTestes" />
       <option name="MAIN_CLASS_NAME" value="edoeTestes.ItemControllerTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ItemControllerTest.adicionaItemNecessariotest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ItemControllerTest.listaDoacoesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projeto-LP2" />
       <extension name="coverage">
         <pattern>
@@ -465,23 +440,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="edoeTestes" />
       <option name="MAIN_CLASS_NAME" value="edoeTestes.ItemControllerTest" />
-      <option name="METHOD_NAME" value="adicionaItemNecessariotest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ItemControllerTest.listaDescritorDeItensParaDoacaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Projeto-LP2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edoeTestes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edoeTestes" />
-      <option name="MAIN_CLASS_NAME" value="edoeTestes.ItemControllerTest" />
-      <option name="METHOD_NAME" value="listaDescritorDeItensParaDoacaoTest" />
+      <option name="METHOD_NAME" value="listaDoacoesTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -503,7 +462,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ItemControllerTest.removeItemParaDoacaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UsuarioTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projeto-LP2" />
       <extension name="coverage">
         <pattern>
@@ -512,27 +471,42 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edoeTestes" />
-      <option name="MAIN_CLASS_NAME" value="edoeTestes.ItemControllerTest" />
-      <option name="METHOD_NAME" value="removeItemParaDoacaoTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="edoeTestes.UsuarioTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="edoeTestes in Projeto-LP2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projeto-LP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edoeTestes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edoeTestes" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ItemControllerTest" />
-      <item itemvalue="JUnit.ItemControllerTest.removeItemParaDoacaoTest" />
-      <item itemvalue="JUnit.ItemControllerTest.listaDescritorDeItensParaDoacaoTest" />
-      <item itemvalue="JUnit.ItemControllerTest.adicionaItemNecessariotest" />
       <item itemvalue="JUnit.ItemControllerTest.realizaDoacaoTest" />
+      <item itemvalue="JUnit.ItemControllerTest.listaDoacoesTest" />
+      <item itemvalue="JUnit.ItemControllerTest" />
+      <item itemvalue="JUnit.UsuarioTest" />
+      <item itemvalue="JUnit.edoeTestes in Projeto-LP2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ItemControllerTest.realizaDoacaoTest" />
         <item itemvalue="JUnit.ItemControllerTest" />
-        <item itemvalue="JUnit.ItemControllerTest.adicionaItemNecessariotest" />
-        <item itemvalue="JUnit.ItemControllerTest.listaDescritorDeItensParaDoacaoTest" />
-        <item itemvalue="JUnit.ItemControllerTest.removeItemParaDoacaoTest" />
+        <item itemvalue="JUnit.edoeTestes in Projeto-LP2" />
+        <item itemvalue="JUnit.UsuarioTest" />
+        <item itemvalue="JUnit.ItemControllerTest.listaDoacoesTest" />
+        <item itemvalue="JUnit.ItemControllerTest.realizaDoacaoTest" />
       </list>
     </recent_temporary>
   </component>
@@ -552,49 +526,50 @@
       <workItem from="1543518440390" duration="1899000" />
       <workItem from="1543520493825" duration="10676000" />
       <workItem from="1543585484768" duration="5182000" />
+      <workItem from="1544575741427" duration="5313000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ItemControllerTest_removeItemNecessarioTest - 2018.12.11 at 17h 32m 02s.xml">
-      <configuration name="ItemControllerTest.removeItemNecessarioTest" configurationId="JUnit" />
+    <history-entry file="UsuarioTest - 2018.12.11 at 23h 10m 47s.xml">
+      <configuration name="UsuarioTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ItemControllerTest_exibeItemTest - 2018.12.11 at 17h 32m 18s.xml">
-      <configuration name="ItemControllerTest.exibeItemTest" configurationId="JUnit" />
+    <history-entry file="ControllerTest - 2018.12.11 at 23h 11m 59s.xml">
+      <configuration name="ControllerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ItemControllerTest_exibeItemTest - 2018.12.11 at 17h 32m 43s.xml">
-      <configuration name="ItemControllerTest.exibeItemTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ItemControllerTest_removeItemParaDoacaoTest - 2018.12.11 at 17h 32m 51s.xml">
-      <configuration name="ItemControllerTest.removeItemParaDoacaoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ItemControllerTest_removeItemParaDoacaoTest - 2018.12.11 at 17h 34m 43s.xml">
-      <configuration name="ItemControllerTest.removeItemParaDoacaoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ItemControllerTest_removeItemParaDoacaoTest - 2018.12.11 at 17h 35m 05s.xml">
-      <configuration name="ItemControllerTest.removeItemParaDoacaoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ItemControllerTest - 2018.12.11 at 17h 36m 02s.xml">
+    <history-entry file="ItemControllerTest - 2018.12.11 at 23h 12m 36s.xml">
       <configuration name="ItemControllerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ItemControllerTest_listaDescritorDeItensParaDoacaoTest - 2018.12.11 at 17h 37m 27s.xml">
-      <configuration name="ItemControllerTest.listaDescritorDeItensParaDoacaoTest" configurationId="JUnit" />
+    <history-entry file="ItemControllerTest - 2018.12.11 at 23h 12m 55s.xml">
+      <configuration name="ItemControllerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ItemControllerTest_adicionaItemNecessariotest - 2018.12.11 at 17h 40m 11s.xml">
-      <configuration name="ItemControllerTest.adicionaItemNecessariotest" configurationId="JUnit" />
+    <history-entry file="ItemControllerTest - 2018.12.11 at 23h 13m 42s.xml">
+      <configuration name="ItemControllerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ItemControllerTest - 2018.12.11 at 17h 40m 41s.xml">
+    <history-entry file="ItemControllerTest - 2018.12.11 at 23h 15m 04s.xml">
+      <configuration name="ItemControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ControllerTest - 2018.12.11 at 23h 15m 41s.xml">
+      <configuration name="ControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ItemControllerTest - 2018.12.11 at 23h 16m 47s.xml">
+      <configuration name="ItemControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ItemControllerTest - 2018.12.11 at 23h 17m 11s.xml">
+      <configuration name="ItemControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ItemControllerTest - 2018.12.11 at 23h 17m 30s.xml">
       <configuration name="ItemControllerTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35779000" />
+    <option name="totallyTimeSpent" value="41092000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16491422" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16733068" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -604,7 +579,7 @@
       <window_info id="simpleUML" order="7" weight="0.32980332" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32540542" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32298136" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -613,8 +588,8 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32864866" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32982844" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32763976" />
+      <window_info active="true" anchor="right" id="Coverage" order="0" side_tool="true" visible="true" weight="0.32828686" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
@@ -626,7 +601,7 @@
       <window_info anchor="right" id="Maven Projects" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16491422" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16733068" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -636,7 +611,7 @@
       <window_info id="simpleUML" order="7" weight="0.32980332" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32540542" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32298136" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -645,16 +620,17 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32864866" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32763976" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32982844" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.24958494" />
+      <window_info anchor="right" id="Maven Projects" order="9" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -662,18 +638,6 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/edoe/Facade.java</url>
-          <line>11</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -724,16 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/ItemTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="111" selection-start-line="17" selection-start-column="111" selection-end-line="17" selection-end-column="111" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edoe/UsuarioController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -763,24 +717,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/ControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/edoe/Facade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="134" selection-start-line="134" selection-end-line="134" />
+        <state relative-caret-position="90">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edoe/Facade.java">
+    <entry file="file://$PROJECT_DIR$/src/edoe/comparaItemPorData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="15">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edoe/ItemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-427">
+          <caret line="523" column="9" lean-forward="true" selection-start-line="523" selection-start-column="9" selection-end-line="523" selection-end-column="9" />
+          <folding>
+            <element signature="docComment;class#ItemController#0" />
+            <element signature="docComment;field#itensDoacao#0;class#ItemController#0" />
+            <element signature="docComment;field#itensNecessarios#0;class#ItemController#0" />
+            <element signature="docComment;field#descritores#0;class#ItemController#0" />
+            <element signature="docComment;field#idItem#0;class#ItemController#0" />
+            <element signature="docComment;method#ItemController#0;class#ItemController#0" />
+            <element signature="method#ItemController#0;class#ItemController#0" />
+            <element signature="docComment;method#adicionaDescritor#0;class#ItemController#0" />
+            <element signature="method#adicionaDescritor#0;class#ItemController#0" />
+            <element signature="docComment;method#adicionaItemParaDoacao#0;class#ItemController#0" />
+            <element signature="docComment;method#exibeItem#0;class#ItemController#0" />
+            <element signature="method#exibeItem#0;class#ItemController#0" />
+            <element signature="docComment;method#atualizaItemParaDoacao#0;class#ItemController#0" />
+            <element signature="method#atualizaItemParaDoacao#0;class#ItemController#0" />
+            <element signature="method#getQuantidadeDeItensComDescritor#0;class#ItemController#0" />
+            <element signature="docComment;method#listaDescritorDeItensParaDoacao#0;class#ItemController#0" />
+            <element signature="method#listaDescritorDeItensParaDoacao#0;class#ItemController#0" />
+            <element signature="docComment;method#listaItensParaDoacao#0;class#ItemController#0" />
+            <element signature="method#listaItensParaDoacao#0;class#ItemController#0" />
+            <element signature="docComment;method#pesquisaItemParaDoacaoPorDescricao#0;class#ItemController#0" />
+            <element signature="method#pesquisaItemParaDoacaoPorDescricao#0;class#ItemController#0" />
+            <element signature="docComment;method#removeItemParaDoacao#0;class#ItemController#0" />
+            <element signature="docComment;method#atualizaItemNecessario#0;class#ItemController#0" />
+            <element signature="docComment;method#removeItemNecessario#0;class#ItemController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edoe/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1138">
-          <caret line="169" column="9" lean-forward="true" selection-start-line="164" selection-start-column="7" selection-end-line="169" selection-end-column="9" />
+        <state relative-caret-position="-1326">
+          <caret line="169" column="9" selection-start-line="164" selection-start-column="7" selection-end-line="169" selection-end-column="9" />
           <folding>
             <element signature="docComment;class#Controller#0" />
             <element signature="docComment;field#usuarioController#0;class#Controller#0" />
@@ -815,48 +802,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/ItemControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/ControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="459" column="47" selection-start-line="459" selection-start-column="47" selection-end-line="459" selection-end-column="47" />
+        <state relative-caret-position="1830">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/UsuarioControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/ItemTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="111" selection-start-line="17" selection-start-column="111" selection-end-line="17" selection-end-column="111" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#395#396#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edoe/ItemController.java">
+    <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/UsuarioTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3267">
-          <caret line="239" column="9" selection-start-line="239" selection-start-column="9" selection-end-line="239" selection-end-column="9" />
+        <state relative-caret-position="60">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/ItemControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7935">
+          <caret line="529" selection-start-line="529" selection-end-line="529" />
           <folding>
-            <element signature="docComment;class#ItemController#0" />
-            <element signature="docComment;field#itensDoacao#0;class#ItemController#0" />
-            <element signature="docComment;field#itensNecessarios#0;class#ItemController#0" />
-            <element signature="docComment;field#descritores#0;class#ItemController#0" />
-            <element signature="docComment;field#idItem#0;class#ItemController#0" />
-            <element signature="docComment;method#ItemController#0;class#ItemController#0" />
-            <element signature="method#ItemController#0;class#ItemController#0" />
-            <element signature="docComment;method#adicionaDescritor#0;class#ItemController#0" />
-            <element signature="method#adicionaDescritor#0;class#ItemController#0" />
-            <element signature="docComment;method#adicionaItemParaDoacao#0;class#ItemController#0" />
-            <element signature="docComment;method#exibeItem#0;class#ItemController#0" />
-            <element signature="method#exibeItem#0;class#ItemController#0" />
-            <element signature="docComment;method#atualizaItemParaDoacao#0;class#ItemController#0" />
-            <element signature="method#atualizaItemParaDoacao#0;class#ItemController#0" />
-            <element signature="method#getQuantidadeDeItensComDescritor#0;class#ItemController#0" />
-            <element signature="docComment;method#listaDescritorDeItensParaDoacao#0;class#ItemController#0" />
-            <element signature="method#listaDescritorDeItensParaDoacao#0;class#ItemController#0" />
-            <element signature="docComment;method#listaItensParaDoacao#0;class#ItemController#0" />
-            <element signature="method#listaItensParaDoacao#0;class#ItemController#0" />
-            <element signature="docComment;method#pesquisaItemParaDoacaoPorDescricao#0;class#ItemController#0" />
-            <element signature="method#pesquisaItemParaDoacaoPorDescricao#0;class#ItemController#0" />
-            <element signature="docComment;method#removeItemParaDoacao#0;class#ItemController#0" />
-            <element signature="docComment;method#atualizaItemNecessario#0;class#ItemController#0" />
-            <element signature="docComment;method#removeItemNecessario#0;class#ItemController#0" />
-            <element signature="docComment;method#realizaDoacao#0;class#ItemController#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#433#434#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -452,21 +452,81 @@ public class ItemControllerTest {
     }
 
     @Test
-    @DisplayName("teste de remoção de item necessário")
+    @DisplayName("teste para a realização de uma doação")
     public void realizaDoacaoTest() throws ItemInexistenteException {
-        this.controle.adicionaItemNecessario("12312312312", "jogos", "colecionavel, batman", 4, "Bruce");
-        this.controle.adicionaItemParaDoacao("11122233344", "jogos", "doom, violento, +18", 1, "brener");
+        this.controle.adicionaItemParaDoacao("11122233344", "jogos", "doom, violento, +18", 5, "brener");
 
-        this.controle.realizaDoacao("1", "1", "02/12/2018");
+        this.controle.adicionaItemNecessario("12312312312", "jogos", "colecionavel, batman", 4, "Bruce");
+
+        assertEquals("02/12/2018 - doador: brener/11122233344, item: jogos, quantidade: 4, receptor: Bruce/12312312312", this.controle.realizaDoacao("2", "1", "02/12/2018"));
+
+        assertEquals("1 - jogos, tags: [doom,  violento,  +18], quantidade: 1", this.controle.exibeItem("11122233344", "1"));
+
+        //EXCEÇÕES
+
+        try {
+            this.controle.realizaDoacao("2", "1", "");
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "Entrada invalida: data nao pode ser vazia ou nula.");
+        }
+
+        try {
+            this.controle.realizaDoacao("2", "1", null);
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "Entrada invalida: data nao pode ser vazia ou nula.");
+        }
+
+        try {
+            this.controle.realizaDoacao("1", "2", "02/12/2018");
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "Item nao encontrado: 2.");
+        }
+
+        try {
+            this.controle.realizaDoacao(null, "1", "02/12/2018");
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "id item necessario nao pode ser nulo");
+        }
+
+        try {
+            this.controle.realizaDoacao("2", null, "02/12/2018");
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "id item para doacao nao pode ser nulo;");
+        }
+
+        try {
+            this.controle.realizaDoacao("2", "-1", "02/12/2018");
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "Entrada invalida: id do item nao pode ser negativo.");
+        }
+
+        try {
+            this.controle.realizaDoacao("-2", "1", "02/12/2018");
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "Entrada invalida: id do item nao pode ser negativo.");
+        }
+
     }
 
+    @Test
+    @DisplayName("Teste de listagem de doações realizadas")
+    public void listaDoacoesTest() throws ItemInexistenteException {
+        this.controle.adicionaItemParaDoacao("11111111111", "jogos", "doom, violento, +18", 5, "Pietro");
+        this.controle.adicionaItemNecessario("33333333333", "jogos", "luta, beat and up", 4, "Clarice");
 
+        this.controle.adicionaItemParaDoacao("22222222222", "livros", "ficcao, acao, suspense", 5, "Aurora");
+        this.controle.adicionaItemNecessario("44444444444", "livros", "infantil, aventura", 4, "Dante");
 
+        this.controle.realizaDoacao("2", "1", "11/09/2001");
+        this.controle.realizaDoacao("4", "3", "16/08/2000");
 
+        try {
+            assertEquals("16/08/2000 - doador: Aurora/22222222222, item: livros, quantidade: 4, receptor: Dante/44444444444 |" +
+                    " 11/09/2001 - doador: Pietro/11111111111, item: jogos, quantidade: 4, receptor: Clarice/33333333333", this.controle.listaDoacoes());
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+    }
 }
-
-
-
-

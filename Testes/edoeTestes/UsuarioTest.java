@@ -26,8 +26,8 @@ class UsuarioTest {
 	void testSetNome() {
 		this.user1.setNome("joao");
 		assertEquals(this.user1.getNome(), "joao");
-		this.user3.setNome("bostinha");
-		assertEquals(this.user3.getNome(), "bostinha");
+		this.user3.setNome("pedro");
+		assertEquals(this.user3.getNome(), "pedro");
 	}
 
 	@Test
@@ -40,8 +40,8 @@ class UsuarioTest {
 
 	@Test
 	void testSetEmail() {
-		this.user1.setEmail("xvideos.com");
-		assertEquals(this.user1.toString(), "paulo/88929002, xvideos.com, 40028922, status: doador");
+		this.user1.setEmail("globo.com");
+		assertEquals(this.user1.toString(), "paulo/88929002, globo.com, 40028922, status: doador");
 		this.user3.setEmail("rabanete.com");
 		assertEquals(this.user3.toString(), "iago/1234356, rabanete.com, 0987345, status: doador");
 	}

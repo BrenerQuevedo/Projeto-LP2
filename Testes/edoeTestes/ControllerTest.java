@@ -130,7 +130,6 @@ public class ControllerTest {
             e.getMessage().equals("Item nao encontrado: 23.");
         }
 
-
     }
 
     @Test
@@ -303,16 +302,11 @@ public class ControllerTest {
 
         this.controleGeral.adicionaDoador("12312312323123", "softGames", "softgames@", "3213211232", "SOCIEDADE");
 
-
         this.controleGeral.adicionaItemParaDoacao("12312312323123", "jogos adultos", 1, "doom, violento, +18");
         this.controleGeral.adicionaItemParaDoacao("12312312323123", "jogos adultos", 1, "mario, plataforma, +4");
 
-
-
         assertEquals("1 - jogos adultos, tags: [doom,  violento,  +18], quantidade: 1 " +
                 "| 2 - jogos adultos, tags: [mario,  plataforma,  +4], quantidade: 1", this.controleGeral.pesquisaItemParaDoacaoPorDescricao("jogos adultos"));
-
-
 
         try {
             this.controleGeral.pesquisaItemParaDoacaoPorDescricao("");
@@ -320,16 +314,10 @@ public class ControllerTest {
             e.getMessage().equals("Entrada invalida: texto da pesquisa nao pode ser vazio ou nulo.");
         }
 
-
-
         try {
             this.controleGeral.pesquisaItemParaDoacaoPorDescricao(null);
         } catch(Exception e) {
             e.getMessage().equals("Entrada invalida: texto da pesquisa nao pode ser vazio ou nulo.");
         }
-
     }
-
-
-
 }

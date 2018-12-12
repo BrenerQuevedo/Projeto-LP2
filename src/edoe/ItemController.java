@@ -495,7 +495,7 @@ public class ItemController {
     		throw new NullPointerException("id item necessario nao pode ser nulo");
     	}
     	if(idItemParaDoacao == null) {
-    		throw new NullPointerException("id item para doaocao nao pode ser nulo;");
+    		throw new NullPointerException("id item para doacao nao pode ser nulo;");
     	}
     	if(Integer.parseInt(idItemParaDoacao) < 0 || Integer.parseInt(idItemNecessario) < 0) {
     		throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
