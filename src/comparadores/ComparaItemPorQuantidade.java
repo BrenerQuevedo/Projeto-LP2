@@ -1,4 +1,6 @@
-package edoe;
+package comparadores;
+
+import edoe.Item;
 
 import java.util.Comparator;
 

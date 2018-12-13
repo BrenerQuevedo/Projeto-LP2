@@ -1,9 +1,12 @@
-package edoe;
+package controllers;
 
+
+import edoe.Usuario;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,7 +17,7 @@ import java.util.Scanner;
  * @author Paulo Mateus
  *
  */
-public class UsuarioController{
+public class UsuarioController implements Serializable {
 	/**
 	 * Mapa de usuarios onde a key sera a identificacao do usuario o valor sera um usuario.
 	 */

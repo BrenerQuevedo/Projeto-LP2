@@ -1,22 +1,30 @@
-package edoe;
+package facade;
 
 import java.io.IOException;
-
+import java.io.Serializable;
+import controllers.Controller;
 import easyaccept.EasyAccept;
+import exceptions.ItemInexistenteException;
+import persistencia.Serializador;
+import persistencia.Deserializador;
 
 /**
  * Classe de fachada do sistema.
  *
  * @author Joicy Santos
  */
-public class Facade {
+public class Facade implements Serializable {
+    private Serializador serializador;
+    private Deserializador deserializador;
+
     public static void main(String[] args) {
-        args = new String[]{"edoe.Facade", "acceptance-tests/use_case_1.txt",
+        args = new String[]{"facade.Facade", "acceptance-tests/use_case_1.txt",
         "acceptance-tests/use_case_2.txt",
         "acceptance-tests/use_case_3.txt",
         "acceptance-tests/use_case_4.txt",
         "acceptance-tests/use_case_5.txt",
-        "acceptance-tests/use_case_6.txt"
+        "acceptance-tests/use_case_6.txt",
+                "acceptance-tests/use_case_7.txt"
         									};
         EasyAccept.main(args);
     }
@@ -31,6 +39,8 @@ public class Facade {
      */
     public  Facade () {
         this.controller = new Controller();
+        this.serializador = new Serializador();
+        this.deserializador = new Deserializador();
     }
 
     /**
@@ -219,10 +229,20 @@ public class Facade {
     public String match (String idReceptor, String idItemNecessario) {
         return this.controller.match(idReceptor, idItemNecessario);
     }
+
     public String realizaDoacao(String idItemNecessario, String idItemParaDoacao, String data) throws NullPointerException, IllegalArgumentException, ItemInexistenteException {
     	return this.controller.realizaDoacao(idItemNecessario, idItemParaDoacao, data);
     }
+
     public String listaDoacoes() throws Exception {
     	return this.controller.listaDoacoes();
+    }
+
+    public void iniciaSistema() throws ClassNotFoundException, IOException {
+        this.deserializador.iniciaSistema();
+    }
+
+    public void finalizaSistema() throws IOException {
+        this.serializador.fechaSistema(this);
     }
 }

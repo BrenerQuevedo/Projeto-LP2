@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import edoe.UsuarioController;
+import controllers.UsuarioController;
 
 public class UsuarioControllerTest {
 	UsuarioController controller;

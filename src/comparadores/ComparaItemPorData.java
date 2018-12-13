@@ -1,4 +1,4 @@
-package edoe;
+package comparadores;
 
 import java.util.Date;
 import java.text.DateFormat;
@@ -6,7 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 
-public class comparaItemPorData implements Comparator<String> {
+public class ComparaItemPorData implements Comparator<String> {
 
 
 	@Override

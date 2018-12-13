@@ -1,5 +1,6 @@
 package edoe;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Objects;
  * @author Paulo Mateus
  *
  */
-public  class Usuario {
+public  class Usuario implements Serializable {
 	/**
 	 * Nome do usuario.
 	 */

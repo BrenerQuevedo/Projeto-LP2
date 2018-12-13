@@ -1,7 +1,6 @@
 package edoeTestes;
 
-import easyaccept.script.EchoProcessor;
-import edoe.Controller;
+import controllers.Controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

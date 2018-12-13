@@ -1,5 +1,11 @@
-package edoe;
+package controllers;
 
+import comparadores.ComparaItemPorQuantidade;
+import edoe.Item;
+import exceptions.ItemInexistenteException;
+import comparadores.ComparaItemPorData;
+
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -7,7 +13,7 @@ import java.util.*;
  *
  * @author Brener Quevedo, Iago Oliveira, Paulo Moreira
  */
-public class ItemController {
+public class ItemController implements Serializable {
 
 	
 	private List<String> doacoes;
@@ -447,10 +453,6 @@ public class ItemController {
             }
         }
 
-        if (tree.size() == 0) {
-            throw new IllegalArgumentException("Item nao tem nenhum match.");
-        }
-
         List<String> matches = new ArrayList<>();
 
         for (int pontos : tree.keySet()) {
@@ -556,7 +558,7 @@ public class ItemController {
 	 * @throws Exception lanca uma excecao checada no cast da data. Uma ParseException.
 	 */
 	public String listaDoacoes() throws Exception {
-		this.doacoes.sort(new comparaItemPorData());
+		this.doacoes.sort(new ComparaItemPorData());
 		StringBuilder builder = new StringBuilder();
 		boolean adicionaSeparador = false;
 		for(String doacao : this.doacoes) {

@@ -1,14 +1,15 @@
-package edoe;
+package controllers;
+
+import exceptions.ItemInexistenteException;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * Classe de controle geral do sistema que administrara os usuarios e seus itens.
  * @author Joicy Santos
  */
-public class Controller {
+public class Controller implements Serializable {
     /**
      * Objeto controlador de usuarios.
      */

@@ -1,11 +1,11 @@
 package edoeTestes;
 
-import edoe.ItemInexistenteException;
+import exceptions.ItemInexistenteException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import edoe.ItemController;
+import controllers.ItemController;
 
 import static org.junit.jupiter.api.Assertions.*;
 

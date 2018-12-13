@@ -1,5 +1,6 @@
 package edoe;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Objects;
  *
  * @author Brener Quevedo, Iago Tito.
  */
-public class Item implements Comparable<Item> {
+public class Item implements Comparable<Item>, Serializable {
     /**
      * Descricao do item.
      */
