@@ -5,12 +5,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ItemTest {
 
     Item p1;
     Item p3;
     Item p2;
+    Item igual;
 
 
     @BeforeEach
@@ -18,6 +21,7 @@ public class ItemTest {
         this.p1 = new Item("id1", "cadeira", "de sol, de rodas, brinquedo", 3, "daniel", "12312312312", "doacao");
         this.p2 = new Item("id2", "roupas", "la, algodao, vestimenta", 5, "doritos", "11122233344", "doacao");
         this.p3 = new Item("id3", "computador" , "tech, apple", 4, "marcos", "00099988877", "doacao");
+        this.igual = new Item("id1", "cadeira", "de sol, de rodas, brinquedo", 3, "daniel", "12312312312", "doacao");
 
     }
     @Test
@@ -53,6 +57,11 @@ public class ItemTest {
         assertEquals(this.p3.toStringComDoador(), "id3 - computador, tags: tech, apple, quantidade: 4, doador: marcos/00099988877");
     }
 
+    @Test
+    void EqualsTest() {
+        assertTrue(igual.equals(p1));
+        assertFalse(p1.equals(p2));
+    }
 
 }
 

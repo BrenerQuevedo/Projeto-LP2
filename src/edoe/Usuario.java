@@ -1,5 +1,7 @@
 package edoe;
 
+import java.util.Objects;
+
 /**
  * Representacao de um usuario no sistema. Usuario pode ser doador ou receptor.
  * @author Paulo Mateus
@@ -76,5 +78,23 @@ public  class Usuario {
 	@Override
 	public String toString() {
 		return this.nome + "/" + this.idUsuario + ", " + this.email + ", " + this.celular + ", status: " + this.status;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Usuario usuario = (Usuario) o;
+		return Objects.equals(getNome(), usuario.getNome()) &&
+				Objects.equals(email, usuario.email) &&
+				Objects.equals(celular, usuario.celular) &&
+				Objects.equals(classe, usuario.classe) &&
+				Objects.equals(idUsuario, usuario.idUsuario) &&
+				Objects.equals(getStatus(), usuario.getStatus());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(getNome(), email, celular, classe, idUsuario, getStatus());
 	}
 }

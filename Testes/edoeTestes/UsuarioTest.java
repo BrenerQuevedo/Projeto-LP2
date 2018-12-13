@@ -13,14 +13,16 @@ class UsuarioTest {
 	Usuario user1;
 	Usuario user2;
 	Usuario user3;
+	Usuario usuarioigual;
 	
 	@BeforeEach
 	public void inicializaUsers() {
 		this.user1 = new Usuario("paulo", "paulo.com", "40028922", "pedreiro", "88929002", "doador");
 		this.user2 = new Usuario("brener", "brener.com", "88992233", "padeiro", "748347912", "receptor");
 		this.user3 = new Usuario("iago", "iagootito.com" , "0987345", "atleta", "1234356", "doador");
-		
-	}
+        this.usuarioigual = new Usuario("paulo", "paulo.com", "40028922", "pedreiro", "88929002", "doador");
+
+    }
 	@Test
 	void testSetNome() {
 		this.user1.setNome("joao");
@@ -51,7 +53,13 @@ class UsuarioTest {
 		assertEquals(this.user2.toString(), "brener/748347912, brener.com, 88992233, status: receptor");
 		assertEquals(this.user3.toString(), "iago/1234356, iagootito.com, 0987345, status: doador");
 	}
-	
+
+    @Test
+    void EqualsTest() {
+        assertTrue(user1.equals(usuarioigual));
+        assertFalse(user1.equals(user2));
+    }
+
 }
 
 
