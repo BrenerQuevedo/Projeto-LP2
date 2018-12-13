@@ -506,6 +506,19 @@ public class ItemControllerTest {
             assertEquals(e.getMessage(), "Entrada invalida: id do item nao pode ser negativo.");
         }
 
+        //EXCEÇÃO ESPECÍFICA PARA CASO OS DESCRITORES SEJAM DIFERENTES
+
+        this.controle.adicionaItemParaDoacao("09812365400", "jogos", "doom, violento, +18", 3, "Tarantino");
+
+        this.controle.adicionaItemNecessario("43215678901", "filmes", "Spielberg, dinossauro", 2, "Steven");
+
+
+        try {
+            this.controle.realizaDoacao("4", "3", "02/12/2018");
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), "Os itens nao tem descricoes iguais.");
+        }
+
     }
 
     @Test
