@@ -69,11 +69,6 @@ public  class Usuario {
 		return this.status;
 	}
 
-	public String getClasse() {
-		return this.classe;
-	}
-
-
 	/**
 	 * Retorna a representaçao do usuario no sistema.
 	 * @return String no seguinte formato: "NomeDoUsuario/IdDoUsuario, EmailDoUsuario, CelularDoUsuario, status: StatusDoUsuario"

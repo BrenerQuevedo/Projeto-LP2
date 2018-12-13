@@ -92,62 +92,75 @@ public class UsuarioControllerTest {
 		this.controller.cadastraReceptor("pessoa necessitada2", "emailparareceber2.com", "00000000", "IGREJA", "14725896374185", "receptor");
 		assertEquals(this.controller.pesquisaUsuarioPorId("00000000000"), "pessoa necessitada/00000000000, emailparareceber.com, 00000000, status: receptor");
 		assertEquals(this.controller.pesquisaUsuarioPorId("14725896374185"), "pessoa necessitada2/14725896374185, emailparareceber2.com, 00000000, status: receptor");
-	
+
+		this.controller.cadastraReceptor("nova pessoa necessitada", "emaildiferente.com", "000000001", "PESSOA_FISICA", "00000000000", "receptor");;
+
 		/*
 		 * Excecoes para entradas nulas, vazias	ou invalidas
 		 */
 		assertThrows(NullPointerException.class,		()->{
-			this.controller.cadastraDoador(null, "nomeNulo","000000" , "PESSOA_FISICA", "00000000000", "receptor");
+			this.controller.cadastraReceptor(null, "nomeNulo","000000" , "PESSOA_FISICA", "00000000000", "receptor");
 		});
 		
 		assertThrows(IllegalArgumentException.class,		()->{
-			this.controller.cadastraDoador("", "nomeVazio","000000" , "PESSOA_FISICA", "00000000000", "receptor");
+			this.controller.cadastraReceptor("", "nomeVazio","000000" , "PESSOA_FISICA", "00000000000", "receptor");
 		});
 		
 		assertThrows(NullPointerException.class,		()->{
-			this.controller.cadastraDoador("email nulo", null ,"000000" , "PESSOA_FISICA", "00000000000", "receptor");
+			this.controller.cadastraReceptor("email nulo", null ,"000000" , "PESSOA_FISICA", "00000000000", "receptor");
 		});
 		
 		assertThrows(IllegalArgumentException.class,		()->{
-			this.controller.cadastraDoador("email vazio", "","000000" , "PESSOA_FISICA", "00000000000", "receptor");
+			this.controller.cadastraReceptor("email vazio", "","000000" , "PESSOA_FISICA", "00000000000", "receptor");
 		});
 		
 		assertThrows(NullPointerException.class,		()->{
-			this.controller.cadastraDoador("celular nulo", "celular nulo", null , "PESSOA_FISICA", "00000000000", "receptor");
+			this.controller.cadastraReceptor("celular nulo", "celular nulo", null , "PESSOA_FISICA", "00000000000", "receptor");
 		});
 		
 		assertThrows(IllegalArgumentException.class,		()->{
-			this.controller.cadastraDoador("celular vazio", "celular vazio","" , "PESSOA_FISICA", "00000000000", "receptor");
+			this.controller.cadastraReceptor("celular vazio", "celular vazio","" , "PESSOA_FISICA", "00000000000", "receptor");
 		});
 		
 		assertThrows(NullPointerException.class,		()->{
-			this.controller.cadastraDoador("classe nula", "classe nula", "34893905" , null , "00000000000", "receptor");
+			this.controller.cadastraReceptor("classe nula", "classe nula", "34893905" , null , "00000000000", "receptor");
 		});
 		
 		assertThrows(IllegalArgumentException.class,		()->{
-			this.controller.cadastraDoador("classe vazia", "classe vazia","3984590485" , "", "00000000000", "receptor");
+			this.controller.cadastraReceptor("classe vazia", "classe vazia","3984590485" , "", "00000000000", "receptor");
 		});
 		
 		assertThrows(IllegalArgumentException.class,		()->{
-			this.controller.cadastraDoador("classe invalida", "classe invalida","3984590485" , "FACCAO_CRIMINOSA", "00000000000", "receptor");
+			this.controller.cadastraReceptor("classe invalida", "classe invalida","3984590485" , "PESSOA_FISICA", "000000000000", "receptor");
 		});
-		
+
+
+		assertThrows(IllegalArgumentException.class,		()->{
+			this.controller.cadastraReceptor("classe invalida", "classe invalida","3984590485" , "IGREJA", "000000000000", "receptor");
+		});
+
 		assertThrows(NullPointerException.class,		()->{
-			this.controller.cadastraDoador("id nulo", "id nulo","3984590485" , "PESSOA_FISICA", null, "receptor");
+			this.controller.cadastraReceptor("id nulo", "id nulo","3984590485" , "PESSOA_FISICA", null, "receptor");
 		});
 	
 		assertThrows(IllegalArgumentException.class,		()->{
-			this.controller.cadastraDoador("id vazio", "id vazio", "3984590485" , "PESSOA_FISICA", "", "receptor");
+			this.controller.cadastraReceptor("id vazio", "id vazio", "3984590485" , "PESSOA_FISICA", "", "receptor");
 		});
 
 		assertThrows(IllegalArgumentException.class,		()->{
-			this.controller.cadastraDoador("id invalido", "id invalido", "3984590485" , "PESSOA_FISICA", "1245", "receptor");
+			this.controller.cadastraReceptor("id invalido", "id invalido", "3984590485" , "PESSOA_FISICA", "1245", "receptor");
 		});
 		
 		assertThrows(IllegalArgumentException.class,		()->{
-			this.controller.cadastraDoador("id invalido", "id invalido", "3984590485" , "ASSOCIACAO", "00000", "receptor");
+			this.controller.cadastraReceptor("id invalido", "id invalido", "3984590485" , "ASSOCIACAO", "00000", "receptor");
 		});
-		
+
+		assertThrows(IllegalArgumentException.class,		()->{
+			this.controller.cadastraReceptor("id invalido", "id invalido", "3984590485" , "ASSOCIACAO", "00000", "receptor");
+		});
+
+
+
 	} 
 
 	@Test
@@ -169,7 +182,7 @@ public class UsuarioControllerTest {
 
 	@Test
 	void testPesquisaUsuarioPorNome() {
-		assertEquals(this.controller.pesquisaUsuarioPorNome("paulo"), "Paulo/13059752435, paulo.com, 93521561, status: doador | Paulo/12345678978, henrrique.com, 12345678, status: doador");
+		assertEquals(this.controller.pesquisaUsuarioPorNome("Paulo"), "Paulo/13059752435, paulo.com, 93521561, status: doador | Paulo/12345678978, henrrique.com, 12345678, status: doador");
 		assertEquals(this.controller.pesquisaUsuarioPorNome("embratel"), "embratel/12345678912345, embratel.com, 33632412, status: doador");
 		
 		assertThrows(NullPointerException.class,		()->{

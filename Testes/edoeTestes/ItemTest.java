@@ -46,5 +46,13 @@ public class ItemTest {
         assertEquals(this.p3.toString(), "id3 - computador, tags: tech, apple, quantidade: 4");
     }
 
+    @Test
+    void testToStringcomDoador() {
+        assertEquals(this.p1.toStringComDoador(),"id1 - cadeira, tags: de sol, de rodas, brinquedo, quantidade: 3, doador: daniel/12312312312");
+        assertEquals(this.p2.toStringComDoador(), "id2 - roupas, tags: la, algodao, vestimenta, quantidade: 5, doador: doritos/11122233344");
+        assertEquals(this.p3.toStringComDoador(), "id3 - computador, tags: tech, apple, quantidade: 4, doador: marcos/00099988877");
+    }
+
+
 }
 

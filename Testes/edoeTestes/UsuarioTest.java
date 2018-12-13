@@ -13,7 +13,6 @@ class UsuarioTest {
 	Usuario user1;
 	Usuario user2;
 	Usuario user3;
-	Usuario userIgual1;
 	
 	@BeforeEach
 	public void inicializaUsers() {
