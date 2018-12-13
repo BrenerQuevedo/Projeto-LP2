@@ -93,9 +93,13 @@ public class UsuarioControllerTest {
 		assertEquals(this.controller.pesquisaUsuarioPorId("00000000000"), "pessoa necessitada/00000000000, emailparareceber.com, 00000000, status: receptor");
 		assertEquals(this.controller.pesquisaUsuarioPorId("14725896374185"), "pessoa necessitada2/14725896374185, emailparareceber2.com, 00000000, status: receptor");
 
-		this.controller.cadastraReceptor("nova pessoa necessitada", "emaildiferente.com", "000000001", "PESSOA_FISICA", "00000000000", "receptor");;
 
-		/*
+		//
+		this.controller.cadastraReceptor("nova pessoa necessitada", "emaildiferente.com", "0000000000011", "PESSOA_FISICA", "00000000000", "receptor");
+        assertEquals("nova pessoa necessitada/00000000000, emaildiferente.com, 0000000000011, status: receptor", this.controller.pesquisaUsuarioPorId("00000000000"));
+        //
+
+        /*
 		 * Excecoes para entradas nulas, vazias	ou invalidas
 		 */
 		assertThrows(NullPointerException.class,		()->{
@@ -194,6 +198,7 @@ public class UsuarioControllerTest {
 		assertThrows(IllegalArgumentException.class,		()->{
 			this.controller.pesquisaUsuarioPorNome("inexistente");
 		});
+
 	}
 
 
@@ -211,11 +216,16 @@ public class UsuarioControllerTest {
 		assertThrows(NullPointerException.class,		()->{
 			this.controller.atualizaUsuario(null, "jorge", "da dola", "3i947895");
 		});
+
 		assertThrows(IllegalArgumentException.class,		()->{
 		this.controller.atualizaUsuario("", "jorge", "da dola", "3i947895");
 		});
 
-	}
+        assertThrows(NullPointerException.class,		()->{
+            this.controller.atualizaUsuario("12312332112", "jorge", "da dola", "3i947895");
+        });
+
+    }
 
 	@Test
 	void testRemoveUsuario() {
@@ -229,6 +239,10 @@ public class UsuarioControllerTest {
 		this.controller.removeUsuario("");
 		});
 
-	}
+        assertThrows(NullPointerException.class,		()->{
+            this.controller.removeUsuario("1231233213211");
+        });
+
+    }
 
 }

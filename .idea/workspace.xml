@@ -3,26 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="34c9b40f-1961-4d16-be45-55e2d2769caf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testes/edoeTestes/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testes/edoeTestes/ItemControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testes/edoeTestes/ItemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testes/edoeTestes/ItemTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testes/edoeTestes/UsuarioControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testes/edoeTestes/UsuarioControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testes/edoeTestes/UsuarioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Testes/edoeTestes/UsuarioTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ComparaItemPorQuantidade.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ComparaItemPorQuantidade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Facade.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Facade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ItemController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ItemInexistenteException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ItemInexistenteException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/UsuarioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/comparaItemPorData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/comparaItemPorData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/ControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/ItemControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/ItemControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/ItemTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/ItemTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/UsuarioControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/UsuarioControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/UsuarioTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Projeto-LP2/edoeTestes/UsuarioTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edoe/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edoe/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ComparaItemPorQuantidade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Facade.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ItemController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/ItemInexistenteException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/UsuarioController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Projeto-LP2/edoe/comparaItemPorData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edoe/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edoe/UsuarioController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,13 +23,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Projeto_LP2$UsuarioTest.ic" NAME="UsuarioTest Coverage Results" MODIFIED="1544580644990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>edoeTestes.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/Projeto_LP2$ItemControllerTest.ic" NAME="ItemControllerTest Coverage Results" MODIFIED="1544697917977" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edoeTestes.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Projeto_LP2$ControllerTest.ic" NAME="ControllerTest Coverage Results" MODIFIED="1544580939524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edoeTestes.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Projeto_LP2$UsuarioTest.ic" NAME="UsuarioTest Coverage Results" MODIFIED="1544580644990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edoeTestes.*</FILTER>
     </SUITE>
   </component>
@@ -205,8 +196,9 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -221,12 +213,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2436" />
+          <entry key="java" value="2632" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2436" />
+          <entry key="JAVA" value="2632" />
         </counts>
       </usages-collector>
     </session>
@@ -236,8 +228,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/UsuarioControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="136" column="118" selection-start-line="136" selection-start-column="118" selection-end-line="136" selection-end-column="118" />
+            <state relative-caret-position="3570">
+              <caret line="243" column="8" selection-start-line="243" selection-start-column="8" selection-end-line="243" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -245,8 +237,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edoe/UsuarioController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1155">
-              <caret line="187" column="91" lean-forward="true" selection-start-line="187" selection-start-column="91" selection-end-line="187" selection-end-column="91" />
+            <state relative-caret-position="281">
+              <caret line="225" column="47" selection-start-line="225" selection-start-column="47" selection-end-line="225" selection-end-column="47" />
               <folding>
                 <element signature="docComment;class#UsuarioController#0" />
                 <element signature="docComment;field#Usuarios#0;class#UsuarioController#0" />
@@ -254,17 +246,15 @@
                 <element signature="docComment;method#cadastraDoador#0;class#UsuarioController#0" />
                 <element signature="docComment;method#cadastraReceptor#0;class#UsuarioController#0" />
                 <element signature="docComment;method#pesquisaUsuarioPorId#0;class#UsuarioController#0" />
-                <element signature="method#pesquisaUsuarioPorId#0;class#UsuarioController#0" />
                 <element signature="docComment;method#pesquisaUsuarioPorNome#0;class#UsuarioController#0" />
                 <element signature="docComment;method#contemUsuario#0;class#UsuarioController#0" />
                 <element signature="e#7192#7193#0" expanded="true" />
                 <element signature="e#7242#7243#0" expanded="true" />
                 <element signature="docComment;method#validaEntrada#0;class#UsuarioController#0" />
                 <element signature="docComment;method#atualizaUsuario#0;class#UsuarioController#0" />
-                <element signature="method#atualizaUsuario#0;class#UsuarioController#0" />
                 <element signature="docComment;method#removeUsuario#0;class#UsuarioController#0" />
-                <element signature="method#removeUsuario#0;class#UsuarioController#0" />
-                <element signature="docComment;method#getNomeUsuario#0;class#UsuarioController#0" />
+                <element signature="e#9869#9870#0" expanded="true" />
+                <element signature="e#9927#9928#0" expanded="true" />
                 <element signature="docComment;method#leReceptores#0;class#UsuarioController#0" />
               </folding>
             </state>
@@ -340,8 +330,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -376,6 +364,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -384,7 +373,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544702113191" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544721288088" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -405,7 +394,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UsuarioControllerTest.testCadastraReceptor">
+  <component name="RunManager" selected="JUnit.ItemControllerTest">
     <configuration name="Facade" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edoe.Facade" />
       <module name="Projeto-LP2" />
@@ -419,7 +408,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ItemTest.testToStringcomDoador" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ItemControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Projeto-LP2" />
       <extension name="coverage">
         <pattern>
@@ -428,9 +417,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edoeTestes" />
-      <option name="MAIN_CLASS_NAME" value="edoeTestes.ItemTest" />
-      <option name="METHOD_NAME" value="testToStringcomDoador" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="edoeTestes.ItemControllerTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -445,22 +432,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="edoeTestes" />
       <option name="MAIN_CLASS_NAME" value="edoeTestes.UsuarioControllerTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UsuarioControllerTest.testCadastraReceptor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Projeto-LP2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edoeTestes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edoeTestes" />
-      <option name="MAIN_CLASS_NAME" value="edoeTestes.UsuarioControllerTest" />
-      <option name="METHOD_NAME" value="testCadastraReceptor" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -481,20 +452,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UsuarioControllerTest.testRemoveUsuario" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Projeto-LP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edoeTestes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edoeTestes" />
+      <option name="MAIN_CLASS_NAME" value="edoeTestes.UsuarioControllerTest" />
+      <option name="METHOD_NAME" value="testRemoveUsuario" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Facade" />
-      <item itemvalue="JUnit.ItemTest.testToStringcomDoador" />
-      <item itemvalue="JUnit.UsuarioControllerTest.testCadastraReceptor" />
       <item itemvalue="JUnit.UsuarioControllerTest" />
       <item itemvalue="JUnit.UsuarioControllerTest.testPesquisaUsuarioPorNome" />
+      <item itemvalue="JUnit.UsuarioControllerTest.testRemoveUsuario" />
+      <item itemvalue="Application.Facade" />
+      <item itemvalue="JUnit.ItemControllerTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UsuarioControllerTest.testCadastraReceptor" />
+        <item itemvalue="JUnit.ItemControllerTest" />
         <item itemvalue="JUnit.UsuarioControllerTest" />
-        <item itemvalue="JUnit.UsuarioControllerTest.testPesquisaUsuarioPorNome" />
         <item itemvalue="Application.Facade" />
-        <item itemvalue="JUnit.ItemTest.testToStringcomDoador" />
+        <item itemvalue="JUnit.UsuarioControllerTest.testPesquisaUsuarioPorNome" />
+        <item itemvalue="JUnit.UsuarioControllerTest.testRemoveUsuario" />
       </list>
     </recent_temporary>
   </component>
@@ -515,49 +502,50 @@
       <workItem from="1543520493825" duration="10676000" />
       <workItem from="1543585484768" duration="5182000" />
       <workItem from="1544575741427" duration="5313000" />
+      <workItem from="1544720187015" duration="890000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UsuarioControllerTest_testCadastraReceptor - 2018.12.13 at 08h 42m 21s.xml">
+    <history-entry file="UsuarioControllerTest_testCadastraReceptor - 2018.12.13 at 14h 00m 51s.xml">
       <configuration name="UsuarioControllerTest.testCadastraReceptor" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioControllerTest - 2018.12.13 at 08h 42m 46s.xml">
-      <configuration name="UsuarioControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UsuarioControllerTest_testPesquisaUsuarioPorNome - 2018.12.13 at 08h 43m 37s.xml">
-      <configuration name="UsuarioControllerTest.testPesquisaUsuarioPorNome" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UsuarioControllerTest - 2018.12.13 at 08h 43m 50s.xml">
-      <configuration name="UsuarioControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UsuarioControllerTest_testCadastraReceptor - 2018.12.13 at 08h 46m 12s.xml">
+    <history-entry file="UsuarioControllerTest_testCadastraReceptor - 2018.12.13 at 14h 01m 13s.xml">
       <configuration name="UsuarioControllerTest.testCadastraReceptor" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioControllerTest_testCadastraReceptor - 2018.12.13 at 08h 47m 59s.xml">
+    <history-entry file="UsuarioControllerTest_testCadastraReceptor - 2018.12.13 at 14h 02m 03s.xml">
       <configuration name="UsuarioControllerTest.testCadastraReceptor" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioControllerTest - 2018.12.13 at 08h 48m 24s.xml">
-      <configuration name="UsuarioControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UsuarioControllerTest_testCadastraReceptor - 2018.12.13 at 08h 48m 38s.xml">
+    <history-entry file="UsuarioControllerTest_testCadastraReceptor - 2018.12.13 at 14h 02m 49s.xml">
       <configuration name="UsuarioControllerTest.testCadastraReceptor" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UsuarioControllerTest - 2018.12.13 at 08h 48m 53s.xml">
-      <configuration name="UsuarioControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UsuarioControllerTest_testCadastraReceptor - 2018.12.13 at 08h 51m 52s.xml">
+    <history-entry file="UsuarioControllerTest_testCadastraReceptor - 2018.12.13 at 14h 03m 10s.xml">
       <configuration name="UsuarioControllerTest.testCadastraReceptor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UsuarioControllerTest_testAtualizaUsuario - 2018.12.13 at 14h 06m 39s.xml">
+      <configuration name="UsuarioControllerTest.testAtualizaUsuario" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UsuarioControllerTest_testAtualizaUsuario - 2018.12.13 at 14h 07m 54s.xml">
+      <configuration name="UsuarioControllerTest.testAtualizaUsuario" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UsuarioControllerTest_testAtualizaUsuario - 2018.12.13 at 14h 08m 33s.xml">
+      <configuration name="UsuarioControllerTest.testAtualizaUsuario" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UsuarioControllerTest_testRemoveUsuario - 2018.12.13 at 14h 09m 51s.xml">
+      <configuration name="UsuarioControllerTest.testRemoveUsuario" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UsuarioControllerTest_testRemoveUsuario - 2018.12.13 at 14h 10m 34s.xml">
+      <configuration name="UsuarioControllerTest.testRemoveUsuario" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41092000" />
+    <option name="totallyTimeSpent" value="41982000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16934144" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1689243" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -567,16 +555,16 @@
       <window_info id="simpleUML" order="7" weight="0.32980332" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32216215" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32142857" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003984" side_tool="true" weight="0.32763976" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32763976" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4996016" weight="0.32763976" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32816824" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -589,7 +577,7 @@
       <window_info anchor="right" id="Maven Projects" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16934144" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1689243" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -599,16 +587,16 @@
       <window_info id="simpleUML" order="7" weight="0.32980332" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32216215" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32216215" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003984" side_tool="true" weight="0.32763976" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32763976" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4996016" weight="0.32763976" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32816824" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -626,20 +614,6 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Testes/edoeTestes/UsuarioControllerTest.java</url>
-          <line>89</line>
-          <properties class="edoeTestes.UsuarioControllerTest" method="testCadastraReceptor">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -811,8 +785,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edoe/UsuarioController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="187" column="91" lean-forward="true" selection-start-line="187" selection-start-column="91" selection-end-line="187" selection-end-column="91" />
+        <state relative-caret-position="281">
+          <caret line="225" column="47" selection-start-line="225" selection-start-column="47" selection-end-line="225" selection-end-column="47" />
           <folding>
             <element signature="docComment;class#UsuarioController#0" />
             <element signature="docComment;field#Usuarios#0;class#UsuarioController#0" />
@@ -820,17 +794,15 @@
             <element signature="docComment;method#cadastraDoador#0;class#UsuarioController#0" />
             <element signature="docComment;method#cadastraReceptor#0;class#UsuarioController#0" />
             <element signature="docComment;method#pesquisaUsuarioPorId#0;class#UsuarioController#0" />
-            <element signature="method#pesquisaUsuarioPorId#0;class#UsuarioController#0" />
             <element signature="docComment;method#pesquisaUsuarioPorNome#0;class#UsuarioController#0" />
             <element signature="docComment;method#contemUsuario#0;class#UsuarioController#0" />
             <element signature="e#7192#7193#0" expanded="true" />
             <element signature="e#7242#7243#0" expanded="true" />
             <element signature="docComment;method#validaEntrada#0;class#UsuarioController#0" />
             <element signature="docComment;method#atualizaUsuario#0;class#UsuarioController#0" />
-            <element signature="method#atualizaUsuario#0;class#UsuarioController#0" />
             <element signature="docComment;method#removeUsuario#0;class#UsuarioController#0" />
-            <element signature="method#removeUsuario#0;class#UsuarioController#0" />
-            <element signature="docComment;method#getNomeUsuario#0;class#UsuarioController#0" />
+            <element signature="e#9869#9870#0" expanded="true" />
+            <element signature="e#9927#9928#0" expanded="true" />
             <element signature="docComment;method#leReceptores#0;class#UsuarioController#0" />
           </folding>
         </state>
@@ -838,8 +810,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Testes/edoeTestes/UsuarioControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="136" column="118" selection-start-line="136" selection-start-column="118" selection-end-line="136" selection-end-column="118" />
+        <state relative-caret-position="3570">
+          <caret line="243" column="8" selection-start-line="243" selection-start-column="8" selection-end-line="243" selection-end-column="8" />
         </state>
       </provider>
     </entry>

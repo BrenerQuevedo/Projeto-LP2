@@ -223,7 +223,7 @@ public class UsuarioController{
 
 				return this.Usuarios.get(id).toString();
 			}else {
-				throw new IllegalArgumentException("Usuario nao encontrado: " + id + ".");
+				throw new NullPointerException("Usuario nao encontrado: " + id + ".");
 			}		
 		}
 	}
@@ -241,7 +241,7 @@ public class UsuarioController{
 			if(this.Usuarios.containsKey(id)) {
 				this.Usuarios.remove(id);
 			}else {
-				throw new IllegalArgumentException("Usuario nao encontrado: "+ id + ".");
+				throw new NullPointerException("Usuario nao encontrado: "+ id + ".");
 			}
 		}
 	}
