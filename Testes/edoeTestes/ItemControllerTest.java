@@ -26,21 +26,24 @@ public class ItemControllerTest {
 
         assertEquals("0 - carrinho", this.controle.listaDescritorDeItensParaDoacao());
 
+        try {
+            this.controle.adicionaDescritor("carrinho");
+        } catch(Exception e) {
+            assertEquals(e.getMessage(),"Descritor de Item ja existente: carrinho.");
+        }
 
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    this.controle.adicionaDescritor("carrinho");
-                });
+        try {
+            this.controle.adicionaDescritor("");
+        } catch(Exception e) {
+            assertEquals(e.getMessage(),"Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
 
-        assertThrows(IllegalArgumentException.class,
-                () -> {
-                    this.controle.adicionaDescritor("");
-                });
+        try {
+            this.controle.adicionaDescritor(null);
+        } catch(Exception e) {
+            assertEquals(e.getMessage(),"Entrada invalida: descricao nao pode ser vazia ou nula.");
+        }
 
-        assertThrows(NullPointerException.class,
-                () -> {
-                    this.controle.adicionaDescritor(null);
-                });
 
     }
 
