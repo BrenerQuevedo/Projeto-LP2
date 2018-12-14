@@ -15,7 +15,7 @@ public class Deserializador implements Serializable {
 
     public Facade iniciaSistema() throws IOException, ClassNotFoundException {
         try {
-            FileInputStream fis = new FileInputStream("arquivos_sistema/dados.txt");
+            FileInputStream fis = new FileInputStream("arquivos_sistema/dados.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
             Facade saida = (Facade) ois.readObject();
             ois.close();

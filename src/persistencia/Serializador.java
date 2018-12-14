@@ -13,7 +13,7 @@ public class Serializador implements Serializable {
     public Serializador () {}
 
     public void fechaSistema(Facade facade) throws IOException {
-        FileOutputStream fos = new FileOutputStream("arquivos_sistema/dados.txt");
+        FileOutputStream fos = new FileOutputStream("arquivos_sistema/dados.dat");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(facade);
         oos.close();
