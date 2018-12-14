@@ -81,6 +81,11 @@ public  class Usuario implements Serializable {
 		return this.nome + "/" + this.idUsuario + ", " + this.email + ", " + this.celular + ", status: " + this.status;
 	}
 
+	/**
+	 * Compara um objeto com este usuario e diz se eles sao iguais.
+	 * @param o Objeto a ser comparado.
+	 * @return Retorna true caso o objeto seja igual a este usuario, e false se nao.
+	 */
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
@@ -94,6 +99,10 @@ public  class Usuario implements Serializable {
 				Objects.equals(getStatus(), usuario.getStatus());
 	}
 
+    /**
+     * Gera uma representacao em inteiro para este objeto.
+     * @return Retorna a representacao em inteiro deste objeto.
+     */
 	@Override
 	public int hashCode() {
 		return Objects.hash(getNome(), email, celular, classe, idUsuario, getStatus());

@@ -1,9 +1,9 @@
 package controllers;
 
 import comparadores.ComparaItemPorQuantidade;
+import comparadores.ComparaItemPorData;
 import edoe.Item;
 import exceptions.ItemInexistenteException;
-import comparadores.ComparaItemPorData;
 
 import java.io.Serializable;
 import java.util.*;
@@ -15,7 +15,6 @@ import java.util.*;
  */
 public class ItemController implements Serializable {
 
-	
 	private List<String> doacoes;
     /**
      * Mapa de itens doados, em que a key é o identificador do usuário, e o valor é outro mapa, sendo este de itens, no qual a key é o identificador do item e o value é um objeto do tipo Item.
@@ -49,10 +48,8 @@ public class ItemController implements Serializable {
     /**
      * Adiciona um novo descritor de item ao mapa de descritores.
      * @param descricao Descritor de item a ser adicionado.
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
      */
-    public void adicionaDescritor (String descricao) throws IllegalArgumentException, NullPointerException{
+    public void adicionaDescritor (String descricao) {
         if (descricao == null) {
             throw new NullPointerException("Entrada invalida: descricao nao pode ser vazia ou nula.");
         }
@@ -108,10 +105,8 @@ public class ItemController implements Serializable {
      * @param idUsuario Id do usuario a ter um item retornado.
      * @param idItem Id do item a ser retornador.
      * @return Retorna o toString() do item.
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
      */
-    public String exibeItem(String idUsuario, String idItem) throws IllegalArgumentException, NullPointerException {
+    public String exibeItem(String idUsuario, String idItem) {
         if (!this.itensDoacao.containsKey(idUsuario)) {
             throw new IllegalArgumentException("Usuario nao encontrado: " + idUsuario + ".");
         }
@@ -128,10 +123,9 @@ public class ItemController implements Serializable {
      * @param novaQuantidade Nova quantidade do item. Caso a quantidade seja 0, ela nao sera editada.
      * @param novasTags Novas tags do item. Caso as tags sejam vazias, elas nao seram alteradas.
      * @return Retorna o toString() do item ja editado.
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
+
      */
-    public String atualizaItemParaDoacao (String idItem, String idDoador, int novaQuantidade, String novasTags) throws IllegalArgumentException, NullPointerException {
+    public String atualizaItemParaDoacao (String idItem, String idDoador, int novaQuantidade, String novasTags) {
         if (Integer.parseInt(idItem) < 0) {
             throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
         }
@@ -155,14 +149,6 @@ public class ItemController implements Serializable {
             this.itensDoacao.get(idDoador).get(idItem).setQuantidade(novaQuantidade);
         }
         return this.itensDoacao.get(idDoador).get(idItem).toString();
-    }
-
-    private int getQuantidadeDeItensComDescritor (String descritor) {
-        int quantidade = 0;
-        for (Item i : this.descritores.get(descritor)) {
-            quantidade += i.getQuantidade();
-        }
-        return quantidade;
     }
 
     /**
@@ -201,10 +187,8 @@ public class ItemController implements Serializable {
      * Retorna todos os itens com uma certa descricao.
      * @param descricao Descricao a ser buscada nos itens.
      * @return Retorna o toString() de todos os itens cadastrados que tenham a descricao semelhante , sendo ordenados em ordem alfabética.
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
      */
-    public String pesquisaItemParaDoacaoPorDescricao (String descricao) throws IllegalArgumentException, NullPointerException {
+    public String pesquisaItemParaDoacaoPorDescricao (String descricao) {
         if (descricao == null) {
             throw new NullPointerException("Entrada invalida: texto da pesquisa nao pode ser vazio ou nulo.");
         }
@@ -234,10 +218,8 @@ public class ItemController implements Serializable {
      * Remove um item do mapa de itensDoacao (um item adicionado para doacao).
      * @param idItem Id do item a ser removido.
      * @param idUsuario Id do usuario a ter um item removido.
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
      */
-    public void removeItemParaDoacao(String idItem, String idUsuario) throws IllegalArgumentException, NullPointerException {
+    public void removeItemParaDoacao(String idItem, String idUsuario) {
         if (idUsuario == null) {
             throw new NullPointerException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
         }
@@ -347,9 +329,8 @@ public class ItemController implements Serializable {
      * @param novaQuantidade Nova quantidade necessaria do item. Caso a nova quantidade seja 0, ela nao sera alterada.
      * @param novasTags Novas tags do item necessario. Caso as tags sejam uma String vazia, elas nao seram alteradas.
      * @return toString do item modificado
-     * @throws NullPointerException
      */
-    public String atualizaItemNecessario (String idItem, String idReceptor, int novaQuantidade, String novasTags) throws NullPointerException {
+    public String atualizaItemNecessario (String idItem, String idReceptor, int novaQuantidade, String novasTags) {
         if (Integer.parseInt(idItem) < 0) {
             throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
         }
@@ -381,9 +362,8 @@ public class ItemController implements Serializable {
      * Remove um item do mapa de itensNecessarios (um item adicionado para ser recebido)
      * @param idReceptor Id do receptor a ter um item necessario removido.
      * @param idItem Id no item necessario a ser removido.
-     * @throws NullPointerException
      */
-    public void removeItemNecessario (String idReceptor, String idItem) throws NullPointerException {
+    public void removeItemNecessario (String idReceptor, String idItem) {
         if (Integer.parseInt(idItem) < 0) {
             throw new IllegalArgumentException("Entrada invalida: id do item nao pode ser negativo.");
         }
@@ -404,23 +384,12 @@ public class ItemController implements Serializable {
         this.itensNecessarios.get(idReceptor).remove(idItem);
     }
 
-    private String formataTags(String tags) {
-        return "[" + tags.replace(",", ", ") + "]";
-    }
-
-    private String constroiListagem (List<String> lista) {
-        StringBuilder builder = new StringBuilder();
-        boolean adicionaSeparador = false;
-        for (String s : lista) {
-            if (adicionaSeparador) {
-                builder.append(" | ");
-            }
-            builder.append(s);
-            adicionaSeparador = true;
-        }
-        return builder.toString();
-    }
-
+    /**
+     * Procura por matches entre os itens para doação e o item necessário passado como parâmetro juntamente com o id do usuario necessario que o possui.
+     * @param idReceptor Id do receptor a ter um item para doacao procurado para match com seu item necessario.
+     * @param idItemNecessario Id do item necessario procurado.
+     * @return Retorna uma lista com os itens para doacao que fazem pontos de match com o item necessario passado, ordenada de maneira inversa pela quantidade de pontos.
+     */
     public String match (String idReceptor, String idItemNecessario) {
         if (idReceptor == null) {
             throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
@@ -462,23 +431,6 @@ public class ItemController implements Serializable {
         return constroiListagem(matches);
     }
 
-    private int calculaPontos (Item itemNecessario, Item itemParaDoacao) {
-        int pontos = 0;
-
-        List<String> tagsDoItemNecessario = Arrays.asList(itemNecessario.getTags().replace("[", "").replace("]", "").split(", "));
-        List<String> tagsDoItemParaDoacao = Arrays.asList(itemParaDoacao.getTags().replace("[", "").replace("]", "").split(", "));
-        for (String tag : tagsDoItemNecessario) {
-            if (tagsDoItemParaDoacao.contains(tag)) {
-                if (tagsDoItemParaDoacao.indexOf(tag) == tagsDoItemNecessario.indexOf(tag)) {
-                    pontos += 10;
-                } else {
-                    pontos += 5;
-                }
-            }
-        }
-        return pontos;
-    }
-   
     /**
      * Realiza a doacao de um itemParaDoacao para um receptor que tem um itemNecessario com mesma descricao.
      * @param idItemNecessario id do item necessario.
@@ -486,10 +438,8 @@ public class ItemController implements Serializable {
      * @param data data em que esta sendo realizada a doacao.
      * @return retorna uma representacao da doacao com data, dados do doador e receptor, descricao do produto doado e quantidade doada do produto.
      * @throws ItemInexistenteException excecao lancada quando o item nao existe ou quando as descricoes dos itens nao sao iguais.
-     * @throws NullPointerException quando alguma entrada do metodo for nula.
-     * @throws IllegalArgumentException quando alguma entrada for vazia ou menor que 0.
      */
-    public String realizaDoacao(String idItemNecessario, String idItemParaDoacao, String data) throws ItemInexistenteException, NullPointerException, IllegalArgumentException   {
+    public String realizaDoacao(String idItemNecessario, String idItemParaDoacao, String data) throws ItemInexistenteException {
     	if(data == null) {
     		throw new NullPointerException("Entrada invalida: data nao pode ser vazia ou nula.");
     	}
@@ -505,7 +455,7 @@ public class ItemController implements Serializable {
     	if(data.trim().equals("")) {
     		throw new IllegalArgumentException("Entrada invalida: data nao pode ser vazia ou nula.");
     	}
-    	
+
     	Item itemNecessario = null;
     	Item itemDoacao = null;
     	for(String idReceptor : this.itensNecessarios.keySet()) {
@@ -534,30 +484,11 @@ public class ItemController implements Serializable {
     	}
     }
 
-	private int doacao(Item itemNecessario, Item itemDoacao) {
-		if(itemNecessario.getQuantidade() > itemDoacao.getQuantidade()) {
-			itemNecessario.setQuantidade(itemNecessario.getQuantidade() - itemDoacao.getQuantidade());
-			this.removeItemParaDoacao(itemDoacao.getIdItem(), itemDoacao.getIdUsuario());
-			return itemDoacao.getQuantidade();
-		}
-		else if( itemDoacao.getQuantidade() > itemNecessario.getQuantidade() ) {
-			itemDoacao.setQuantidade(itemDoacao.getQuantidade() - itemNecessario.getQuantidade() );
-			this.removeItemNecessario(itemNecessario.getIdUsuario(), itemNecessario.getIdItem());
-			return itemNecessario.getQuantidade();
-		}
-		else {
-			this.removeItemParaDoacao(itemDoacao.getIdItem(), itemDoacao.getIdUsuario());
-			this.removeItemNecessario(itemNecessario.getIdUsuario(), itemNecessario.getIdItem());
-			return itemNecessario.getQuantidade();
-		}
-	}
-
 	/**
 	 * Metodo que lista todas as doacoes ordenadas por sua data. Caso a data seja igual, ela se ordena pelo descritor do item.
 	 * @return retorna a representacao de cada doacao separado por " | " .
-	 * @throws Exception lanca uma excecao checada no cast da data. Uma ParseException.
 	 */
-	public String listaDoacoes() throws Exception {
+	public String listaDoacoes() {
 		this.doacoes.sort(new ComparaItemPorData());
 		StringBuilder builder = new StringBuilder();
 		boolean adicionaSeparador = false;
@@ -570,5 +501,65 @@ public class ItemController implements Serializable {
 		}
 		return builder.toString();
 	}
+
+    private int getQuantidadeDeItensComDescritor (String descritor) {
+        int quantidade = 0;
+        for (Item i : this.descritores.get(descritor)) {
+            quantidade += i.getQuantidade();
+        }
+        return quantidade;
+    }
+
+    private int doacao(Item itemNecessario, Item itemDoacao) {
+        if(itemNecessario.getQuantidade() > itemDoacao.getQuantidade()) {
+            itemNecessario.setQuantidade(itemNecessario.getQuantidade() - itemDoacao.getQuantidade());
+            this.removeItemParaDoacao(itemDoacao.getIdItem(), itemDoacao.getIdUsuario());
+            return itemDoacao.getQuantidade();
+        }
+        else if( itemDoacao.getQuantidade() > itemNecessario.getQuantidade() ) {
+            itemDoacao.setQuantidade(itemDoacao.getQuantidade() - itemNecessario.getQuantidade() );
+            this.removeItemNecessario(itemNecessario.getIdUsuario(), itemNecessario.getIdItem());
+            return itemNecessario.getQuantidade();
+        }
+        else {
+            this.removeItemParaDoacao(itemDoacao.getIdItem(), itemDoacao.getIdUsuario());
+            this.removeItemNecessario(itemNecessario.getIdUsuario(), itemNecessario.getIdItem());
+            return itemNecessario.getQuantidade();
+        }
+    }
+
+    private int calculaPontos (Item itemNecessario, Item itemParaDoacao) {
+        int pontos = 0;
+
+        List<String> tagsDoItemNecessario = Arrays.asList(itemNecessario.getTags().replace("[", "").replace("]", "").split(", "));
+        List<String> tagsDoItemParaDoacao = Arrays.asList(itemParaDoacao.getTags().replace("[", "").replace("]", "").split(", "));
+        for (String tag : tagsDoItemNecessario) {
+            if (tagsDoItemParaDoacao.contains(tag)) {
+                if (tagsDoItemParaDoacao.indexOf(tag) == tagsDoItemNecessario.indexOf(tag)) {
+                    pontos += 10;
+                } else {
+                    pontos += 5;
+                }
+            }
+        }
+        return pontos;
+    }
+
+    private String constroiListagem (List<String> lista) {
+        StringBuilder builder = new StringBuilder();
+        boolean adicionaSeparador = false;
+        for (String s : lista) {
+            if (adicionaSeparador) {
+                builder.append(" | ");
+            }
+            builder.append(s);
+            adicionaSeparador = true;
+        }
+        return builder.toString();
+    }
+
+    private String formataTags(String tags) {
+        return "[" + tags.replace(",", ", ") + "]";
+    }
 }
 

@@ -50,7 +50,6 @@ public class Controller implements Serializable {
         
     }
 
-
     /**
      * Retorna a representacao de um usuario de acordo com seu id.
      * @param idUsuario Identificacao do usuario que se quer.
@@ -92,8 +91,6 @@ public class Controller implements Serializable {
     /**
      * Adiciona um novo descritor de um item.
      * @param descritor Novo descritor de itens a ser adicionado no sistema.
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
      */
     public void adicionaDescritor (String descritor) {
         itemController.adicionaDescritor(descritor);
@@ -136,8 +133,6 @@ public class Controller implements Serializable {
      * @param idDoador Id do doador que possui o item a ser exibido.
      * @param idItem Id do item a ser exibido.
      * @return Retorna o toString() do item.
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
      */
     public String exibeItem (String idItem, String idDoador) {
         return itemController.exibeItem(idDoador, idItem);
@@ -159,8 +154,6 @@ public class Controller implements Serializable {
      * Remove um item para doacao do Sistema.
      * @param idItem Id do item a ser excluido.
      * @param idUsuario Id do usuario a ter um item excluido.
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
      */
     public void removeItemParaDoacao (String idItem, String idUsuario) {
         if (idUsuario == null) {
@@ -285,6 +278,12 @@ public class Controller implements Serializable {
         this.itemController.removeItemNecessario(idReceptor,idItem);
     }
 
+    /**
+     * Procura por matches entre os itens para doação e o item necessário passado como parâmetro juntamente com o id do usuario necessario que o possui.
+     * @param idReceptor Id do receptor a ter um item para doacao procurado para match com seu item necessario.
+     * @param idItemNecessario Id do item necessario procurado.
+     * @return Retorna uma lista com os itens para doacao que fazem pontos de match com o item necessario passado, ordenada de maneira inversa pela quantidade de pontos.
+     */
     public String match (String idReceptor, String idItemNecessario) {
         if (idReceptor == null) {
             throw new IllegalArgumentException("Entrada invalida: id do usuario nao pode ser vazio ou nulo.");
@@ -306,11 +305,23 @@ public class Controller implements Serializable {
         return this.itemController.match(idReceptor, idItemNecessario);
     }
 
-	public String realizaDoacao(String idItemNecessario, String idItemParaDoacao, String data) throws NullPointerException, IllegalArgumentException, ItemInexistenteException {
+    /**
+     * Realiza a doacao de um itemParaDoacao para um receptor que tem um itemNecessario com mesma descricao.
+     * @param idItemNecessario id do item necessario.
+     * @param idItemParaDoacao id do item para doacao.
+     * @param data data em que esta sendo realizada a doacao.
+     * @return retorna uma representacao da doacao com data, dados do doador e receptor, descricao do produto doado e quantidade doada do produto.
+     * @throws ItemInexistenteException excecao lancada quando o item nao existe ou quando as descricoes dos itens nao sao iguais.
+     */
+	public String realizaDoacao(String idItemNecessario, String idItemParaDoacao, String data) throws ItemInexistenteException {
 		return this.itemController.realizaDoacao(idItemNecessario, idItemParaDoacao, data);
 	}
 
-	public String listaDoacoes() throws Exception {
+    /**
+     * Metodo que lista todas as doacoes ordenadas por sua data. Caso a data seja igual, ela se ordena pelo descritor do item.
+     * @return retorna a representacao de cada doacao separado por " | " .
+     */
+	public String listaDoacoes() {
 		return this.itemController.listaDoacoes();
 	}
 }

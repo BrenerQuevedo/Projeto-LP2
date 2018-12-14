@@ -33,7 +33,6 @@ public class Item implements Comparable<Item>, Serializable {
      * Id do usuario que possui ou precisa dos itens.
      */
     private String idUsuario;
-
     /**
      * Categoria do item.
      */
@@ -105,10 +104,19 @@ public class Item implements Comparable<Item>, Serializable {
         return this.idItem + " - " + this.descricaoItem + ", tags: " + this.tags + ", quantidade: " + this.quantidade;
     }
 
+    /**
+     * Retorna uma versao do toString do item, porem com o doador associado a ele.
+     * @return Uma versao do toStirng com o doador do item.
+     */
     public String toStringComDoador () {
         return this.toString() + ", doador: " + this.nomeUsuario + "/" + this.idUsuario;
     }
 
+    /**
+     * Compara um objeto com este item e diz se eles sao iguais.
+     * @param o Objeto a ser comparado.
+     * @return Retorna true caso o objeto seja igual a este item, e false se nao.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -118,11 +126,20 @@ public class Item implements Comparable<Item>, Serializable {
                 Objects.equals(tags, item.tags);
     }
 
+    /**
+     * Gera uma representacao em inteiro para este objeto.
+     * @return Retorna a representacao em inteiro deste objeto.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(descricaoItem, tags);
     }
 
+    /**
+     * Compara dois objetos do tipo item para ver quem vem primeiro em uma listagem com base na descricao dos itens.
+     * @param i Item a ser comparado com este.
+     * @return 1 se este item vier antes, 0 se nao diferirem no parametro de comparacao e -1 caso este item venha depois.
+     */
     @Override
     public int compareTo(Item i) {
         return this.descricaoItem.compareTo(i.descricaoItem);

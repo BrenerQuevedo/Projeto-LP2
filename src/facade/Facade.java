@@ -2,11 +2,12 @@ package facade;
 
 import java.io.IOException;
 import java.io.Serializable;
+
 import controllers.Controller;
 import easyaccept.EasyAccept;
 import exceptions.ItemInexistenteException;
-import persistencia.Serializador;
 import persistencia.Deserializador;
+import persistencia.Serializador;
 
 /**
  * Classe de fachada do sistema.
@@ -14,8 +15,6 @@ import persistencia.Deserializador;
  * @author Joicy Santos
  */
 public class Facade implements Serializable {
-    private Serializador serializador;
-    private Deserializador deserializador;
 
     public static void main(String[] args) {
         args = new String[]{"facade.Facade", "acceptance-tests/use_case_1.txt",
@@ -33,6 +32,14 @@ public class Facade implements Serializable {
      * Controlador do sistema.
      */
     private Controller controller;
+    /**
+     * Serializador que ira guardar as informacoes do sistema em um arquivo.
+     */
+    private Serializador serializador;
+    /**
+     * Deserializador que ira capturar as informacoes do sistema de um arquivo e ira atualizar o sistema com base nelas.
+     */
+    private Deserializador deserializador;
 
     /**
      * Constroi um objeto de fachada.
@@ -106,8 +113,6 @@ public class Facade implements Serializable {
     /**
      * Adiciona um novo descritor de um item.
      * @param descritor Novo descritor de itens a ser adicionado no sistema.
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
      */
     public void adicionaDescritor (String descritor) {
         this.controller.adicionaDescritor(descritor);
@@ -130,8 +135,6 @@ public class Facade implements Serializable {
      * @param idDoador Id do doador que possui o item a ser exibido.
      * @param idItem Id do item a ser exibido.
      * @return Retorna o toString() do item.
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
      */
     public String exibeItem (String idItem, String idDoador) {
         return this.controller.exibeItem(idItem, idDoador);
@@ -153,8 +156,6 @@ public class Facade implements Serializable {
      * Remove um item para doacao do Sistema.
      * @param idItem Id do item a ser excluido.
      * @param idUsuario Id do usuario a ter um item excluido.
-     * @throws IllegalArgumentException
-     * @throws NullPointerException
      */
     public void removeItemParaDoacao (String idItem, String idUsuario) {
         this.controller.removeItemParaDoacao(idItem, idUsuario);
@@ -226,22 +227,49 @@ public class Facade implements Serializable {
         this.controller.removeItemNecessario(idReceptor,idItem);
     }
 
+    /**
+     * Procura por matches entre os itens para doação e o item necessário passado como parâmetro juntamente com o id do usuario necessario que o possui.
+     * @param idReceptor Id do receptor a ter um item para doacao procurado para match com seu item necessario.
+     * @param idItemNecessario Id do item necessario procurado.
+     * @return Retorna uma lista com os itens para doacao que fazem pontos de match com o item necessario passado, ordenada de maneira inversa pela quantidade de pontos.
+     */
     public String match (String idReceptor, String idItemNecessario) {
         return this.controller.match(idReceptor, idItemNecessario);
     }
 
+    /**
+     * Realiza a doacao de um itemParaDoacao para um receptor que tem um itemNecessario com mesma descricao.
+     * @param idItemNecessario id do item necessario.
+     * @param idItemParaDoacao id do item para doacao.
+     * @param data data em que esta sendo realizada a doacao.
+     * @return retorna uma representacao da doacao com data, dados do doador e receptor, descricao do produto doado e quantidade doada do produto.
+     * @throws ItemInexistenteException excecao lancada quando o item nao existe ou quando as descricoes dos itens nao sao iguais.
+     */
     public String realizaDoacao(String idItemNecessario, String idItemParaDoacao, String data) throws NullPointerException, IllegalArgumentException, ItemInexistenteException {
     	return this.controller.realizaDoacao(idItemNecessario, idItemParaDoacao, data);
     }
 
+    /**
+     * Metodo que lista todas as doacoes ordenadas por sua data. Caso a data seja igual, ela se ordena pelo descritor do item.
+     * @return retorna a representacao de cada doacao separado por " | " .
+     */
     public String listaDoacoes() throws Exception {
     	return this.controller.listaDoacoes();
     }
 
+    /**
+     *  Le as informacoes do sistema em um arquivo e o atualiza o sistema com base nelas.
+     * @throws ClassNotFoundException Honestamente, eu nao sei porque isso ocorre.
+     * @throws IOException Ocorre caso haja uma falha na manipulacao do arquivo.
+     */
     public void iniciaSistema() throws ClassNotFoundException, IOException {
         this.deserializador.iniciaSistema();
     }
 
+    /**
+     * Guarda as informacoes do sistema em um arquivo.
+     * @throws IOException Ocorre caso haja uma falha na manipulacao do arquivo.
+     */
     public void finalizaSistema() throws IOException {
         this.serializador.fechaSistema(this);
     }

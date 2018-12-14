@@ -6,9 +6,18 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 
+/**
+ * Classe comparadora de dois itens pela sua data.
+ * @author Paulo Mateus.
+ */
 public class ComparaItemPorData implements Comparator<String> {
 
-
+    /**
+     * Compara duas Strings que representam a data de doacao de um item para saber quem vem antes em uma ordenacao.
+     * @param o1 String 1 a ser comaprada.
+     * @param o2 String 2 a ser comaprada.
+     * @return 1 caso a String 1 venha antes na ordenacao, -1 caso a String 1 venha depois e 0 caso nao haja diferenca no criterio de ordenacao.
+     */
 	@Override
 	public int compare(String o1, String o2) {
 		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");

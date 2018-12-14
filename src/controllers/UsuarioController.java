@@ -183,22 +183,6 @@ public class UsuarioController implements Serializable {
 	}
 
 	/**
-	 * metodo para validar as entradas de metodos que tenham muitas entradas
-	 * @param entradas Array de string com as entradas
-	 * @param dados Array de string com o nome de cada entrada
-	 * @param mensagemEmComum mensagem em comum que os lancamentos de excecoes tem em comum
-	 */
-	private void validaEntrada(String[] entradas,String[][] dados, String mensagemEmComum) {
-		for(int i = 0 ; i < entradas.length; i++ ) {
-			if(entradas[i] == null){
-				throw new NullPointerException(mensagemEmComum +   dados[i][0] + " nao pode ser " + dados[i][1] + ".");
-			}else if(entradas[i].trim().equals("")) {
-				throw new IllegalArgumentException(mensagemEmComum +  dados[i][0] + " nao pode ser " + dados[i][1] + ".");
-			}
-		}
-	}
-
-	/**
 	 * Atualiza os atributos de um usuario.
 	 * @param id Id do usuario que se quer atualizar.
 	 * @param nome Novo nome para o usuario.
@@ -216,7 +200,7 @@ public class UsuarioController implements Serializable {
 			if(this.Usuarios.containsKey(id)) {
 				if(nome != null && !nome.trim().equals("")) {
 					this.Usuarios.get(id).setNome(nome);
-				} 
+				}
 				if(email != null && !email.equals("")) {
 					this.Usuarios.get(id).setEmail(email);
 				}
@@ -227,7 +211,7 @@ public class UsuarioController implements Serializable {
 				return this.Usuarios.get(id).toString();
 			}else {
 				throw new NullPointerException("Usuario nao encontrado: " + id + ".");
-			}		
+			}
 		}
 	}
 
@@ -257,7 +241,7 @@ public class UsuarioController implements Serializable {
 	public String getNomeUsuario (String idUsuario) {
 	    return this.Usuarios.get(idUsuario).getNome();
     }
-	
+
 	/**
 	 * Le um arquivo csv para cadastrar usuarios receptores no sistema.
 	 * @param localDoArquivo Local onde esta salvo o arquivo csv.
@@ -275,11 +259,26 @@ public class UsuarioController implements Serializable {
 			if(entradasReceptor.length != 5) {
 				throw new IOException();
 			}this.cadastraReceptor(entradasReceptor[1], entradasReceptor[2], entradasReceptor[3], entradasReceptor[4], entradasReceptor[0], "receptor");
-		}	
+		}
 		sc.close();
 	}
 
+    /**
+     * Retorna um booleano que indica se o usuario passado como parametro e um receptor.
+     * @param idUsuario Id do usuario a ser validade como receptor.
+     * @return Retorna true caso o usuario seja receptor, e false se nao.
+     */
 	public boolean validaReceptor (String idUsuario) {
 	    return this.Usuarios.get(idUsuario).getStatus().equals("receptor");
     }
+
+	private void validaEntrada(String[] entradas,String[][] dados, String mensagemEmComum) {
+		for(int i = 0 ; i < entradas.length; i++ ) {
+			if(entradas[i] == null){
+				throw new NullPointerException(mensagemEmComum +   dados[i][0] + " nao pode ser " + dados[i][1] + ".");
+			}else if(entradas[i].trim().equals("")) {
+				throw new IllegalArgumentException(mensagemEmComum +  dados[i][0] + " nao pode ser " + dados[i][1] + ".");
+			}
+		}
+	}
 }
